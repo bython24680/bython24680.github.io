@@ -100,7 +100,7 @@ theme_config:
   colorscheme: dark
   nav:
     Home: /
-    Post: /posts/
+    Post: /archives/
     About: /about/
   social_links:
   copyright:
