@@ -94,8 +94,17 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: cactus
+
+# Theme custom
 theme_config:
   colorscheme: dark
+  nav:
+    Home: /
+    Post: /posts/
+    About: /about/
+  social_links:
+  copyright:
+    start_year: 2020
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
