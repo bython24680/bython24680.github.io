@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="開始之前可以搭配 Github Page 使用的除了 Hexo 外，還有像是 Jekyll，它也是 Github 官方建議使用的建立工具。順帶一提我會選 Hexo 是因為樣板比較多。 資訊 Github Github Page Hexo  前置需求 Git NodeJs npm  Github第一步先申請 Github 帳號，申請完後建立一個新的 repository，名稱為 username.g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 Hexo 和 Github Page 建立部落格">
+<meta property="og:url" content="https://bython24680.github.io/post/create-hexo-blog-on-github-page/">
+<meta property="og:site_name" content="Zoneless">
+<meta property="og:description" content="開始之前可以搭配 Github Page 使用的除了 Hexo 外，還有像是 Jekyll，它也是 Github 官方建議使用的建立工具。順帶一提我會選 Hexo 是因為樣板比較多。 資訊 Github Github Page Hexo  前置需求 Git NodeJs npm  Github第一步先申請 Github 帳號，申請完後建立一個新的 repository，名稱為 username.g">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bython24680.github.io/post/create-hexo-blog-on-github-page/create-github-repository.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/create-hexo-blog-on-github-page/hexo-v.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/create-hexo-blog-on-github-page/github-page-source-description.jpg">
+<meta property="article:published_time" content="2020-04-13T14:34:18.000Z">
+<meta property="article:modified_time" content="2020-04-13T18:05:16.070Z">
+<meta property="article:author" content="Bython">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="github page">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bython24680.github.io/post/create-hexo-blog-on-github-page/create-github-repository.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>如何使用 Hexo 和 Github Page 建立部落格</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/create-hexo-blog-on-github-page/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&text=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&is_video=false&description=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=如何使用 Hexo 和 Github Page 建立部落格&body=Check out this article: https://bython24680.github.io/post/create-hexo-blog-on-github-page/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&name=如何使用 Hexo 和 Github Page 建立部落格&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&t=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#資訊"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置需求"><span class="toc-number">2.1.</span> <span class="toc-text">前置需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github"><span class="toc-number">3.</span> <span class="toc-text">Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">4.</span> <span class="toc-text">Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#連接-hexo-blog-與-github"><span class="toc-number">5.</span> <span class="toc-text">連接 hexo blog 與 github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-hexo-deployer-git-並-deploy"><span class="toc-number">6.</span> <span class="toc-text">設定 hexo-deployer-git 並 deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定其他-theme"><span class="toc-number">7.</span> <span class="toc-text">設定其他 theme</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        如何使用 Hexo 和 Github Page 建立部落格
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Zoneless</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-13T14:34:18.000Z" itemprop="datePublished">2020-04-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/github-page/" rel="tag">github page</a>, <a class="tag-link" href="/tags/hexo/" rel="tag">hexo</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>可以搭配 Github Page 使用的除了 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 外，還有像是 <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>，它也是 Github 官方建議使用的建立工具。<br>順帶一提我會選 Hexo 是因為樣板比較多。</p>
+<h2 id="資訊"><a href="#資訊" class="headerlink" title="資訊"></a>資訊</h2><ul>
+<li><a href="https://github.com/" target="_blank" rel="noopener">Github</a></li>
+<li><a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a></li>
+<li><a href="https://hexo.io/zh-tw/" target="_blank" rel="noopener">Hexo</a></li>
+</ul>
+<h3 id="前置需求"><a href="#前置需求" class="headerlink" title="前置需求"></a>前置需求</h3><ul>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJs</a></li>
+<li><a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a></li>
+</ul>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>第一步先申請 Github 帳號，申請完後建立一個新的 repository，名稱為 <code>username.github.io</code>。<br>例如使用者名稱為 <code>githubuser</code>，那 repository 名稱就會是 <code>githubuser.github.io</code>。</p>
+<img src="/post/create-hexo-blog-on-github-page/create-github-repository.jpg" class="" title="建立新的 repository">
+
+<p>Q. repository 名稱一定要用使用者帳號開頭嗎？<br>A. 其實不一定。這邊要求使用帳號當開頭，是因為預設這個網站是作為使用者個人網站，而當不購買自定義網域時，這個網站的網址就會是 <code>username.github.io</code>，故建議使用使用者帳號。若該網站用於工作室之類的，也可以改使用工作室名稱。</p>
+<p>Q. repository 可以選擇 Private 嗎？<br>A. 免費使用者要建立 Github page 的話只能選 Public，想要 Private 請課金</p>
+<p>建立完畢後會看到這個 repository 的 git url，頁面先別關，接著到本機端建立 hexo 專案</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>開始前請先安裝 Hexo，照著官方的裝法安裝就好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>若尚未安裝 npm 請先安裝，這邊就不介紹怎麼安裝了。</p>
+<p>安裝完畢後可以用 <code>hexo -v</code> 看看版本。</p>
+<img src="/post/create-hexo-blog-on-github-page/hexo-v.jpg" class="" title="hexo-v">
+
+<p>安裝完畢後，建立新的 hexo 網站。以範例來說，建立的資料夾可以叫做 <code>githubuser.github.io</code>。建議資料夾名稱跟 repository 名稱相同，管理比較方便。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init githubuser.github.io</span><br></pre></td></tr></table></figure>
+
+<p>接著產生靜態檔案並在 localhost 開啟網站。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd githubuser.github.io</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>預設的網址為 <code>http://localhost:4000</code>，可以加上 <code>-p</code> 自定義 port，詳細請見官方文件：<a href="https://hexo.io/docs/commands#server" target="_blank" rel="noopener">Hexo#server</a></p>
+<p>開啟頁面會看到預設的網站內容，hexo 預設的主題為 <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank" rel="noopener">landscape</a>，可以依照個人喜好替換，後續會說明。</p>
+<p>確認 localhost 運作正常可以先用 ctrl+c 關掉 hexo server。</p>
+<h2 id="連接-hexo-blog-與-github"><a href="#連接-hexo-blog-與-github" class="headerlink" title="連接 hexo blog 與 github"></a>連接 hexo blog 與 github</h2><p>接著要連接本機端的部落格資料夾與 Github repository，複製 repositroy git url 後到剛剛建立的資料夾內。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line"># 初始化 git</span><br><span class="line"></span><br><span class="line">git remote add (這邊貼上複製的路徑)</span><br><span class="line"># 設定 remote，可以用 git remote -v 查看</span><br></pre></td></tr></table></figure>
+
+<p>git 指令不多介紹，詳細請至 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 官網查看文件。</p>
+<p>因為 Github page 在個人部落格內是使用 master 當顯示用的 branch，我的作法是分兩個 branch：master 與 dev，master 不做任何 commit 動作，僅作為 deploy 部落格靜態檔至 github 使用，所有的原始檔都在 branch dev 上。就算要開支線也是從 dev 開出去。</p>
+<img src="/post/create-hexo-blog-on-github-page/github-page-source-description.jpg" class="" title="Github page source 說明">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br><span class="line"># 等同於以下兩個指令：</span><br><span class="line"># git branch dev</span><br><span class="line"># git checkout dev</span><br><span class="line"># 但空的 git 執行 git branch dev 會噴錯，因為新建立的 git 沒有任何支線可以做為產生新支線的依據，必須要先建立一次 commit 才行</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"># 將資料夾內所有東西記錄進 git</span><br><span class="line"></span><br><span class="line">git commit -m &#39;feat: Init hexo blog&#39;</span><br><span class="line"># 建立一個 commit</span><br><span class="line"></span><br><span class="line">git push -u origin dev</span><br><span class="line"># 將 branch dev 推至 remote，並設定 tracking 此 branch</span><br></pre></td></tr></table></figure>
+
+<p>到這邊處理原始檔的 branch 建置完畢，接著處理 deploy。</p>
+<h2 id="設定-hexo-deployer-git-並-deploy"><a href="#設定-hexo-deployer-git-並-deploy" class="headerlink" title="設定 hexo-deployer-git 並 deploy"></a>設定 hexo-deployer-git 並 deploy</h2><p>根據<a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">官方說明</a>，可以使用 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a> 一鍵 deploy hexo blog，因為 hexo 可以設定多個 deploy 的目的地，使用上真的很方便，推薦安裝。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>接著開啟根目錄下的 <code>_config.yml</code> 設定 deploy 相關設定，找到 deploy 區塊進行修改。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: &lt;repository git url&gt;</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+
+<p>官方說明可以設定第四個參數 <code>message</code>，預設的 message 格式為 <code>Site updated: YYYY-MM-DD HH:ii:ss</code>，當進行 deploy 後，至 Github 切換至 branch master 就可以看到訊息。</p>
+<p>這邊我有嘗試修改 message，失敗，有空再試試怎麼改。</p>
+<p>設定完畢後可以進行 deploy。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>這時候可以先至 Github repository 的 setting 內查看 Github Pages 區塊有沒有出現 <code>Your site is published at (這邊是網址)</code>，有的話，恭喜，github 吃到 master 上的靜態檔案了。</p>
+<p>這時開啟網址，頁面有機會還是 404，等個幾分鐘再開就行。</p>
+<h2 id="設定其他-theme"><a href="#設定其他-theme" class="headerlink" title="設定其他 theme"></a>設定其他 theme</h2><p>Hexo 的 theme 可以到這邊挑選：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo themes</a></p>
+<p>選好喜歡的主題後，需要將主題的資料夾放置部落格資料夾 <code>(資料夾名稱)/themes/</code> 底下，接著修改 <code>_config.yml</code> 的 <code>theme: (這邊改成主題的名字)</code>，重新建立靜態檔案後完成。</p>
+<p>這邊將主題資料夾加進 themes 底下有幾種方式：</p>
+<ul>
+<li>在部落格資料夾根目錄下 <code>git clone (主題的 git url) themes/(主題名稱)</code></li>
+<li>找個另外的資料夾 git clone，然後把整個資料夾複製到 themes 內</li>
+<li>在主題的 github 下載 zip 檔案，解壓縮後放進 themes 內</li>
+<li>使用 git submodule</li>
+</ul>
+<p>我是使用 git submodule 管理主題，在後續資料夾搬遷比較方便。</p>
+<p>各個主題都有不同需要設定的項目，通常主題的 Github 會有說明，照著設定即可。<br>有空再來說說目前使用的主題 <a href="https://github.com/probberechts/hexo-theme-cactus" target="_blank" rel="noopener">cactus</a> 的 設定。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#資訊"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前置需求"><span class="toc-number">2.1.</span> <span class="toc-text">前置需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github"><span class="toc-number">3.</span> <span class="toc-text">Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-number">4.</span> <span class="toc-text">Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#連接-hexo-blog-與-github"><span class="toc-number">5.</span> <span class="toc-text">連接 hexo blog 與 github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定-hexo-deployer-git-並-deploy"><span class="toc-number">6.</span> <span class="toc-text">設定 hexo-deployer-git 並 deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#設定其他-theme"><span class="toc-number">7.</span> <span class="toc-text">設定其他 theme</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/create-hexo-blog-on-github-page/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&text=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&is_video=false&description=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=如何使用 Hexo 和 Github Page 建立部落格&body=Check out this article: https://bython24680.github.io/post/create-hexo-blog-on-github-page/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&title=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&name=如何使用 Hexo 和 Github Page 建立部落格&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/create-hexo-blog-on-github-page/&t=如何使用 Hexo 和 Github Page 建立部落格" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020
+    Bython
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
