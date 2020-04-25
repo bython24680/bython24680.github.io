@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="開始之前事件發生在工作到一半發現 twitch 影片畫面卡住，想說是不是影片串流又炸掉（twitch 有時候影片會卡住，然後直接噴錯），結果滑鼠滑過去準備重整頁面時發現滑鼠也卡住了，然後就是整台電腦卡住。 連按鍵盤的 ctrl+alt+del 叫工作管理員 &amp; 開始鍵叫出開始選單都沒反應的那種卡住。 當下第一反應是先聽主機的聲音，聽起來沒任何異音，表示主機的運作正常，接著想到不會是記憶體爆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 10 事件識別碼 14">
+<meta property="og:url" content="https://bython24680.github.io/post/windows-10-error-code-14/">
+<meta property="og:site_name" content="Zoneless">
+<meta property="og:description" content="開始之前事件發生在工作到一半發現 twitch 影片畫面卡住，想說是不是影片串流又炸掉（twitch 有時候影片會卡住，然後直接噴錯），結果滑鼠滑過去準備重整頁面時發現滑鼠也卡住了，然後就是整台電腦卡住。 連按鍵盤的 ctrl+alt+del 叫工作管理員 &amp; 開始鍵叫出開始選單都沒反應的那種卡住。 當下第一反應是先聽主機的聲音，聽起來沒任何異音，表示主機的運作正常，接著想到不會是記憶體爆">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bython24680.github.io/post/windows-10-error-code-14/error-code-14.jpg">
+<meta property="article:published_time" content="2020-04-25T05:55:30.000Z">
+<meta property="article:modified_time" content="2020-04-25T06:16:41.220Z">
+<meta property="article:author" content="Bython">
+<meta property="article:tag" content="windows 10">
+<meta property="article:tag" content="graphic card">
+<meta property="article:tag" content="error code 14">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bython24680.github.io/post/windows-10-error-code-14/error-code-14.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/assets/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Windows 10 事件識別碼 14</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/post/create-hexo-blog-on-github-page/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/windows-10-error-code-14/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/windows-10-error-code-14/&text=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/windows-10-error-code-14/&is_video=false&description=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows 10 事件識別碼 14&body=Check out this article: https://bython24680.github.io/post/windows-10-error-code-14/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/windows-10-error-code-14/&name=Windows 10 事件識別碼 14&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/windows-10-error-code-14/&t=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件檢視器"><span class="toc-number">2.</span> <span class="toc-text">事件檢視器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜尋"><span class="toc-number">3.</span> <span class="toc-text">搜尋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-number">4.</span> <span class="toc-text">結論</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Windows 10 事件識別碼 14
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Zoneless</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-25T05:55:30.000Z" itemprop="datePublished">2020-04-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/error-code-14/" rel="tag">error code 14</a>, <a class="tag-link" href="/tags/graphic-card/" rel="tag">graphic card</a>, <a class="tag-link" href="/tags/windows-10/" rel="tag">windows 10</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>事件發生在工作到一半發現 twitch 影片畫面卡住，想說是不是影片串流又炸掉（twitch 有時候影片會卡住，然後直接噴錯），結果滑鼠滑過去準備重整頁面時發現滑鼠也卡住了，然後就是整台電腦卡住。</p>
+<p>連按鍵盤的 ctrl+alt+del 叫工作管理員 &amp; 開始鍵叫出開始選單都沒反應的那種卡住。</p>
+<p>當下第一反應是先聽主機的聲音，聽起來沒任何異音，表示主機的運作正常，接著想到不會是記憶體爆了吧？因為當時正在工作，雙螢幕下我開了十幾個 chrome 分頁，其中有五個影音串流頁面，數個搜尋頁面，以及工作用的軟體。</p>
+<p>照之前的經驗來說，記憶體蠻容易就飆到 6x % 以上，但沒有一次是像這樣畫面凍結的。</p>
+<p>等了快五分鐘畫面依舊沒有任何要恢復的跡象，只好忍痛重開機（幸好工作進度有存檔），重開後電腦恢復正常，接著來找原因。</p>
+<h2 id="事件檢視器"><a href="#事件檢視器" class="headerlink" title="事件檢視器"></a>事件檢視器</h2><p>所有發生的事件 log 都可以在 windows 的事件檢視器內查看，到左下方放大鏡搜尋 <code>事件</code> 就會出現了。</p>
+<h2 id="搜尋"><a href="#搜尋" class="headerlink" title="搜尋"></a>搜尋</h2><p>開啟後我到自訂檢視的 <code>系統管理事件</code> 內找差不多電腦凍結的時間點看看有沒有什麼錯誤訊息，發現了這個：</p>
+<img src="/post/windows-10-error-code-14/error-code-14.jpg" class="" title="事件識別碼 14">
+
+<p>把關鍵字 <code>nvlddmkm</code> 跟 <code>事件識別碼 14</code> 扔去搜尋，發現又是顯示卡的問題。</p>
+<p>為什麼我說「又」？因為之前已經遇過一次顯示卡驅動沒更新所以電腦重開機的問題，這次沒意外又是驅動沒更新的問題（不更新是因為之前有新驅動更新後出問題的前例，所以我習慣不馬上更新至新版驅動）。</p>
+<p>仔細想我應該落後至少兩版驅動了，總之先更新驅動至最新版後再觀察看看。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>發現此錯誤碼可以先更新驅動，安裝驅動時有快速安裝與自訂安裝，如果選擇快速安裝後仍舊發生此問題，就換選自訂安裝並且選擇重新安裝驅動。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件檢視器"><span class="toc-number">2.</span> <span class="toc-text">事件檢視器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜尋"><span class="toc-number">3.</span> <span class="toc-text">搜尋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#結論"><span class="toc-number">4.</span> <span class="toc-text">結論</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/windows-10-error-code-14/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/windows-10-error-code-14/&text=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/windows-10-error-code-14/&is_video=false&description=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Windows 10 事件識別碼 14&body=Check out this article: https://bython24680.github.io/post/windows-10-error-code-14/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/windows-10-error-code-14/&title=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/windows-10-error-code-14/&name=Windows 10 事件識別碼 14&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/windows-10-error-code-14/&t=Windows 10 事件識別碼 14" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020
+    Bython
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
