@@ -118,6 +118,7 @@ theme_config:
     Home: /
     Post: /archives/
     About: /about/
+    Tags: /tags/
   social_links:
   copyright:
     start_year: 2020
