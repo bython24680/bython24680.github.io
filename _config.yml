@@ -125,6 +125,9 @@ theme_config:
   google_analytics:
     enabled: true
     id: UA-165957239-1
+  disqus:
+    enabled: true
+    shortname: zoneless_github_page
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
