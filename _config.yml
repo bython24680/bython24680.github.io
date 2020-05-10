@@ -127,7 +127,7 @@ theme_config:
     id: UA-165957239-1
   disqus:
     enabled: true
-    shortname: zoneless_github_page
+    shortname: zoneless
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
