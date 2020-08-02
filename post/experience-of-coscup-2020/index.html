@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="開始之前第一次參加 COSCUP，寫個心得記錄紀錄。 附個名牌。   等等，COSCOP？？？ 怎麼發現 COSCUP注意到 COSCUP 其實也就這一兩年的事，先是在推特注意到，然後發現噗浪也有 COSCUP 官噗，所以加了關注。 然後就沒有然後了（遠望 因為其實沒有參與任何開源的專案，本身自己也沒有開源的專案，所以比起工作上有相關的 Laravel Conference 或 Modern We">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COSCUP 2020 會後心得">
+<meta property="og:url" content="https://bython24680.github.io/post/experience-of-coscup-2020/">
+<meta property="og:site_name" content="Zoneless">
+<meta property="og:description" content="開始之前第一次參加 COSCUP，寫個心得記錄紀錄。 附個名牌。   等等，COSCOP？？？ 怎麼發現 COSCUP注意到 COSCUP 其實也就這一兩年的事，先是在推特注意到，然後發現噗浪也有 COSCUP 官噗，所以加了關注。 然後就沒有然後了（遠望 因為其實沒有參與任何開源的專案，本身自己也沒有開源的專案，所以比起工作上有相關的 Laravel Conference 或 Modern We">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bython24680.github.io/post/experience-of-coscup-2020/coscup-badge.jpg">
+<meta property="article:published_time" content="2020-08-02T14:35:37.000Z">
+<meta property="article:modified_time" content="2020-08-02T15:12:22.861Z">
+<meta property="article:author" content="Bython">
+<meta property="article:tag" content="COSCUP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bython24680.github.io/post/experience-of-coscup-2020/coscup-badge.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/assets/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>COSCUP 2020 會後心得</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/post/ssh-connect-to-host-22-connection-timed-out/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/experience-of-coscup-2020/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/experience-of-coscup-2020/&text=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/experience-of-coscup-2020/&is_video=false&description=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=COSCUP 2020 會後心得&body=Check out this article: https://bython24680.github.io/post/experience-of-coscup-2020/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/experience-of-coscup-2020/&name=COSCUP 2020 會後心得&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/experience-of-coscup-2020/&t=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎麼發現-COSCUP"><span class="toc-number">2.</span> <span class="toc-text">怎麼發現 COSCUP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎麼會想參加？"><span class="toc-number">3.</span> <span class="toc-text">怎麼會想參加？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#議程心得"><span class="toc-number">4.</span> <span class="toc-text">議程心得</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最後"><span class="toc-number">5.</span> <span class="toc-text">最後</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        COSCUP 2020 會後心得
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Zoneless</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-02T14:35:37.000Z" itemprop="datePublished">2020-08-02</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/COSCUP/" rel="tag">COSCUP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>第一次參加 COSCUP，寫個心得記錄紀錄。</p>
+<p>附個名牌。</p>
+<img src="/post/experience-of-coscup-2020/coscup-badge.jpg" class="" title="COSCUP badge">
+
+<p><del>等等，COSCOP？？？</del></p>
+<h2 id="怎麼發現-COSCUP"><a href="#怎麼發現-COSCUP" class="headerlink" title="怎麼發現 COSCUP"></a>怎麼發現 COSCUP</h2><p>注意到 COSCUP 其實也就這一兩年的事，先是在推特注意到，然後發現噗浪也有 COSCUP 官噗，所以加了關注。</p>
+<p>然後就沒有然後了（遠望</p>
+<p>因為其實沒有參與任何開源的專案，本身自己也沒有開源的專案，所以比起工作上有相關的 Laravel Conference 或 Modern Web，COSCUP 反而是一直沒有參加的打算。</p>
+<p>就像如果我沒有在打電動，也不會去電玩相關的展覽，大概是這個思路。（先說我有在打電動，期待薩爾達荒野之息2）</p>
+<h2 id="怎麼會想參加？"><a href="#怎麼會想參加？" class="headerlink" title="怎麼會想參加？"></a>怎麼會想參加？</h2><p>其實我也在想這次怎麼會參加w</p>
+<p>一開始是前同事在 Line 群組問 COSCUP 第二天有要去的話，可以某個時間在捷運站集合一起走過去，因為這樣我開了 COSCUP 官網，才發現議程其實比我想像中的還要多元而且有趣，且剛好有我有興趣的。</p>
+<p>耶嘿 (ﾟ∀ﾟ)</p>
+<p>就這樣我出門了（論揪團的重要性</p>
+<p>今年的議程表可以看這邊：<a href="https://coscup.org/2020/zh-TW/agenda" target="_blank" rel="noopener">COSCUP 2020 議程表</a></p>
+<p>雖然今年的 COSCUP 已經結束了，但今年沒參加，或者是跟我一樣覺得不在這圈子內就沒什麼參加打算的人可以先看看今年的議程，你會發現內容真的很多元，連鍵盤相關的議程都有（雖然我周日下午有事先離席沒聽到）。</p>
+<p>誠摯推薦明年可以試著參加。</p>
+<p>如果有興趣但真的無法出席的話，可以看大會的共筆，或者是至官方的 Youtube 頻道 - <a href="https://www.youtube.com/c/coscup/featured" target="_blank" rel="noopener">COSCUP 開源人年會</a> 等看看當年議程的影片。</p>
+<h2 id="議程心得"><a href="#議程心得" class="headerlink" title="議程心得"></a>議程心得</h2><p>這次只有去第二天（8/2），地點在台科大（第一次知道台科大距離台大那麼近），且只有聽上午的議程，所以可以說的心得沒有很多。</p>
+<p>第一場 VueJs 全程英文，相當考驗英文聽力的同時也得知了一些關於 Vue 3 的事情，原來 Vue 2 也推出好幾年了阿。</p>
+<p>第二場聽了純 PostgreSQL 新手，因為第一場結束時間有點晚了，導致入場時已經過了十分鐘，前面沒聽到RRR。</p>
+<p>不過倒是知道了 PostgreSQL 在數字處理的便利性，覺得可以找時間研究研究。</p>
+<p>第三場聽了從淘汰第三方 cookie 到各種隱私保護的瀏覽器技術發展，這場根本從頭笑到尾，簡單地介紹了何謂第一方與第三方 cookie，以及吵很兇的封鎖第三方 cookie 及各種對應，以及可以去哪看瀏覽器們（無誤）接下來的對應處理。令我意外的是 Safari 還真嚴阿，連第一方儲存空間（LocalStorage）都有 7 天這種存在時間限制，之後會不會變成完全禁止阿。</p>
+<p>這樣 SPA 網站的 token 要存哪裡呢……</p>
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>我想明年如果時間允許的話我應該會去滿兩天吧，這次的 COSCUP 半日遊真的蠻有趣的。</p>
+<p>期待明年的議程。</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#開始之前"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎麼發現-COSCUP"><span class="toc-number">2.</span> <span class="toc-text">怎麼發現 COSCUP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎麼會想參加？"><span class="toc-number">3.</span> <span class="toc-text">怎麼會想參加？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#議程心得"><span class="toc-number">4.</span> <span class="toc-text">議程心得</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最後"><span class="toc-number">5.</span> <span class="toc-text">最後</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/experience-of-coscup-2020/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://bython24680.github.io/post/experience-of-coscup-2020/&text=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/experience-of-coscup-2020/&is_video=false&description=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=COSCUP 2020 會後心得&body=Check out this article: https://bython24680.github.io/post/experience-of-coscup-2020/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://bython24680.github.io/post/experience-of-coscup-2020/&title=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/experience-of-coscup-2020/&name=COSCUP 2020 會後心得&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/experience-of-coscup-2020/&t=COSCUP 2020 會後心得" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020
+    Bython
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-165957239-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zoneless';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
