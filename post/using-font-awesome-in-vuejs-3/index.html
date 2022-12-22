@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="開始之前使用的會是 VueJs 3 + FontAwesome 5 與 6，方式為 svg + js method，而非 web font。兩種方式的 FontAwesome 差別在安裝的 icon package 不同，詳細差別請見官方文件：Web Fonts vs SVG | FontAwesome Docs，建議使用 svg + js method 的方式。而版本 5 與 6 差別只在安裝的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VueJs3 使用 FontAwesome">
+<meta property="og:url" content="https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/">
+<meta property="og:site_name" content="Zoneless">
+<meta property="og:description" content="開始之前使用的會是 VueJs 3 + FontAwesome 5 與 6，方式為 svg + js method，而非 web font。兩種方式的 FontAwesome 差別在安裝的 icon package 不同，詳細差別請見官方文件：Web Fonts vs SVG | FontAwesome Docs，建議使用 svg + js method 的方式。而版本 5 與 6 差別只在安裝的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-05T17:44:21.000Z">
+<meta property="article:modified_time" content="2022-12-22T16:47:44.745Z">
+<meta property="article:author" content="Bython">
+<meta property="article:tag" content="VueJs3">
+<meta property="article:tag" content="FontAwesome">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/assets/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>VueJs3 使用 FontAwesome</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/post/bulk-update-multiple-records-with-different-value-in-mysql-and-laravel"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/post/upgrade-virtualbox-from-6-0-to-6-1-on-windows-10"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&text=VueJs3 使用 FontAwesome"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&is_video=false&description=VueJs3 使用 FontAwesome"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VueJs3 使用 FontAwesome&body=Check out this article: https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&name=VueJs3 使用 FontAwesome&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&t=VueJs3 使用 FontAwesome"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E8%A8%8A"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json"><span class="toc-number">2.1.</span> <span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E7%BD%AE%E9%96%8B%E5%A7%8B"><span class="toc-number">3.</span> <span class="toc-text">設置開始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%9D-svg-core"><span class="toc-number">3.1.</span> <span class="toc-text">1. 安裝 svg core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%9D-icon-packages"><span class="toc-number">3.2.</span> <span class="toc-text">2. 安裝 icon packages</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8D%E8%B2%BB%E7%89%88-icon"><span class="toc-number">3.2.1.</span> <span class="toc-text">免費版 icon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%98%E8%B2%BB%E7%89%88-icon"><span class="toc-number">3.2.2.</span> <span class="toc-text">付費版 icon</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%9D-vue-component"><span class="toc-number">3.3.</span> <span class="toc-text">3. 安裝 vue component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%A8%E5%9F%9F%E8%A8%AD%E5%AE%9A-fontawesome-vue-component"><span class="toc-number">4.1.</span> <span class="toc-text">1. 全域設定 fontawesome vue component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B0%8B%E6%89%BE%E9%9C%80%E8%A6%81%E7%9A%84-icon-%E4%B8%A6%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">2. 尋找需要的 icon 並使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8Cder%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="toc-number">5.</span> <span class="toc-text">最後der碎碎念</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        VueJs3 使用 FontAwesome
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Zoneless</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-05T17:44:21.000Z" itemprop="datePublished">2022-03-06</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/FontAwesome/" rel="tag">FontAwesome</a>, <a class="tag-link-link" href="/tags/VueJs3/" rel="tag">VueJs3</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>使用的會是 VueJs 3 + FontAwesome 5 與 6，方式為 svg + js method，而非 web font。兩種方式的 FontAwesome 差別在安裝的 icon package 不同，詳細差別請見官方文件：<a target="_blank" rel="noopener" href="https://fontawesome.com/docs/web/dig-deeper/webfont-vs-svg">Web Fonts vs SVG | FontAwesome Docs</a>，建議使用 svg + js method 的方式。而版本 5 與 6 差別只在安裝的 icon package 版本不同，可以視 icon 樣式（相同的 icon 在兩個版本可能長得不太一樣）需求安裝對應的版本。</p>
+<p>故整個設置起來會需要的是：</p>
+<ol>
+<li>VueJs 3</li>
+<li>FontAwesome svg core package</li>
+<li>FontAwesome icon packages</li>
+<li>FontAwesome vue component package</li>
+</ol>
+<p>截至 2022.03 為止 vue component package 在 vue 2 與 vue 3 使用的版本還是不同，這邊要注意。</p>
+<h2 id="資訊"><a href="#資訊" class="headerlink" title="資訊"></a>資訊</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a></li>
+<li><a target="_blank" rel="noopener" href="https://fontawesome.com/docs/web/use-with/vue/">Set Up with Vue.js | Font Awesome Docs</a>：最新版的 fontawesome 的文件</li>
+<li><a target="_blank" rel="noopener" href="https://fontawesome.com/v5/docs/web/use-with/vuejs">Vue.js | Font Awesome Docs</a>：為 fontawesome 5 的文件</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/FortAwesome/vue-fontawesome">Github - FontAwesome&#x2F;vue-fontawesome</a></li>
+<li><a target="_blank" rel="noopener" href="https://fontawesome.com/v6/docs/web/dig-deeper/webfont-vs-svg">Web Fonts vs SVG | Font Awesome Docs</a></li>
+</ul>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>因個人專案需求使用的是 VueJs 3 + fontawesome 5，故此檔案這部分會是長這樣：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">//...前略</span></span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/fontawesome-svg-core&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^1.3.0&quot;</span><span class="punctuation">,</span>    <span class="comment">// svg core</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-regular-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span> <span class="comment">// 免費版 regular icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-solid-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span>   <span class="comment">// 免費版 solid icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-brands-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span>  <span class="comment">// 免費版 brand icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/vue-fontawesome&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.0.0-5&quot;</span><span class="punctuation">,</span>       <span class="comment">// vue component</span></span><br><span class="line">        <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.0.0&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">//...後略</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>這邊不知道那五個 fontawesome 是什麼沒啥問題，後面會介紹。</p>
+<h2 id="設置開始"><a href="#設置開始" class="headerlink" title="設置開始"></a>設置開始</h2><h3 id="1-安裝-svg-core"><a href="#1-安裝-svg-core" class="headerlink" title="1. 安裝 svg core"></a>1. 安裝 svg core</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/fontawesome-svg-core</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/fontawesome-svg-core</span></span><br></pre></td></tr></table></figure>
+
+<p>SVG Core 的介紹可以看這邊 <a target="_blank" rel="noopener" href="https://fontawesome.com/docs/web/dig-deeper/svg-core">SVG Core | Font Awesome Docs</a>，他可以減少專案最後打包的版本，因為只打包了專案有使用的 icon，而非像 web font 那樣打包了所有的 icon（但其實使用到的很少）。</p>
+<h3 id="2-安裝-icon-packages"><a href="#2-安裝-icon-packages" class="headerlink" title="2. 安裝 icon packages"></a>2. 安裝 icon packages</h3><p>Font Awesome icon package 有分免費版跟付費版，icon 數量上一定有差別，一樣依需求選擇即可，以目前個人專案使用來說免費版就蠻夠用了。</p>
+<p>Plan 與價格可以看這邊：<a target="_blank" rel="noopener" href="https://fontawesome.com/plans">Plans &amp; Pricing | Font Awesome</a></p>
+<p>免費版跟付費版 icon 目前看來差別在付費版有 Light 與 Thin 版本，而一個 icon solid 與 regular 版本可能分別在免費版與付費版裡。</p>
+<h4 id="免費版-icon"><a href="#免費版-icon" class="headerlink" title="免費版 icon"></a>免費版 icon</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-brands-svg-icons</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-brands-svg-icons</span></span><br></pre></td></tr></table></figure>
+
+<p>不指定版本的話會是 fontawesome 6（就是最新版），如要使用 5 的話需指定版本，例如 npm 的話：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-solid-svg-icons^5.15.4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="付費版-icon"><a href="#付費版-icon" class="headerlink" title="付費版 icon"></a>付費版 icon</h4><p>這邊是參考官方的寫法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-light-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-thin-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-duotone-svg-icons</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-light-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-thin-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-duotone-svg-icons</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安裝-vue-component"><a href="#3-安裝-vue-component" class="headerlink" title="3. 安裝 vue component"></a>3. 安裝 vue component</h3><p>這邊在 Vue 2 與 Vue 3 有差別，官方寫法是 Vue 2 的版本，Vue 3 需到 component github 才有說明</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/vue-fontawesome@latest     <span class="comment"># vue 2</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/vue-fontawesome@prerelease <span class="comment"># vue 3</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/vue-fontawesome@latest      <span class="comment"># vue2</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/vue-fontawesome@prerelease  <span class="comment"># vue3</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-全域設定-fontawesome-vue-component"><a href="#1-全域設定-fontawesome-vue-component" class="headerlink" title="1. 全域設定 fontawesome vue component"></a>1. 全域設定 fontawesome vue component</h3><p>首先需要在 <code>main.js</code> 全域設定這個 component，才能直接在其他的 component 內直接使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; library &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/fontawesome-svg-core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fas &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-solid-svg-icons&#x27;</span>; </span><br><span class="line"><span class="keyword">import</span> &#123; far &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-regular-svg-icons&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fab &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-brands-svg-icons&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FontAwesomeIcon</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/vue-fontawesome&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"></span><br><span class="line">library.<span class="title function_">add</span>(fas);</span><br><span class="line">library.<span class="title function_">add</span>(far);</span><br><span class="line">library.<span class="title function_">add</span>(fab);</span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(store)</span><br><span class="line">  .<span class="title function_">use</span>(router)</span><br><span class="line">  .<span class="title function_">component</span>(<span class="string">&#x27;FontAwesomeIcon&#x27;</span>, <span class="title class_">FontAwesomeIcon</span>)</span><br><span class="line">  .<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>.component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)</code> 也可以寫成 <code>.component(&#39;font-awesome-icon&#39;, FontAwesomeIcon)</code>，兩者在 component 內使用的方式都是 <code>&lt;font-awesome-icon&gt;&lt;/font-awesome-icon&gt;</code>。</p>
+<h3 id="2-尋找需要的-icon-並使用"><a href="#2-尋找需要的-icon-並使用" class="headerlink" title="2. 尋找需要的 icon 並使用"></a>2. 尋找需要的 icon 並使用</h3><p>接著就到官網 <a target="_blank" rel="noopener" href="https://fontawesome.com/search">Icons | FontAwesome</a> 找需要的 icon。搜尋框可以切換使用的 fontawesome 版本，要注意的是 5 與 6 相同的 icon 名稱可能不同（例如單字內容相同但順序不同：5 版叫 <code>plus-square</code>，6 版叫 <code>square-plus</code>）。</p>
+<p>以 5 版 solid 的 <code>plus-square</code> 為例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font-awesome-icon :icon=<span class="string">&quot;[&#x27;fas&#x27;, &#x27;plus-square&#x27;]&quot;</span>&gt;&lt;/font-awesome-icon&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最後der碎碎念"><a href="#最後der碎碎念" class="headerlink" title="最後der碎碎念"></a>最後der碎碎念</h2><p>嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E8%A8%8A"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json"><span class="toc-number">2.1.</span> <span class="toc-text">package.json</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%AD%E7%BD%AE%E9%96%8B%E5%A7%8B"><span class="toc-number">3.</span> <span class="toc-text">設置開始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%9D-svg-core"><span class="toc-number">3.1.</span> <span class="toc-text">1. 安裝 svg core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%9D-icon-packages"><span class="toc-number">3.2.</span> <span class="toc-text">2. 安裝 icon packages</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8D%E8%B2%BB%E7%89%88-icon"><span class="toc-number">3.2.1.</span> <span class="toc-text">免費版 icon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%98%E8%B2%BB%E7%89%88-icon"><span class="toc-number">3.2.2.</span> <span class="toc-text">付費版 icon</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%9D-vue-component"><span class="toc-number">3.3.</span> <span class="toc-text">3. 安裝 vue component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%A8%E5%9F%9F%E8%A8%AD%E5%AE%9A-fontawesome-vue-component"><span class="toc-number">4.1.</span> <span class="toc-text">1. 全域設定 fontawesome vue component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B0%8B%E6%89%BE%E9%9C%80%E8%A6%81%E7%9A%84-icon-%E4%B8%A6%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">2. 尋找需要的 icon 並使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8Cder%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="toc-number">5.</span> <span class="toc-text">最後der碎碎念</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&text=VueJs3 使用 FontAwesome"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&is_video=false&description=VueJs3 使用 FontAwesome"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=VueJs3 使用 FontAwesome&body=Check out this article: https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&title=VueJs3 使用 FontAwesome"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&name=VueJs3 使用 FontAwesome&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/using-font-awesome-in-vuejs-3/&t=VueJs3 使用 FontAwesome"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Bython
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-165957239-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zoneless';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
