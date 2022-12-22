@@ -37,7 +37,7 @@ tags:
 這邊跟 Github page 最大的不同就是 Netlify 是連結其他的 Git repository，再將那個 repo 的內容 build 後進行 deploy，Netlify 目前支援三個 Git repository 來源，分別是 [Github](https://github.com/)、[Gitlab](https://about.gitlab.com/) 和 [Bitbucket](https://bitbucket.org/product/)。
 
 {% asset_img netlify-create-a-new-site.jpg 建立一個新網站 %}
-[圖一] 建立一個新網站
+<div style="text-align:center">[圖一] 建立一個新網站</div>
 
 因個人習慣所以選擇 Github，點擊 Github 後會進行 Github 帳號驗證與確認要使用的 repository 存取權限，這邊最大的好處就是該 repository 可以是 private repository！（Github page 在免費方案下只支援 public repository）
 
@@ -46,7 +46,7 @@ tags:
 因為網站是使用 Hexo 建立，下一步便會出現 deploy 的設定，可以看到 Netlify 有判斷到 Hexo，並且自動設定好 generate 指令。
 
 {% asset_img netlify-build-site.jpg 產生網站 %}
-[圖二] 設定與 Deploy 圖片
+<div style="text-align:center">[圖二] 設定與 Deploy 圖片</div>
 
 確認無誤後便可進行 deploy。
 
@@ -69,7 +69,7 @@ Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進�
 ### Netlify domain management
 
 {% asset_img netlify-site-overview.jpg 網站管理後台 %}
-[圖三] 網站管理後台
+<div style="text-align:center">[圖三] 網站管理後台</div>
 
 回到剛剛建立的網站管理後台，選擇選單的 Setting，或者是找 Domain settings 進入 domain 管理。選擇增加 Custom domain。照著步驟往下並完成後，在 自訂 domain 後方會出現警告 `Check DNS configuration`，選擇最後方的 `Options` 按鈕選擇 `Set Up Nelify DNS` 好進行 DNS 設定。
 
@@ -82,7 +82,7 @@ Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進�
 選擇自訂的網域，側邊欄選擇 DNS，在第一個區塊 `名稱伺服器(Nameservers)` 選擇自訂名稱伺服器，將剛剛在 Netlify 得到的四個 DNS 都貼上並儲存。
 
 {% asset_img google-domains-dns.jpg Google domains DNS 設定 %}
-[圖四] Google domains DNS 設定
+<div style="text-align:center">[圖四] Google domains DNS 設定</div>
 
 增加後就像圖四這樣。
 
