@@ -1,6 +1,6 @@
 ---
 title: 如何在台灣購買 Google domains 網域
-permalink: post/buy-a-domain-from-google-in-taiwan
+permalink: post/buy-a-domain-from-google-in-taiwan/
 date: 2020-06-27 22:01:46
 tags:
 - google domains

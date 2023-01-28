@@ -1,6 +1,6 @@
 ---
 title: Windows 10 升級 VirtualBox 6.0 至 6.1
-permalink: post/upgrade-virtualbox-from-6-0-to-6-1-on-windows-10
+permalink: post/upgrade-virtualbox-from-6-0-to-6-1-on-windows-10/
 date: 2021-03-27 23:10:24
 tags:
 - windows 10

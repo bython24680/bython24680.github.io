@@ -1,6 +1,6 @@
 ---
 title: 如何使用 Netlify+Hexo+Google domain 建立靜態網站
-permalink: post/create-static-site-on-netlify
+permalink: post/create-static-site-on-netlify/
 date: 2020-08-26 01:14:09
 tags:
 - hexo

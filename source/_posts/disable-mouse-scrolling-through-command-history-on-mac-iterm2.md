@@ -1,6 +1,6 @@
 ---
 title: 關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄 
-permialink: post/disable-mouse-scrolling-through-command-history-on-mac-iterm2
+permialink: post/disable-mouse-scrolling-through-command-history-on-mac-iterm2/
 date: 2022-12-12 23:58:41
 tags:
 - mac

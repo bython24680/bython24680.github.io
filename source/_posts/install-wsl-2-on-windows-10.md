@@ -1,6 +1,6 @@
 ---
 title: 在 Windows 10 上安裝 WSL2
-permalink: post/install-wsl-2-on-windows-10
+permalink: post/install-wsl-2-on-windows-10/
 date: 2021-02-06 23:43:43
 tags:
 - windows 10

@@ -1,6 +1,6 @@
 ---
 title: 處理 ssh connect to host 22 Connect timed out
-permalink: post/ssh-connect-to-host-22-connection-timed-out
+permalink: post/ssh-connect-to-host-22-connection-timed-out/
 date: 2020-07-24 03:15:06
 tags:
 - ssh

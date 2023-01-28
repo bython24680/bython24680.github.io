@@ -1,6 +1,6 @@
 ---
 title: 如何使用 Hexo 和 Github Page 建立部落格
-permalink: post/create-hexo-blog-on-github-page
+permalink: post/create-hexo-blog-on-github-page/
 date: 2020-04-13 22:34:18
 tags:
 - hexo

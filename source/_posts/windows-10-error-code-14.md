@@ -1,6 +1,6 @@
 ---
 title: Windows 10 事件識別碼 14
-permalink: post/windows-10-error-code-14
+permalink: post/windows-10-error-code-14/
 date: 2020-04-25 13:55:30
 tags:
 - windows 10
