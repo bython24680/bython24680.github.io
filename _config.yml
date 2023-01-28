@@ -133,5 +133,5 @@ theme_config:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/bython24680/bython24680.github.io.git
+  repo: git@github.com:bython24680/bython24680.github.io.git
   branch: gh-pages
