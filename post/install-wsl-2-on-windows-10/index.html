@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。 目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。 這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Windows 10 上安裝 WSL2">
+<meta property="og:url" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/">
+<meta property="og:site_name" content="Zoneless">
+<meta property="og:description" content="開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。 目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。 這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/install-1.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/install-2.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/install-3.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/install-4-error.jpg">
+<meta property="og:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/windows-terminal.jpg">
+<meta property="article:published_time" content="2021-02-06T15:43:43.000Z">
+<meta property="article:modified_time" content="2023-06-18T16:53:38.751Z">
+<meta property="article:author" content="Bython">
+<meta property="article:tag" content="windows 10">
+<meta property="article:tag" content="wsl 2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bython24680.github.io/post/install-wsl-2-on-windows-10/install-1.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/assets/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>在 Windows 10 上安裝 WSL2</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/post/upgrade-virtualbox-from-6-0-to-6-1-on-windows-10/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/post/experience-of-aws-dev-day-2020/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/install-wsl-2-on-windows-10/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&text=在 Windows 10 上安裝 WSL2"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&is_video=false&description=在 Windows 10 上安裝 WSL2"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在 Windows 10 上安裝 WSL2&body=Check out this article: https://bython24680.github.io/post/install-wsl-2-on-windows-10/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&name=在 Windows 10 上安裝 WSL2&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&t=在 Windows 10 上安裝 WSL2"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E8%A8%8A"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">前置需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E5%AE%89%E8%A3%9D"><span class="toc-number">4.</span> <span class="toc-text">開始安裝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%8D%E5%A4%96%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">額外補充</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        在 Windows 10 上安裝 WSL2
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Zoneless</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-02-06T15:43:43.000Z" itemprop="datePublished">2021-02-06</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/windows-10/" rel="tag">windows 10</a>, <a class="tag-link-link" href="/tags/wsl-2/" rel="tag">wsl 2</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。</p>
+<p>目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。</p>
+<p>這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝，而非像官方使用 Command line 進行安裝。</p>
+<p>另外有看到文章說在安裝前須先開啟開發人員模式，雖然我是開啟了，但看官方的安裝文件裡似乎沒有這一步的說明，所以應該不用開才是。</p>
+<h2 id="資訊"><a href="#資訊" class="headerlink" title="資訊"></a>資訊</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/">Microsoft 官方文件：適用於 Linux 的 Windows 子系統文件</a></li>
+</ul>
+<h2 id="前置需求"><a href="#前置需求" class="headerlink" title="前置需求"></a>前置需求</h2><ul>
+<li>Windows 10 版本號 1903 或 1909 或以上</li>
+</ul>
+<h2 id="開始安裝"><a href="#開始安裝" class="headerlink" title="開始安裝"></a>開始安裝</h2><p>步驟簡單來說總共有四步：</p>
+<ol>
+<li>啟用 WSL2 和虛擬機器平台並重開機</li>
+<li>安裝 Linux 核心更新套件</li>
+<li>設定 WSL2 為預設</li>
+<li>安裝一種版本的 Linux</li>
+</ol>
+<p>首先是啟用 WSL2 和虛擬機器平台，這邊的步驟在官方文件內是使用 Command line 進行安裝，但這邊其實也可以直接 UI 操作。</p>
+<p>在 Windows 10 左下角的開始選單 &gt; 設定（就是那個齒輪）&gt; 應用程式 &gt; 應用程式與功能，將畫面滑到最下方找 <code>程式與功能</code>，點擊後開啟的視窗左邊找 <code>開啟或關閉 Windows 功能</code>。開啟的視窗內請找 <code>Windows 子系統 Linux 版</code>（如果只想裝 WSL1 可以只勾這個） 與 <code>虛擬機器平台</code>，找到這兩個後一起勾選，接著會進入 Windows 更新與重開機，就讓他進行重開機吧。</p>
+<img src="/post/install-wsl-2-on-windows-10/install-1.jpg" class="" title="應用程式">
+
+<img src="/post/install-wsl-2-on-windows-10/install-2.jpg" class="" title="程式與功能">
+
+<img src="/post/install-wsl-2-on-windows-10/install-3.jpg" class="" title="開啟或關閉 Windows 功能">
+
+<p>重開機完之後請開啟官方文件頁面的<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/install-win10">安裝 WSL 並更新至 WSL2</a>這一頁，找到<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-tw/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">步驟4 - 下載 Linux 核心更新套件</a>，下載這個更新套件後雙點擊它以進行安裝。如果這一步跳過的話，在設定 WSL2 為預設版本時會出現 <code>WSL 2 需要更新其核心元件。如需詳細資訊，請造訪 visit https://aka.ms/wsl2kernel</code> 這個錯誤，所以還請別跳過這個步驟。</p>
+<img src="/post/install-wsl-2-on-windows-10/install-4-error.jpg" class="" title="沒有先安裝 Linux 核心元件就想指定 WSL2 為預設">
+
+<blockquote>
+<p>你問我為什麼我會知道會噴錯呢？對，因為我就是第一次安裝時沒注意到就直接跳過這一步的人ww</p>
+</blockquote>
+<p>安裝完 Linux 核心元件後接著以管理者權限開啟 Powershell 並指定 WSL2 為預設：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+
+<p>順利的話終端機上應該只會出現這句話：<code>有關 WSL 2 的主要差異詳細資訊，請瀏覽 https://aka.ms/wsl2</code>，到這邊 WSL2 就安裝完畢！接著要到 Microsoft store 選擇一種 Linux 版本進行安裝。</p>
+<p>開啟 Microsoft store 並以 Linux 為關鍵字進行搜尋就可以看到好幾個版本的 Linux，選一個喜歡的安裝吧。第一次安裝與啟動會耗一點時間，在第二次啟動時就不會花到這麼多時間了。</p>
+<p>安裝完後選擇直接啟動的話就會啟動該 Linux 版本的終端機，第一次開啟時須設定該 Linux 的使用者帳密，設定完畢後就會直接登入。不小心關閉 Linux 終端機的話可以在開始選單內找剛剛安裝的 Linux，點擊後就會開啟該 Linux 的終端機。</p>
+<h2 id="額外補充"><a href="#額外補充" class="headerlink" title="額外補充"></a>額外補充</h2><p>如果 Windows 10 上面有安裝 Windows Terminal 的話，可以在開啟新分頁時點擊向下箭頭開啟選單，裡面可以選剛剛安裝的 Linux，選擇後就會直接用 Windows Terminal 開啟該 Linux 的終端機喔！真的方便。</p>
+<img src="/post/install-wsl-2-on-windows-10/windows-terminal.jpg" class="" title="Windows Terminal">
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B3%87%E8%A8%8A"><span class="toc-number">2.</span> <span class="toc-text">資訊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E9%9C%80%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">前置需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E5%AE%89%E8%A3%9D"><span class="toc-number">4.</span> <span class="toc-text">開始安裝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%8D%E5%A4%96%E8%A3%9C%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">額外補充</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://bython24680.github.io/post/install-wsl-2-on-windows-10/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&text=在 Windows 10 上安裝 WSL2"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&is_video=false&description=在 Windows 10 上安裝 WSL2"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在 Windows 10 上安裝 WSL2&body=Check out this article: https://bython24680.github.io/post/install-wsl-2-on-windows-10/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&title=在 Windows 10 上安裝 WSL2"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&name=在 Windows 10 上安裝 WSL2&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://bython24680.github.io/post/install-wsl-2-on-windows-10/&t=在 Windows 10 上安裝 WSL2"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Bython
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Post</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-165957239-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'zoneless';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+</body>
+</html>
