@@ -1,0 +1,110 @@
+# Theme miniton
+
+## Menu
+menu_customized: true
+menu:
+  Home:
+    name: Home
+    link: /
+  Articles:
+    name: Post
+    link: /archives
+  Tags:
+    name: Tags
+    link: /tags
+  About:
+    name: About
+    link: /about
+
+## Site Information
+avatar: /assets/images/avatar.jpg
+author_title: 全端開發者
+author_bio: 眼睛乾澀跟背部酸痛，這就是初老的感覺嗎
+start_date: 2020-04-13
+default_article_cover_image: /assets/images/default-post-thumbnail.jpg
+default_social_image: /assets/images/site-sharing.jpg
+
+## Favicon
+fav_icon: /assets/images/favicon.ico
+shortcut_icon: /assets/images/favicon-192x192.png
+apple_touch_icon: /assets/images/apple-touch-icon.png
+
+## Hero Banner (Homepage)
+hero:
+  enabled: true
+  title: 技術、生活與筆記
+  subtitle: 大概就是個筆記集散地，想到就寫，有空就寫
+  bg_image: /assets/images/hero-bg-image-02.jpg
+  bg_image_color_type: dark
+  btn_text: 探索筆記
+  btn_link: /archives
+
+## Social Links
+social:
+  github: https://github.com/bython24680
+  twitter: https://x.com/bython86420
+  email:
+
+## Sidebar Settings
+sidebar_settings:
+  site_info:
+    enabled: true
+    title: 網站資訊
+  latest_posts:
+    enabled: true
+    title: 最新文章
+    post_count: 3
+  recommended_posts:
+    enabled: false
+    title: 推薦文章
+    post_count: 3
+  tag_list:
+    enabled: true
+    title: 標籤
+  calendar_this_month:
+    enabled: true
+    title: 本月日曆
+
+sidebar_post_settings:
+  related_posts:
+    enabled: true
+    title: 相關文章
+    post_count: 3
+  latest_posts:
+    enabled: true
+    title: 最新文章
+    post_count: 3
+
+## Content Settings
+content_settings:
+  archives:
+    page_title: 文章列表
+    post_per_page: 10
+  tags:
+    page_title: 所有標籤
+    item_name: 標籤
+
+## Footer
+footer:
+  hot_topics:
+    enabled: false
+  featured_projects:
+    enabled: false
+  recommended_links:
+    enabled: true
+    title: 推薦連結
+    links:
+      - name: Hexo
+        url: https://hexo.io/
+      - name: Hexo Miniton theme
+        url: https://github.com/bython24680/hexo-theme-miniton
+      - name: LeetCode
+        url: https://leetcode.com
+      - name: roadmap.sh
+        url: https://roadmap.sh
+  description: 紀錄與分享日常技術筆記
+
+## Others
+disqus_shortname: zoneless
+google_analytics: UA-165957239-1
+

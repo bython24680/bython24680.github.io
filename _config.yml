@@ -8,8 +8,8 @@ subtitle: '大概是個紀錄的集散地'
 description: '筆記集散地，想到就寫，有時間就寫'
 keywords:
 author: Bython
-language: en
-timezone: ''
+language: zh-TW
+timezone: 'Asia/Taipei'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -38,19 +38,24 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
-filename_case: 0
+filename_case: 1
 render_drafts: false
 post_asset_folder: true
 relative_link: false
-future: true
+future: false
+syntax_highlighter: highligher.js
 highlight:
-  enable: true
-  line_number: true
   auto_detect: false
+  line_number: true
+  line_threshold: 0
   tab_replace: ''
   wrap: true
   hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  line_threshold: 0
+  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -60,6 +65,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
+  pagination_dir: page
 
 # Category & Tag
 default_category: uncategorized
@@ -76,8 +82,7 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_options: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -93,41 +98,16 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cactus
+#theme: cactus
+theme: miniton
 
-# Theme custom
-theme_config:
-  colorscheme: dark
-  logo:
-    enabled: true
-    width: 50
-    height: 50
-    url: /assets/images/logo.png
-    gravatar: false
-  favicon:
-    desktop:
-      url: /assets/images/favicon.ico
-      gravatar: false
-    android:
-      url: /assets/images/favicon-192x192.png
-      gravatar: false
-    apple:
-      url: /assets/images/apple-touch-icon.png
-      gravatar: false
-  nav:
-    Home: /
-    Post: /archives/
-    About: /about/
-    Tags: /tags/
-  social_links:
-  copyright:
-    start_year: 2020
-  google_analytics:
-    enabled: true
-    id: UA-165957239-1
-  disqus:
-    enabled: true
-    shortname: zoneless
+# Package
+## hexo-generator-searchdb
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: striptags
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

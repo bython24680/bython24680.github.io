@@ -2,3 +2,6 @@
 	path = themes/cactus
 	url = https://github.com/probberechts/hexo-theme-cactus.git
 	ignore = dirty
+[submodule "themes/miniton"]
+	path = themes/miniton
+	url = https://github.com/bython24680/hexo-theme-miniton.git
