@@ -31,13 +31,41 @@ Case statement假設需求是更新多篇文章的所屬類別，需要更新的
 
 
 那麼使用 Case statement 的 SQL 會是這樣：
-UPDATE post SET category_id = (    CASE ID        WHEN 1 THEN 10        WHEN 2 THEN 13        WHEN 10 THEN 14    END) WHERE ID IN (1,2,10)
+UPDATE post SET category_id = (
+    CASE ID
+        WHEN 1 THEN 10
+        WHEN 2 THEN 13
+        WHEN 10 THEN 14
+    END
+) WHERE ID IN (1,2,10)
 
 當使用 Laravel 時可以用 DB Facade 處理，分為有用 bind 或不使用 prepared mode 的方式：
-// 第一種使用 statement 加上 bindDB::statement(&#x27;UPDATE ? SET category_id = (    CASE ID        WHEN ? THEN ?        WHEN ? THEN ?        WHEN ? THEN ?    END) WHERE ID IN (?)&#x27;, [    &#x27;post&#x27;,    1,10,    2,13,    10,14,    &#x27;1,2,10&#x27;]);// 第二種使用 unpreparedDB::unprepared(&#x27;UPDATE post SET category_id = (    CASE ID        WHEN 1 THEN 10        WHEN 2 THEN 13        WHEN 10 THEN 14    END) WHERE ID IN (1,2,10)&#x27;);
+// 第一種使用 statement 加上 bind
+DB::statement(&#39;UPDATE ? SET category_id = (
+    CASE ID
+        WHEN ? THEN ?
+        WHEN ? THEN ?
+        WHEN ? THEN ?
+    END
+) WHERE ID IN (?)&#39;, [
+    &#39;post&#39;,
+    1,10,
+    2,13,
+    10,14,
+    &#39;1,2,10&#39;
+]);
+
+// 第二種使用 unprepared
+DB::unprepared(&#39;UPDATE post SET category_id = (
+    CASE ID
+        WHEN 1 THEN 10
+        WHEN 2 THEN 13
+        WHEN 10 THEN 14
+    END
+) WHERE ID IN (1,2,10)&#39;);
 
 整條 SQL 之間的語法可改為使用空格分隔就好，這邊有好幾個換行只是為了比較好閱讀。壓成一條 SQL 後會是這樣：
-DB::unprepared(&#x27;UPDATE post SET category_id = (CASE ID WHEN 1 THEN 10 WHEN 2 THEN 13 WHEN 10 THEN 14 END) WHERE ID IN (1,2,10)&#x27;);
+DB::unprepared(&#39;UPDATE post SET category_id = (CASE ID WHEN 1 THEN 10 WHEN 2 THEN 13 WHEN 10 THEN 14 END) WHERE ID IN (1,2,10)&#39;);
 
 相關連結
 SQL Case Expression - w3schools
@@ -86,137 +114,6 @@ Google domains第一步：搜索網域名稱部落格名稱維持 zoneless 有�
 ]]></content>
       <tags>
         <tag>google domains</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用 Hexo 和 Github Page 建立部落格</title>
-    <url>//post/create-hexo-blog-on-github-page/</url>
-    <content><![CDATA[開始之前可以搭配 Github Page 使用的除了 Hexo 外，還有像是 Jekyll，它也是 Github 官方建議使用的建立工具。順帶一提我會選 Hexo 是因為樣板比較多。
-資訊
-Github
-Github Page
-Hexo
-
-前置需求
-Git
-NodeJs
-npm
-
-Github第一步先申請 Github 帳號，申請完後建立一個新的 repository，名稱為 username.github.io。例如使用者名稱為 githubuser，那 repository 名稱就會是 githubuser.github.io。
-
-
-Q. repository 名稱一定要用使用者帳號開頭嗎？A. 其實不一定。這邊要求使用帳號當開頭，是因為預設這個網站是作為使用者個人網站，而當不購買自定義網域時，這個網站的網址就會是 username.github.io，故建議使用使用者帳號。若該網站用於工作室之類的，也可以改使用工作室名稱。
-Q. repository 可以選擇 Private 嗎？A. 免費使用者要建立 Github page 的話只能選 Public，想要 Private 請課金
-建立完畢後會看到這個 repository 的 git url，頁面先別關，接著到本機端建立 hexo 專案
-Hexo開始前請先安裝 Hexo，照著官方的裝法安裝就好
-npm install hexo-cli -g
-
-若尚未安裝 npm 請先安裝，這邊就不介紹怎麼安裝了。
-安裝完畢後可以用 hexo -v 看看版本。
-
-
-安裝完畢後，建立新的 hexo 網站。以範例來說，建立的資料夾可以叫做 githubuser.github.io。建議資料夾名稱跟 repository 名稱相同，管理比較方便。
-hexo init githubuser.github.io
-
-接著產生靜態檔案並在 localhost 開啟網站。
-cd githubuser.github.iohexo generatehexo server
-
-預設的網址為 http://localhost:4000，可以加上 -p 自定義 port，詳細請見官方文件：Hexo#server
-開啟頁面會看到預設的網站內容，hexo 預設的主題為 landscape，可以依照個人喜好替換，後續會說明。
-確認 localhost 運作正常可以先用 ctrl+c 關掉 hexo server。
-連接 hexo blog 與 github接著要連接本機端的部落格資料夾與 Github repository，複製 repositroy git url 後到剛剛建立的資料夾內。
-git init# 初始化 gitgit remote add (這邊貼上複製的路徑)# 設定 remote，可以用 git remote -v 查看
-
-git 指令不多介紹，詳細請至 Git 官網查看文件。
-因為 Github page 在個人部落格內是使用 master 當顯示用的 branch，我的作法是分兩個 branch：master 與 dev，master 不做任何 commit 動作，僅作為 deploy 部落格靜態檔至 github 使用，所有的原始檔都在 branch dev 上。就算要開支線也是從 dev 開出去。
-
-
-git checkout -b dev# 等同於以下兩個指令：# git branch dev# git checkout dev# 但空的 git 執行 git branch dev 會噴錯，因為新建立的 git 沒有任何支線可以做為產生新支線的依據，必須要先建立一次 commit 才行git add .# 將資料夾內所有東西記錄進 gitgit commit -m &#x27;feat: Init hexo blog&#x27;# 建立一個 commitgit push -u origin dev# 將 branch dev 推至 remote，並設定 tracking 此 branch 
-
-到這邊處理原始檔的 branch 建置完畢，接著處理 deploy。
-設定 hexo-deployer-git 並 deploy根據官方說明，可以使用 hexo-deployer-git 一鍵 deploy hexo blog，因為 hexo 可以設定多個 deploy 的目的地，使用上真的很方便，推薦安裝。
-npm install hexo-deployer-git --save
-
-接著開啟根目錄下的 _config.yml 設定 deploy 相關設定，找到 deploy 區塊進行修改。
-deploy:    type: git    repo: &lt;repository git url&gt;    branch: master
-
-官方說明可以設定第四個參數 message，預設的 message 格式為 Site updated: YYYY-MM-DD HH:ii:ss，當進行 deploy 後，至 Github 切換至 branch master 就可以看到訊息。
-這邊我有嘗試修改 message，失敗，有空再試試怎麼改。
-設定完畢後可以進行 deploy。
-hexo deploy
-
-這時候可以先至 Github repository 的 setting 內查看 Github Pages 區塊有沒有出現 Your site is published at (這邊是網址)，有的話，恭喜，github 吃到 master 上的靜態檔案了。
-這時開啟網址，頁面有機會還是 404，等個幾分鐘再開就行。
-設定其他 themeHexo 的 theme 可以到這邊挑選：Hexo themes
-選好喜歡的主題後，需要將主題的資料夾放置部落格資料夾 (資料夾名稱)/themes/ 底下，接著修改 _config.yml 的 theme: (這邊改成主題的名字)，重新建立靜態檔案後完成。
-這邊將主題資料夾加進 themes 底下有幾種方式：
-
-在部落格資料夾根目錄下 git clone (主題的 git url) themes/(主題名稱)
-找個另外的資料夾 git clone，然後把整個資料夾複製到 themes 內
-在主題的 github 下載 zip 檔案，解壓縮後放進 themes 內
-使用 git submodule
-
-我是使用 git submodule 管理主題，在後續資料夾搬遷比較方便。
-各個主題都有不同需要設定的項目，通常主題的 Github 會有說明，照著設定即可。有空再來說說目前使用的主題 cactus 的 設定。
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>github page</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用 Netlify+Hexo+Google domain 建立靜態網站</title>
-    <url>//post/create-static-site-on-netlify/</url>
-    <content><![CDATA[開始之前主因是想把另外寫的東西從 weebly 搬走，在找尋新家的過程中也看了很多所見及所得的網站，抑或是直接提供部落格服務的網站，看到最後還是覺得用 hexo + markdown 寫文章是最好的（還有一點是最近不太喜歡所見及所得，光頁面 render 就很惱人），所以改找有免費提供靜態網站 hosting 服務的站，最後找到了 Netlify。
-資訊
-Netlify
-Hexo
-Github
-Gitlab
-Bitbucket
-Google domains
-
-前置需求
-Git
-NodeJs
-npm
-
-Netlify首先先註冊一個帳號，因為網站的型態是靜態網站，所以直接使用免費方案即可。Netlify 總共提供四種方案（2020&#x2F;08 當下），可以依照需求選擇其他方案。
-註冊並登入後在後台選單 Sites 內選擇 New site from Git。
-
-
-這邊跟 Github page 最大的不同就是 Netlify 是連結其他的 Git repository，再將那個 repo 的內容 build 後進行 deploy，Netlify 目前支援三個 Git repository 來源，分別是 Github、Gitlab 和 Bitbucket。
-
-[圖一] 建立一個新網站
-
-因個人習慣所以選擇 Github，點擊 Github 後會進行 Github 帳號驗證與確認要使用的 repository 存取權限，這邊最大的好處就是該 repository 可以是 private repository！（Github page 在免費方案下只支援 public repository）
-選擇要使用的 repository 後，若該 repository 已經是個靜態網站的專案了，那麼 netlify 就可以直接進行 deploy 的動作，若還不是，請參考 如何使用 Hexo 和 Github Page 建立部落格 使用 Hexo 建立一個靜態網站部落格。
-因為網站是使用 Hexo 建立，下一步便會出現 deploy 的設定，可以看到 Netlify 有判斷到 Hexo，並且自動設定好 generate 指令。
-
-[圖二] 設定與 Deploy 圖片
-
-確認無誤後便可進行 deploy。
-一般 deploy在產生網站的設定內可以設定要 deploy 的 branch，預設為 master（見[圖二] 設定與 Deploy 圖片）。這邊只要 Github 端有任何 push 到 master 的動作，Netlify 就會自動 build 並 deploy 該站。
-測試後蠻即時的，頁面上顯示的資料也是。
-Custom domainGoogle domainsNetlify 自行提供的 domain 並不像 Github page 那樣是使用 repository name 加上一個 suffix，那是什麼規則我沒研究，但能確定的是不好記，所以建議會是使用自己的 domain。
-Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進第二步驟購買網域，但這邊我選擇使用 Google domains 購買網域，個人原因是好管理（這個站也是在 google domains 購買的，可以統一管理）。
-如何在 Google domains 上購買網域請參考這一篇：如何在台灣購買 Google domains 網域，買好後回到 Netlify 進行網域設定。
-Netlify domain management
-[圖三] 網站管理後台
-
-回到剛剛建立的網站管理後台，選擇選單的 Setting，或者是找 Domain settings 進入 domain 管理。選擇增加 Custom domain。照著步驟往下並完成後，在 自訂 domain 後方會出現警告 Check DNS configuration，選擇最後方的 Options 按鈕選擇 Set Up Nelify DNS 好進行 DNS 設定。
-順帶一提這時因為 DNS 沒設定好，所以同一頁面最下方的 HTTPS 也會處於無法使用的狀態。
-選擇 Set Up Netlify DNS 並照著步驟往下，最後會出現四個 Netlify 提供的 DNS，頁面先別關，這邊要到 Google domains 進行設定。
-Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第一個區塊 名稱伺服器(Nameservers) 選擇自訂名稱伺服器，將剛剛在 Netlify 得到的四個 DNS 都貼上並儲存。
-
-[圖四] Google domains DNS 設定
-
-增加後就像圖四這樣。
-完畢後回到 Netlify 等 DNS 生效後網站就能使用，HTTPS 憑證理應會一併設定好。
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>netlify</tag>
       </tags>
   </entry>
   <entry>
@@ -324,20 +221,222 @@ Using VS Code with MySQL
       </tags>
   </entry>
   <entry>
+    <title>如何使用 Netlify+Hexo+Google domain 建立靜態網站</title>
+    <url>//post/create-static-site-on-netlify/</url>
+    <content><![CDATA[開始之前主因是想把另外寫的東西從 weebly 搬走，在找尋新家的過程中也看了很多所見及所得的網站，抑或是直接提供部落格服務的網站，看到最後還是覺得用 hexo + markdown 寫文章是最好的（還有一點是最近不太喜歡所見及所得，光頁面 render 就很惱人），所以改找有免費提供靜態網站 hosting 服務的站，最後找到了 Netlify。
+資訊
+Netlify
+Hexo
+Github
+Gitlab
+Bitbucket
+Google domains
+
+前置需求
+Git
+NodeJs
+npm
+
+Netlify首先先註冊一個帳號，因為網站的型態是靜態網站，所以直接使用免費方案即可。Netlify 總共提供四種方案（2020&#x2F;08 當下），可以依照需求選擇其他方案。
+註冊並登入後在後台選單 Sites 內選擇 New site from Git。
+
+
+這邊跟 Github page 最大的不同就是 Netlify 是連結其他的 Git repository，再將那個 repo 的內容 build 後進行 deploy，Netlify 目前支援三個 Git repository 來源，分別是 Github、Gitlab 和 Bitbucket。
+
+[圖一] 建立一個新網站
+
+因個人習慣所以選擇 Github，點擊 Github 後會進行 Github 帳號驗證與確認要使用的 repository 存取權限，這邊最大的好處就是該 repository 可以是 private repository！（Github page 在免費方案下只支援 public repository）
+選擇要使用的 repository 後，若該 repository 已經是個靜態網站的專案了，那麼 netlify 就可以直接進行 deploy 的動作，若還不是，請參考 如何使用 Hexo 和 Github Page 建立部落格 使用 Hexo 建立一個靜態網站部落格。
+因為網站是使用 Hexo 建立，下一步便會出現 deploy 的設定，可以看到 Netlify 有判斷到 Hexo，並且自動設定好 generate 指令。
+
+[圖二] 設定與 Deploy 圖片
+
+確認無誤後便可進行 deploy。
+一般 deploy在產生網站的設定內可以設定要 deploy 的 branch，預設為 master（見[圖二] 設定與 Deploy 圖片）。這邊只要 Github 端有任何 push 到 master 的動作，Netlify 就會自動 build 並 deploy 該站。
+測試後蠻即時的，頁面上顯示的資料也是。
+Custom domainGoogle domainsNetlify 自行提供的 domain 並不像 Github page 那樣是使用 repository name 加上一個 suffix，那是什麼規則我沒研究，但能確定的是不好記，所以建議會是使用自己的 domain。
+Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進第二步驟購買網域，但這邊我選擇使用 Google domains 購買網域，個人原因是好管理（這個站也是在 google domains 購買的，可以統一管理）。
+如何在 Google domains 上購買網域請參考這一篇：如何在台灣購買 Google domains 網域，買好後回到 Netlify 進行網域設定。
+Netlify domain management
+[圖三] 網站管理後台
+
+回到剛剛建立的網站管理後台，選擇選單的 Setting，或者是找 Domain settings 進入 domain 管理。選擇增加 Custom domain。照著步驟往下並完成後，在 自訂 domain 後方會出現警告 Check DNS configuration，選擇最後方的 Options 按鈕選擇 Set Up Nelify DNS 好進行 DNS 設定。
+順帶一提這時因為 DNS 沒設定好，所以同一頁面最下方的 HTTPS 也會處於無法使用的狀態。
+選擇 Set Up Netlify DNS 並照著步驟往下，最後會出現四個 Netlify 提供的 DNS，頁面先別關，這邊要到 Google domains 進行設定。
+Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第一個區塊 名稱伺服器(Nameservers) 選擇自訂名稱伺服器，將剛剛在 Netlify 得到的四個 DNS 都貼上並儲存。
+
+[圖四] Google domains DNS 設定
+
+增加後就像圖四這樣。
+完畢後回到 Netlify 等 DNS 生效後網站就能使用，HTTPS 憑證理應會一併設定好。
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>netlify</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git commands 集合處(2024/04/21 更新)</title>
     <url>//post/git-commands/</url>
     <content><![CDATA[開始之前因為主要是使用 Git command 而非 UI，除了常用的 add 這類，有些久沒用就會忘記，然後還要 google 老半天，想想不如自己寫一篇，對，就是這篇。因為這樣，這篇不會是完整的 Git commands，會是我常用或會遇到但會忘記的指令，分類也是照我自己使用習慣來分類。
 這篇會慢慢更新，想到就更新，更新時間會加到標題上。
-CommandsRepository 基本# 顯示設定的 remote 與 URL：git remote -v# origin 是預設的 remote name$ git remote -vorigin &lt;REMOTE_URL&gt; (fetch)origin &lt;REMOTE_URL&gt; (push)# 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;# 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url$ git remote set-url origin &lt;REMOTE_URL&gt;# 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;# remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）$ git remote add devorigin &lt;REMOTE_URL&gt;
+CommandsRepository 基本# 顯示設定的 remote 與 URL：git remote -v
+# origin 是預設的 remote name
+$ git remote -v
+origin &lt;REMOTE_URL&gt; (fetch)
+origin &lt;REMOTE_URL&gt; (push)
 
-開發進度相關# 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;# 當前進度未 commit 或者有衝突時會跳不過去$ git checkout develop# 將進度推到遠端：git push &lt;REMOTE_NAME&gt;# remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱# 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險$ git push$ git push devorigin$ git push origin -f# 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;# 個人習慣使用 --rebase 讓線比較沒那麼複雜$ git pull$ git pull --rebase# Commit 當前進度：git commit -m &lt;MESSAGE&gt;# 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;$ git commit$ git commit -m &#x27;feat: Update README.md&#x27;# Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;# 個人習慣加上 --no-ff 保留 merge 的小耳朵$ git merge develop --no-ff
+# 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url
+$ git remote set-url origin &lt;REMOTE_URL&gt;
 
-Commit 相關# 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;# commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的# 加到當前 branch 的順序，舊到新為設定 SHA 的左到右$ git cherry-pick 5262773e d378c4e3
+# 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）
+$ git remote add devorigin &lt;REMOTE_URL&gt;
 
-Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;$ git push origin develop:feature/create-login-form# 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;$ git push origin :feature/create-login-form# 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;$ git branch -D feature/create-ligin-form# 查看本地端 Branch$ git branch
+開發進度相關# 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;
+# 當前進度未 commit 或者有衝突時會跳不過去
+$ git checkout develop
+
+# 將進度推到遠端：git push &lt;REMOTE_NAME&gt;
+# remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱
+# 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險
+$ git push
+$ git push devorigin
+$ git push origin -f
+
+# 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;
+# 個人習慣使用 --rebase 讓線比較沒那麼複雜
+$ git pull
+$ git pull --rebase
+
+# Commit 當前進度：git commit -m &lt;MESSAGE&gt;
+# 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;
+$ git commit
+$ git commit -m &#39;feat: Update README.md&#39;
+
+# Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;
+# 個人習慣加上 --no-ff 保留 merge 的小耳朵
+$ git merge develop --no-ff
+
+Commit 相關# 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;
+# commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的
+# 加到當前 branch 的順序，舊到新為設定 SHA 的左到右
+$ git cherry-pick 5262773e d378c4e3
+
+Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;
+$ git push origin develop:feature/create-login-form
+
+# 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;
+$ git push origin :feature/create-login-form
+
+# 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;
+$ git branch -D feature/create-ligin-form
+
+# 查看本地端 Branch
+$ git branch
+
 ]]></content>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使用 Hexo 和 Github Page 建立部落格</title>
+    <url>//post/create-hexo-blog-on-github-page/</url>
+    <content><![CDATA[開始之前可以搭配 Github Page 使用的除了 Hexo 外，還有像是 Jekyll，它也是 Github 官方建議使用的建立工具。順帶一提我會選 Hexo 是因為樣板比較多。
+資訊
+Github
+Github Page
+Hexo
+
+前置需求
+Git
+NodeJs
+npm
+
+Github第一步先申請 Github 帳號，申請完後建立一個新的 repository，名稱為 username.github.io。例如使用者名稱為 githubuser，那 repository 名稱就會是 githubuser.github.io。
+
+
+Q. repository 名稱一定要用使用者帳號開頭嗎？A. 其實不一定。這邊要求使用帳號當開頭，是因為預設這個網站是作為使用者個人網站，而當不購買自定義網域時，這個網站的網址就會是 username.github.io，故建議使用使用者帳號。若該網站用於工作室之類的，也可以改使用工作室名稱。
+Q. repository 可以選擇 Private 嗎？A. 免費使用者要建立 Github page 的話只能選 Public，想要 Private 請課金
+建立完畢後會看到這個 repository 的 git url，頁面先別關，接著到本機端建立 hexo 專案
+Hexo開始前請先安裝 Hexo，照著官方的裝法安裝就好
+npm install hexo-cli -g
+
+若尚未安裝 npm 請先安裝，這邊就不介紹怎麼安裝了。
+安裝完畢後可以用 hexo -v 看看版本。
+
+
+安裝完畢後，建立新的 hexo 網站。以範例來說，建立的資料夾可以叫做 githubuser.github.io。建議資料夾名稱跟 repository 名稱相同，管理比較方便。
+hexo init githubuser.github.io
+
+接著產生靜態檔案並在 localhost 開啟網站。
+cd githubuser.github.io
+hexo generate
+hexo server
+
+預設的網址為 http://localhost:4000，可以加上 -p 自定義 port，詳細請見官方文件：Hexo#server
+開啟頁面會看到預設的網站內容，hexo 預設的主題為 landscape，可以依照個人喜好替換，後續會說明。
+確認 localhost 運作正常可以先用 ctrl+c 關掉 hexo server。
+連接 hexo blog 與 github接著要連接本機端的部落格資料夾與 Github repository，複製 repositroy git url 後到剛剛建立的資料夾內。
+git init
+# 初始化 git
+
+git remote add (這邊貼上複製的路徑)
+# 設定 remote，可以用 git remote -v 查看
+
+git 指令不多介紹，詳細請至 Git 官網查看文件。
+因為 Github page 在個人部落格內是使用 master 當顯示用的 branch，我的作法是分兩個 branch：master 與 dev，master 不做任何 commit 動作，僅作為 deploy 部落格靜態檔至 github 使用，所有的原始檔都在 branch dev 上。就算要開支線也是從 dev 開出去。
+
+
+git checkout -b dev
+# 等同於以下兩個指令：
+# git branch dev
+# git checkout dev
+# 但空的 git 執行 git branch dev 會噴錯，因為新建立的 git 沒有任何支線可以做為產生新支線的依據，必須要先建立一次 commit 才行
+
+git add .
+# 將資料夾內所有東西記錄進 git
+
+git commit -m &#39;feat: Init hexo blog&#39;
+# 建立一個 commit
+
+git push -u origin dev
+# 將 branch dev 推至 remote，並設定 tracking 此 branch 
+
+到這邊處理原始檔的 branch 建置完畢，接著處理 deploy。
+設定 hexo-deployer-git 並 deploy根據官方說明，可以使用 hexo-deployer-git 一鍵 deploy hexo blog，因為 hexo 可以設定多個 deploy 的目的地，使用上真的很方便，推薦安裝。
+npm install hexo-deployer-git --save
+
+接著開啟根目錄下的 _config.yml 設定 deploy 相關設定，找到 deploy 區塊進行修改。
+deploy:
+    type: git
+    repo: &lt;repository git url&gt;
+    branch: master
+
+官方說明可以設定第四個參數 message，預設的 message 格式為 Site updated: YYYY-MM-DD HH:ii:ss，當進行 deploy 後，至 Github 切換至 branch master 就可以看到訊息。
+這邊我有嘗試修改 message，失敗，有空再試試怎麼改。
+設定完畢後可以進行 deploy。
+hexo deploy
+
+這時候可以先至 Github repository 的 setting 內查看 Github Pages 區塊有沒有出現 Your site is published at (這邊是網址)，有的話，恭喜，github 吃到 master 上的靜態檔案了。
+這時開啟網址，頁面有機會還是 404，等個幾分鐘再開就行。
+設定其他 themeHexo 的 theme 可以到這邊挑選：Hexo themes
+選好喜歡的主題後，需要將主題的資料夾放置部落格資料夾 (資料夾名稱)/themes/ 底下，接著修改 _config.yml 的 theme: (這邊改成主題的名字)，重新建立靜態檔案後完成。
+這邊將主題資料夾加進 themes 底下有幾種方式：
+
+在部落格資料夾根目錄下 git clone (主題的 git url) themes/(主題名稱)
+找個另外的資料夾 git clone，然後把整個資料夾複製到 themes 內
+在主題的 github 下載 zip 檔案，解壓縮後放進 themes 內
+使用 git submodule
+
+我是使用 git submodule 管理主題，在後續資料夾搬遷比較方便。
+各個主題都有不同需要設定的項目，通常主題的 Github 會有說明，照著設定即可。有空再來說說目前使用的主題 cactus 的 設定。
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github page</tag>
       </tags>
   </entry>
   <entry>
@@ -377,7 +476,16 @@ Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：g
 
 整數部分，開頭是最後一次運算的商，接著是最後一次運算的餘，並一路往回取得所有的餘數，如此一來取得 10101。小數點部分，取得第一次計算的整數部分後，一路往後取得所有整數，如此一來會取得 001。所以十進位的 21.125 就是二進位的 10101.001。
 一個一個說明就是：
-1 0 1 0 1. 0 0 1| | | | |  | | || | | | |  | | +-- 0.5*2=1 的整數: 1| | | | |  | +---- 0.25*2=0.5 的整數: 0 | | | | |  +------ 0.125*2=0.25 的整數: 0| | | | +--------- 21/2=10 的餘，就是 1| | | +----------- 10/2=5 的餘，就是 0| | +------------- 5/2=2 的餘，就是 1| +--------------- 2/2=1 的餘，就是 0+----------------- 2/2=1 的 1
+1 0 1 0 1. 0 0 1
+| | | | |  | | |
+| | | | |  | | +-- 0.5*2=1 的整數: 1
+| | | | |  | +---- 0.25*2=0.5 的整數: 0 
+| | | | |  +------ 0.125*2=0.25 的整數: 0
+| | | | +--------- 21/2=10 的餘，就是 1
+| | | +----------- 10/2=5 的餘，就是 0
+| | +------------- 5/2=2 的餘，就是 1
+| +--------------- 2/2=1 的餘，就是 0
++----------------- 2/2=1 的 1
 
 十進位轉八進位進位制的數字為 8，所以：
 
@@ -415,41 +523,106 @@ Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：g
 將該位數的二進位數字（0 或者 1）乘以 2 的某次方，這個某次方的數字就是第一步取得的次方數字。以第三個數字來說，0 的話就是 0 乘以 2 的 2 次方
 
 整數部分：
-1 0 1 0 1| | | | || | | | +-- 1*2^0 = 1| | | +---- 0*2^1 = 0| | +------ 1*2^2 = 4| +-------- 0*2^3 = 0+---------- 1*2^4 = 1616 + 0 + 4 + 0 + 1 = 21
+1 0 1 0 1
+| | | | |
+| | | | +-- 1*2^0 = 1
+| | | +---- 0*2^1 = 0
+| | +------ 1*2^2 = 4
+| +-------- 0*2^3 = 0
++---------- 1*2^4 = 16
+
+16 + 0 + 4 + 0 + 1 = 21
 
 小數部分的規則跟整數的很類似，但小數點下第一位的次方數字是 -1，往後就逐步 -1，故小數點下第三位就是 -3。如此一來轉換的過程就是：
-0 0 1| | || | +-- 1*2^-3 = 1*(1/8) = 0.125| +---- 0*2^-2 = 0*(1/4) = 0+------ 0*2^-1 = 0*(1/2) = 00 + 0 + 0.125 = 0.125
+0 0 1
+| | |
+| | +-- 1*2^-3 = 1*(1/8) = 0.125
+| +---- 0*2^-2 = 0*(1/4) = 0
++------ 0*2^-1 = 0*(1/2) = 0
+
+0 + 0 + 0.125 = 0.125
 
 組合以上兩者後得到十進位的 21.125。
 二進位轉八進位二進位轉八進位需要先將二進位分組，每三個數字為一組，不足的部分補 0，所以就是：
-10101.001 -&gt; 10 101.001 -&gt; 010 101.001010 當作整數的第一分區101 當作整數的第二分區小數點只有一個分區，就是 001
+10101.001 -&gt; 10 101.001 -&gt; 010 101.001
+
+010 當作整數的第一分區
+101 當作整數的第二分區
+小數點只有一個分區，就是 001
 
 接著將各個分區當作獨立的二進位，並將他們轉成十進位的數字。整數部分的第一分區：
-0 1 0| | || | +-- 0*2^0 = 0| |---- 1*2^1 = 2+------ 0*2^2 = 0故第一分區為 0 + 2 + 0 = 2
+0 1 0
+| | |
+| | +-- 0*2^0 = 0
+| |---- 1*2^1 = 2
++------ 0*2^2 = 0
+
+故第一分區為 0 + 2 + 0 = 2
 
 整數第二分區：
-1 0 1| | || | +-- 1*2^0 = 1| +---- 0*2^1 = 0+------ 1*2^2 = 4故第二分區為 4 + 0 + 1 = 5
+1 0 1
+| | |
+| | +-- 1*2^0 = 1
+| +---- 0*2^1 = 0
++------ 1*2^2 = 4
+
+故第二分區為 4 + 0 + 1 = 5
 
 以上整數部分組合起來就是 25。接著是小數部分，小數點只有一個分區：
-0 0 1| | || | +-- 1*2^0 = 1| |---- 0*2^1 = 0+------ 0*2^2 = 0故小數點第一分區為 0 + 0 + 1 = 1
+0 0 1
+| | |
+| | +-- 1*2^0 = 1
+| |---- 0*2^1 = 0
++------ 0*2^2 = 0
+
+故小數點第一分區為 0 + 0 + 1 = 1
 
 以上組合起來，得出的八進位就是 25.1。要注意的是，小數點的轉換其實就整數一樣，只是轉換完畢後不要忘記他其實是小數點的部分．
 二進位轉十六進位跟轉八進位一樣要分組，但十六進位的分組是四個數字一組，不的部分補 0，所以 10101.001 會變成：
-10101.001 -&gt; 1 0101.001 -&gt; 0001 0101.00100001 是整數的第一分區0101 是整數的第二分區小數點只有一個分區，就是 0010
+10101.001 -&gt; 1 0101.001 -&gt; 0001 0101.0010
+
+0001 是整數的第一分區
+0101 是整數的第二分區
+小數點只有一個分區，就是 0010
 
 轉換的方法一樣是將各分區當作獨立的二進位，並將他們轉成整數的十進位，只是不要忘記 0010 是小數點的部分。整數第一分區的轉換為：
-0 0 0 1| | | || | | +-- 1*2^0 = 1| | +---- 0*2^1 = 0| +------ 0*2^2 = 0+-------- 0*2^3 = 0故整數第一分區為 0 + 0 + 0 + 1 = 1
+0 0 0 1
+| | | |
+| | | +-- 1*2^0 = 1
+| | +---- 0*2^1 = 0
+| +------ 0*2^2 = 0
++-------- 0*2^3 = 0
+
+故整數第一分區為 0 + 0 + 0 + 1 = 1
 
 第二分區的轉換：
-0 1 0 1| | | || | | +-- 1*2^0 = 1| | +---- 0*2^1 = 0| +------ 1*2^2 = 4+-------- 0*2^3 = 0故整數第二分區為 0 + 4 + 0 + 1 = 5
+0 1 0 1
+| | | |
+| | | +-- 1*2^0 = 1
+| | +---- 0*2^1 = 0
+| +------ 1*2^2 = 4
++-------- 0*2^3 = 0
+
+故整數第二分區為 0 + 4 + 0 + 1 = 5
 
 小數點的部分：
-0 0 1 0| | | || | | +-- 0*2^0 = 0| | +---- 1*2^1 = 2| +------ 0*2^2 = 0+-------- 0*2^3 = 0故小數點的部分為 0 + 0 + 2 + 0 = 2
+0 0 1 0
+| | | |
+| | | +-- 0*2^0 = 0
+| | +---- 1*2^1 = 2
+| +------ 0*2^2 = 0
++-------- 0*2^3 = 0
+
+故小數點的部分為 0 + 0 + 2 + 0 = 2
 
 組合以上的結果，二進位的 10101.001 會轉成十六進位的 15.2。
 八進位轉其他進位制八進位轉其他進位制比較特殊，轉二跟轉十可以直接轉，但轉十六不行，得多一步，先轉成二進位，再轉成十六進位。
 八進位轉二進位將單個數字轉成二進位，並以 3bits 為一組（二進位轉八進位也是 3bits 一組）再全部組合起來就好。所以就是：
-2 5 . 1| |   || |   +-- 001| +------ 101+-------- 010
+2 5 . 1
+| |   |
+| |   +-- 001
+| +------ 101
++-------- 010
 
 組合以上的就會變成 010101.001，也就是 10101.001。
 八進位轉十進位根據整數與小數點有不同的規則：
@@ -458,13 +631,25 @@ Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：g
 小數點：小數點下第一位為 -1 次方，往後前進次方就 -1
 
 接著因為是八進位轉十進位，所以進位制的數字為 8。
-2 5 . 1| |   || |   +-- 1*8^-1 = 1*(1/8) = 1*0.125 = 0.125| +------ 5*8^0  = 5+-------- 2*8^1 = 16以上整數的部分就是 16 + 5 = 21，加上小數點的部分就變成十進位的 21.125。
+2 5 . 1
+| |   |
+| |   +-- 1*8^-1 = 1*(1/8) = 1*0.125 = 0.125
+| +------ 5*8^0  = 5
++-------- 2*8^1 = 16
+
+以上整數的部分就是 16 + 5 = 21，加上小數點的部分就變成十進位的 21.125。
 
 八進位轉十六進位八進位轉十六進位無法直接轉換，需要先轉成二進位，再從二進位轉成十六進位。這邊就請參考兩個部分各自的介紹。結果就是：
 八進位 25.1 -&gt; 二進位 10101.001 -&gt; 十六進位 15.2
 
 十六進位轉其他進位制十六進位轉二進位同樣將各個數字轉成二進位，並以 4bits 為一組（二進位轉十六進位時也是 4bits 一組），再組合起來就好：
-1 5 . 2| |   || |   +-- 0010| +------ 0101+-------- 0001組合以上就是 00010101.0010，省去多餘的 0 就變成 10101.001。
+1 5 . 2
+| |   |
+| |   +-- 0010
+| +------ 0101
++-------- 0001
+
+組合以上就是 00010101.0010，省去多餘的 0 就變成 10101.001。
 
 十六進位轉八進位十六進位轉八進位無法直接轉換，需要先轉成二進位，再從二進位轉成十六進位。這邊請參考兩個部分各自的介紹。以結果來說就是：
 十六進位的 15.2 -&gt; 二進位的 10101.001 -&gt; 八進位的 25.1
@@ -475,7 +660,14 @@ Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：g
 小數點：小數點下第一位為 -1 次方，往後前進次方就 -1
 
 接著因為是十六進位轉十進位，所以進位制的數字為 16。
-1 5 . 2| |   || |   +-- 2*16^-1 = 2*(1/16) = 2*0.0625 = 0.125| +------ 5*16^0 = 5+-------- 1*16^1 = 16組合以上兩者，最後得到十進位的 (16 + 5).125，也就是十進位的 21.125。
+1 5 . 2
+| |   |
+| |   +-- 2*16^-1 = 2*(1/16) = 2*0.0625 = 0.125
+| +------ 5*16^0 = 5
++-------- 1*16^1 = 16
+
+組合以上兩者，最後得到十進位的 (16 + 5).125，也就是十進位的 21.125。
+
 ]]></content>
       <tags>
         <tag>進位制轉換</tag>
@@ -489,7 +681,15 @@ Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：g
 設定 Host 與詳細內容雖然上面有提到同一個 Host，但實際使用還是要區分哪個 Host 使用哪一組 Key，只是 Host 不是預設的網站網址，而是使用自定義的名稱。這類的設定會儲存在 ~/.ssh/config 檔案內，沒有此檔案的話就手動新增。
 什麼是 Host？Host 就是 repository 存在的站，預設為該網站的網址，以 NVM 的 git@github.com:nvm-sh/nvm.git 來說，github.com 就是 Host，既有專案可使用 git remote -v 查看。
 ~&#x2F;.ssh&#x2F;config 檔案新增完畢後開啟此檔案，這邊以最常見的 GitHub 使用兩組帳號（各自有自己的 ssh key）為例，設定後檔案內會是像這樣：
-Host github-own    Hostname github.com    PreferredAuthentications publicKey    IdentifyFile ~/.ssh/id_key_ownHost github-work    Hostname github.com    PreferredAuthentications publicKey    IdentifyFile ~/.ssh/id_key_work
+Host github-own
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_own
+
+Host github-work
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_work
 
 如何新增 ssh key 這邊就不說明，可以到 GitHub 官方找。這邊使用了兩個 Host 並各自指定使用的 ssh key，接著只要在 Clone 時設定對應的 Host 就行了。
 調整使用的 Repository URL再以 NVM 為例，假設要使用 github-own 作為 Clone 的帳號，只要將 git@github.com:nvm-sh/nvm.git 改成 git@github-own:nvm-sh/nvm.git 就好。如果要修改既有專案的 URL，以預設的 remote origin 為例，使用 git remote set-url origin git@github-own:nvm-sh/nvm.git 修改即可。
@@ -498,42 +698,6 @@ Host github-own    Hostname github.com    PreferredAuthentications publicKey    
       <tags>
         <tag>Git</tag>
         <tag>SSH key</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
-    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
-    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
-中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
-救命，這台電腦到底是發生什麼事。
-最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
-前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
-
-開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
-開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
-
-安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
-第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
-新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
-接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
-
-start：啟動 vim 時會自動載入的 Plugins
-opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
-
-NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
-好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
-第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
-$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
-
-如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
-第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
-其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
-最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
-]]></content>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Vim</tag>
-        <tag>Vim Plugins</tag>
       </tags>
   </entry>
   <entry>
@@ -607,11 +771,48 @@ xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools
       </tags>
   </entry>
   <entry>
+    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
+    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
+    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
+中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
+救命，這台電腦到底是發生什麼事。
+最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
+前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
+
+開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
+開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
+
+安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
+第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
+新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
+接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
+
+start：啟動 vim 時會自動載入的 Plugins
+opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
+
+NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
+好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
+第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
+$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
+
+如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
+第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
+其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
+最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
+]]></content>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Vim</tag>
+        <tag>Vim Plugins</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
     <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
     <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
 處理方式先直接說處理方式，在 Ubuntu 安裝 dos2unix 後對出問題的檔案使用即可。
-$ apt-get install dos2unix$ dos2unix &lt;file_path&gt;
+$ apt-get install dos2unix
+$ dos2unix &lt;file_path&gt;
 
 發生什麼事？主要是因為在 Windows 上與 Unix 上的檔案的換行符號不同，再加上 Apple 系列的話分為三種：
 
@@ -686,11 +887,32 @@ Vagrant對，沒看錯，就是 Vagrant。
 下載點請走這邊：Download | Vagrant by HashiCorp
 安裝 vagrant 耗時有點久，而且第一步卡特別久，總之裝完然後重開機繼續。
 Plugin version第二次 vagrant up 遇到的問題是 plugin 版本過舊：
-Vagrant failed to initialize at a very early stage:The plugins failed to initialize correctly. This may be due to manualmodifications made within the Vagrant home directory. Vagrant canattempt to automatically correct this issue by running:  vagrant plugin repairIf Vagrant was recently updated, this error may be due to incompatibleversions of dependencies. To fix this problem please remove and re-installall plugins. Vagrant can attempt to do this automatically by running:  vagrant plugin expunge --reinstallOr you may want to try updating the installed plugins to their latestversions:  vagrant plugin updateError message given during initialization: Unable to resolve dependency: user requested &#x27;vagrant-parallels (= 2.0.1)&#x27;
+Vagrant failed to initialize at a very early stage:
+
+The plugins failed to initialize correctly. This may be due to manual
+modifications made within the Vagrant home directory. Vagrant can
+attempt to automatically correct this issue by running:
+
+  vagrant plugin repair
+
+If Vagrant was recently updated, this error may be due to incompatible
+versions of dependencies. To fix this problem please remove and re-install
+all plugins. Vagrant can attempt to do this automatically by running:
+
+  vagrant plugin expunge --reinstall
+
+Or you may want to try updating the installed plugins to their latest
+versions:
+
+  vagrant plugin update
+
+Error message given during initialization: Unable to resolve dependency: user requested &#39;vagrant-parallels (= 2.0.1)&#39;
 
 好又是版本問題，三個方法內我選擇使用 vagrant plugin update，將 vagrant-parallels 更新到 2.2.0。
 network第三次 vagrant up 遇到網卡問題：
-Stderr: VBoxManage.exe: error: Failed to open/create the internal network &#x27;HostInterfaceNetworking-VirtualBox Host-Only Ethernet Adapter #2&#x27; (VERR_INTNET_FLT_IF_NOT_FOUND).VBoxManage.exe: error: Failed to attach the network LUN (VERR_INTNET_FLT_IF_NOT_FOUND)VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component ConsoleWrap, interface IConsole
+Stderr: VBoxManage.exe: error: Failed to open/create the internal network &#39;HostInterfaceNetworking-VirtualBox Host-Only Ethernet Adapter #2&#39; (VERR_INTNET_FLT_IF_NOT_FOUND).
+VBoxManage.exe: error: Failed to attach the network LUN (VERR_INTNET_FLT_IF_NOT_FOUND)
+VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component ConsoleWrap, interface IConsole
 
 完全不知道發生什麼事，拿關鍵字直接 google 後找到一篇說重啟網卡就好，於是：
 
@@ -733,33 +955,93 @@ Github - FontAwesome&#x2F;vue-fontawesome
 Web Fonts vs SVG | Font Awesome Docs
 
 package.json因個人專案需求使用的是 VueJs 3 + fontawesome 5，故此檔案這部分會是長這樣：
-&#123;    //...前略    &quot;dependencies&quot;: &#123;        &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.3.0&quot;,    // svg core        &quot;@fortawesome/free-regular-svg-icons&quot;: &quot;^5.15.4&quot;, // 免費版 regular icon        &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,   // 免費版 solid icon        &quot;@fortawesome/free-brands-svg-icons&quot;: &quot;^5.15.4&quot;,  // 免費版 brand icon        &quot;@fortawesome/vue-fontawesome&quot;: &quot;^3.0.0-5&quot;,       // vue component        &quot;vue&quot;: &quot;^3.0.0&quot;    &#125;,    //...後略&#125;
+&#123;
+    //...前略
+    &quot;dependencies&quot;: &#123;
+        &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.3.0&quot;,    // svg core
+        &quot;@fortawesome/free-regular-svg-icons&quot;: &quot;^5.15.4&quot;, // 免費版 regular icon
+        &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,   // 免費版 solid icon
+        &quot;@fortawesome/free-brands-svg-icons&quot;: &quot;^5.15.4&quot;,  // 免費版 brand icon
+        &quot;@fortawesome/vue-fontawesome&quot;: &quot;^3.0.0-5&quot;,       // vue component
+        &quot;vue&quot;: &quot;^3.0.0&quot;
+    &#125;,
+    //...後略
+&#125;
 
 這邊不知道那五個 fontawesome 是什麼沒啥問題，後面會介紹。
-設置開始1. 安裝 svg core# npm$ npm i --save @fortawesome/fontawesome-svg-core# yarn$ yarn add @fortawesome/fontawesome-svg-core
+設置開始1. 安裝 svg core# npm
+$ npm i --save @fortawesome/fontawesome-svg-core
+
+# yarn
+$ yarn add @fortawesome/fontawesome-svg-core
 
 SVG Core 的介紹可以看這邊 SVG Core | Font Awesome Docs，他可以減少專案最後打包的版本，因為只打包了專案有使用的 icon，而非像 web font 那樣打包了所有的 icon（但其實使用到的很少）。
 2. 安裝 icon packagesFont Awesome icon package 有分免費版跟付費版，icon 數量上一定有差別，一樣依需求選擇即可，以目前個人專案使用來說免費版就蠻夠用了。
 Plan 與價格可以看這邊：Plans &amp; Pricing | Font Awesome
 免費版跟付費版 icon 目前看來差別在付費版有 Light 與 Thin 版本，而一個 icon solid 與 regular 版本可能分別在免費版與付費版裡。
-免費版 icon# npm$ npm i --save @fortawesome/free-solid-svg-icons$ npm i --save @fortawesome/free-regular-svg-icons$ npm i --save @fortawesome/free-brands-svg-icons# yarn$ yarn add @fortawesome/free-solid-svg-icons$ yarn add @fortawesome/free-regular-svg-icons$ yarn add @fortawesome/free-brands-svg-icons
+免費版 icon# npm
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/free-regular-svg-icons
+$ npm i --save @fortawesome/free-brands-svg-icons
+
+# yarn
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/free-regular-svg-icons
+$ yarn add @fortawesome/free-brands-svg-icons
 
 不指定版本的話會是 fontawesome 6（就是最新版），如要使用 5 的話需指定版本，例如 npm 的話：
 $ npm i --save @fortawesome/free-solid-svg-icons^5.15.4
 
 付費版 icon這邊是參考官方的寫法
-# npm$ npm i --save @fortawesome/pro-solid-svg-icons$ npm i --save @fortawesome/pro-regular-svg-icons$ npm i --save @fortawesome/pro-light-svg-icons$ npm i --save @fortawesome/pro-thin-svg-icons$ npm i --save @fortawesome/pro-duotone-svg-icons# yarn$ yarn add @fortawesome/pro-solid-svg-icons$ yarn add @fortawesome/pro-regular-svg-icons$ yarn add @fortawesome/pro-light-svg-icons$ yarn add @fortawesome/pro-thin-svg-icons$ yarn add @fortawesome/pro-duotone-svg-icons
+# npm
+$ npm i --save @fortawesome/pro-solid-svg-icons
+$ npm i --save @fortawesome/pro-regular-svg-icons
+$ npm i --save @fortawesome/pro-light-svg-icons
+$ npm i --save @fortawesome/pro-thin-svg-icons
+$ npm i --save @fortawesome/pro-duotone-svg-icons
+
+# yarn
+$ yarn add @fortawesome/pro-solid-svg-icons
+$ yarn add @fortawesome/pro-regular-svg-icons
+$ yarn add @fortawesome/pro-light-svg-icons
+$ yarn add @fortawesome/pro-thin-svg-icons
+$ yarn add @fortawesome/pro-duotone-svg-icons
 
 3. 安裝 vue component這邊在 Vue 2 與 Vue 3 有差別，官方寫法是 Vue 2 的版本，Vue 3 需到 component github 才有說明
-# npm$ npm i --save @fortawesome/vue-fontawesome@latest     # vue 2$ npm i --save @fortawesome/vue-fontawesome@prerelease # vue 3# yarn$ yarn add @fortawesome/vue-fontawesome@latest      # vue2$ yarn add @fortawesome/vue-fontawesome@prerelease  # vue3
+# npm
+$ npm i --save @fortawesome/vue-fontawesome@latest     # vue 2
+$ npm i --save @fortawesome/vue-fontawesome@prerelease # vue 3
+
+# yarn
+$ yarn add @fortawesome/vue-fontawesome@latest      # vue2
+$ yarn add @fortawesome/vue-fontawesome@prerelease  # vue3
 
 使用1. 全域設定 fontawesome vue component首先需要在 main.js 全域設定這個 component，才能直接在其他的 component 內直接使用。
-// main.jsimport &#123; createApp &#125; from &#x27;vue&#x27;;import &#123; library &#125; from &#x27;@fortawesome/fontawesome-svg-core&#x27;;import &#123; fas &#125; from &#x27;@fortawesome/free-solid-svg-icons&#x27;; import &#123; far &#125; from &#x27;@fortawesome/free-regular-svg-icons&#x27;;import &#123; fab &#125; from &#x27;@fortawesome/free-brands-svg-icons&#x27;;import &#123; FontAwesomeIcon &#125; from &#x27;@fortawesome/vue-fontawesome&#x27;;import App from &#x27;./App.vue&#x27;;import router from &#x27;./router&#x27;;import store from &#x27;./store&#x27;;library.add(fas);library.add(far);library.add(fab);createApp(App).use(store)  .use(router)  .component(&#x27;FontAwesomeIcon&#x27;, FontAwesomeIcon)  .mount(&#x27;#app&#x27;);
+// main.js
+
+import &#123; createApp &#125; from &#39;vue&#39;;
+import &#123; library &#125; from &#39;@fortawesome/fontawesome-svg-core&#39;;
+import &#123; fas &#125; from &#39;@fortawesome/free-solid-svg-icons&#39;; 
+import &#123; far &#125; from &#39;@fortawesome/free-regular-svg-icons&#39;;
+import &#123; fab &#125; from &#39;@fortawesome/free-brands-svg-icons&#39;;
+import &#123; FontAwesomeIcon &#125; from &#39;@fortawesome/vue-fontawesome&#39;;
+import App from &#39;./App.vue&#39;;
+import router from &#39;./router&#39;;
+import store from &#39;./store&#39;;
+
+library.add(fas);
+library.add(far);
+library.add(fab);
+
+createApp(App).use(store)
+  .use(router)
+  .component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)
+  .mount(&#39;#app&#39;);
 
 .component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon) 也可以寫成 .component(&#39;font-awesome-icon&#39;, FontAwesomeIcon)，兩者在 component 內使用的方式都是 &lt;font-awesome-icon&gt;&lt;/font-awesome-icon&gt;。
 2. 尋找需要的 icon 並使用接著就到官網 Icons | FontAwesome 找需要的 icon。搜尋框可以切換使用的 fontawesome 版本，要注意的是 5 與 6 相同的 icon 名稱可能不同（例如單字內容相同但順序不同：5 版叫 plus-square，6 版叫 square-plus）。
 以 5 版 solid 的 plus-square 為例：
-&lt;font-awesome-icon :icon=&quot;[&#x27;fas&#x27;, &#x27;plus-square&#x27;]&quot;&gt;&lt;/font-awesome-icon&gt;
+&lt;font-awesome-icon :icon=&quot;[&#39;fas&#39;, &#39;plus-square&#39;]&quot;&gt;&lt;/font-awesome-icon&gt;
 
 最後der碎碎念嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？
 ]]></content>
@@ -774,7 +1056,9 @@ $ npm i --save @fortawesome/free-solid-svg-icons^5.15.4
     <content><![CDATA[開始之前雖然知道 MySQL 有 CONCAT() 這個 function，但怎麼想都達不到需要的目的，一查之下發現居然還有這個 function，又學到了一個。
 這是什麼GROUP_CONCAT() 是 MySQL 8.0 以上提供的 function，需搭配 GROUP BY 一起使用，會連接 group 後的資料。預設使用半形的 , 連接，可設定其他的連接字。
 怎麼使用完整的使用語法如下：
-SELECT col1, GROUP_CONCAT(col2 [ORDER BY clause] [SEPARATOR string])FROM table_nameGROUP BY col1
+SELECT col1, GROUP_CONCAT(col2 [ORDER BY clause] [SEPARATOR string])
+FROM table_name
+GROUP BY col1
 
 
 ORDER BY clause：選填，會先對 col2 進行排序，再將 col2 的資料進行連接
@@ -903,23 +1187,39 @@ book_id
 
 以上資料為有三本資料庫相關的書，其中作者 A 寫了兩本書，作者 B 與作者 A 共同寫了一本書，作者 B 自己也另外寫了一本，作者 C 則是自己獨自寫了一本。
 範例一：取得作者與他們寫的書籍 id目的是在一個 row 內取得作者 id 與他們寫的書籍 id，總共兩個 col，不限書籍 id 的連接方式。
-SELECT author_id, GROUP_CONCAT(book_id)FROM Author_BookGROUP BY author_id;
+SELECT author_id, GROUP_CONCAT(book_id)
+FROM Author_Book
+GROUP BY author_id;
 
 結果：
-author_id   GROUP_CONCAT(book_id)1   1,22   13   3
+author_id   GROUP_CONCAT(book_id)
+1   1,2
+2   1
+3   3
 
 可以看到預設的連接符為半形的逗號，這邊也可以替 GROUP_CONCAT(book_id) 加上 AS 給一個新的 column name。
 範例二：取得作者名稱與他們寫的書籍名稱們目的是在一個 row 內取得作者名稱以及他們寫的書的書籍名稱，進行排序，並用中文的全形逗號「、」進行書籍名稱的連接。以下為了方便所以會使用 AS 簡稱各張 table，實際使用請斟酌，避免簡略太多反而不知道是對應哪一張 table。
-SELECT a.author_name AS author,    GROUP_CONCAT(b.book_name ORDER BY b.book_name ASC SEPARATOR &#x27;、&#x27;) AS bookFROM Author_Book AS abLEFT JOIN Book AS b ON ab.book_id = b.book_idLEFT JOIN Author AS a ON ab.author_id = a.author_idGROUP BY ab.author_id;
+SELECT a.author_name AS author,
+    GROUP_CONCAT(b.book_name ORDER BY b.book_name ASC SEPARATOR &#39;、&#39;) AS book
+FROM Author_Book AS ab
+LEFT JOIN Book AS b ON ab.book_id = b.book_id
+LEFT JOIN Author AS a ON ab.author_id = a.author_id
+GROUP BY ab.author_id;
 
 結果：
-author  books作者 A  MySQL 先刪庫後跑路、MySQL 語法大全作者 B  MySQL 語法大全作者 C  SQLite 新手入門
+author  books
+作者 A  MySQL 先刪庫後跑路、MySQL 語法大全
+作者 B  MySQL 語法大全
+作者 C  SQLite 新手入門
 
 範例三：取得所有書籍 id 並連接成一個字串目的是取得所有書籍 id ，並將他們連接成一組字串。
-SELECT GROUP_CONCAT(book_id)FROM BookGROUP BY NULL;
+SELECT GROUP_CONCAT(book_id)
+FROM Book
+GROUP BY NULL;
 
 結果：
-GROUP_CONCAT(book_id)1,2,3
+GROUP_CONCAT(book_id)
+1,2,3
 
 這邊比較特殊的是，因為 GROUP_CONCAT 需搭配 GROUP BY 使用，而這邊並沒有要 group 的對象，所以直接使用 NULL 進行 group。
 參考資料

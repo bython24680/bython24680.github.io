@@ -20,7 +20,7 @@
   <meta property="article:author" content="Bython">
   
     <meta property="article:published_time" content="2022-03-06T01:44:21+08:00">
-    <meta property="article:modified_time" content="2025-12-30T00:56:03+08:00">
+    <meta property="article:modified_time" content="2026-03-21T16:28:15+08:00">
     
     
       
@@ -54,6 +54,22 @@
   <link rel="stylesheet" href="/css/final.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
   <!-- Google Analytics -->
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
@@ -71,7 +87,8 @@
         root: '/'
     };
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
 
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -201,34 +218,94 @@
 <li><a target="_blank" rel="noopener" href="https://fontawesome.com/v6/docs/web/dig-deeper/webfont-vs-svg">Web Fonts vs SVG | Font Awesome Docs</a></li>
 </ul>
 <h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>因個人專案需求使用的是 VueJs 3 + fontawesome 5，故此檔案這部分會是長這樣：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">//...前略</span></span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/fontawesome-svg-core&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^1.3.0&quot;</span><span class="punctuation">,</span>    <span class="comment">// svg core</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-regular-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span> <span class="comment">// 免費版 regular icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-solid-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span>   <span class="comment">// 免費版 solid icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/free-brands-svg-icons&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.15.4&quot;</span><span class="punctuation">,</span>  <span class="comment">// 免費版 brand icon</span></span><br><span class="line">        <span class="attr">&quot;@fortawesome/vue-fontawesome&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.0.0-5&quot;</span><span class="punctuation">,</span>       <span class="comment">// vue component</span></span><br><span class="line">        <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.0.0&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="comment">//...後略</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-json=">&#123;
+    //...前略
+    &quot;dependencies&quot;: &#123;
+        &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.3.0&quot;,    // svg core
+        &quot;@fortawesome/free-regular-svg-icons&quot;: &quot;^5.15.4&quot;, // 免費版 regular icon
+        &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,   // 免費版 solid icon
+        &quot;@fortawesome/free-brands-svg-icons&quot;: &quot;^5.15.4&quot;,  // 免費版 brand icon
+        &quot;@fortawesome/vue-fontawesome&quot;: &quot;^3.0.0-5&quot;,       // vue component
+        &quot;vue&quot;: &quot;^3.0.0&quot;
+    &#125;,
+    //...後略
+&#125;
+</code></pre>
 <p>這邊不知道那五個 fontawesome 是什麼沒啥問題，後面會介紹。</p>
-<h2 id="設置開始"><a href="#設置開始" class="headerlink" title="設置開始"></a>設置開始</h2><h3 id="1-安裝-svg-core"><a href="#1-安裝-svg-core" class="headerlink" title="1. 安裝 svg core"></a>1. 安裝 svg core</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/fontawesome-svg-core</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/fontawesome-svg-core</span></span><br></pre></td></tr></table></figure>
+<h2 id="設置開始"><a href="#設置開始" class="headerlink" title="設置開始"></a>設置開始</h2><h3 id="1-安裝-svg-core"><a href="#1-安裝-svg-core" class="headerlink" title="1. 安裝 svg core"></a>1. 安裝 svg core</h3><pre><code class="language-shell="># npm
+$ npm i --save @fortawesome/fontawesome-svg-core
 
+# yarn
+$ yarn add @fortawesome/fontawesome-svg-core
+</code></pre>
 <p>SVG Core 的介紹可以看這邊 <a target="_blank" rel="noopener" href="https://fontawesome.com/docs/web/dig-deeper/svg-core">SVG Core | Font Awesome Docs</a>，他可以減少專案最後打包的版本，因為只打包了專案有使用的 icon，而非像 web font 那樣打包了所有的 icon（但其實使用到的很少）。</p>
 <h3 id="2-安裝-icon-packages"><a href="#2-安裝-icon-packages" class="headerlink" title="2. 安裝 icon packages"></a>2. 安裝 icon packages</h3><p>Font Awesome icon package 有分免費版跟付費版，icon 數量上一定有差別，一樣依需求選擇即可，以目前個人專案使用來說免費版就蠻夠用了。</p>
 <p>Plan 與價格可以看這邊：<a target="_blank" rel="noopener" href="https://fontawesome.com/plans">Plans &amp; Pricing | Font Awesome</a></p>
 <p>免費版跟付費版 icon 目前看來差別在付費版有 Light 與 Thin 版本，而一個 icon solid 與 regular 版本可能分別在免費版與付費版裡。</p>
-<h4 id="免費版-icon"><a href="#免費版-icon" class="headerlink" title="免費版 icon"></a>免費版 icon</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-brands-svg-icons</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/free-brands-svg-icons</span></span><br></pre></td></tr></table></figure>
+<h4 id="免費版-icon"><a href="#免費版-icon" class="headerlink" title="免費版 icon"></a>免費版 icon</h4><pre><code class="language-shell="># npm
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/free-regular-svg-icons
+$ npm i --save @fortawesome/free-brands-svg-icons
 
+# yarn
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/free-regular-svg-icons
+$ yarn add @fortawesome/free-brands-svg-icons
+</code></pre>
 <p>不指定版本的話會是 fontawesome 6（就是最新版），如要使用 5 的話需指定版本，例如 npm 的話：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/free-solid-svg-icons^5.15.4</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-shell=">$ npm i --save @fortawesome/free-solid-svg-icons^5.15.4
+</code></pre>
 <h4 id="付費版-icon"><a href="#付費版-icon" class="headerlink" title="付費版 icon"></a>付費版 icon</h4><p>這邊是參考官方的寫法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-light-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-thin-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/pro-duotone-svg-icons</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-solid-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-regular-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-light-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-thin-svg-icons</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/pro-duotone-svg-icons</span></span><br></pre></td></tr></table></figure>
+<pre><code class="language-shell="># npm
+$ npm i --save @fortawesome/pro-solid-svg-icons
+$ npm i --save @fortawesome/pro-regular-svg-icons
+$ npm i --save @fortawesome/pro-light-svg-icons
+$ npm i --save @fortawesome/pro-thin-svg-icons
+$ npm i --save @fortawesome/pro-duotone-svg-icons
 
+# yarn
+$ yarn add @fortawesome/pro-solid-svg-icons
+$ yarn add @fortawesome/pro-regular-svg-icons
+$ yarn add @fortawesome/pro-light-svg-icons
+$ yarn add @fortawesome/pro-thin-svg-icons
+$ yarn add @fortawesome/pro-duotone-svg-icons
+</code></pre>
 <h3 id="3-安裝-vue-component"><a href="#3-安裝-vue-component" class="headerlink" title="3. 安裝 vue component"></a>3. 安裝 vue component</h3><p>這邊在 Vue 2 與 Vue 3 有差別，官方寫法是 Vue 2 的版本，Vue 3 需到 component github 才有說明</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/vue-fontawesome@latest     <span class="comment"># vue 2</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm i --save @fortawesome/vue-fontawesome@prerelease <span class="comment"># vue 3</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">yarn</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/vue-fontawesome@latest      <span class="comment"># vue2</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yarn add @fortawesome/vue-fontawesome@prerelease  <span class="comment"># vue3</span></span></span><br></pre></td></tr></table></figure>
+<pre><code class="language-shell="># npm
+$ npm i --save @fortawesome/vue-fontawesome@latest     # vue 2
+$ npm i --save @fortawesome/vue-fontawesome@prerelease # vue 3
 
+# yarn
+$ yarn add @fortawesome/vue-fontawesome@latest      # vue2
+$ yarn add @fortawesome/vue-fontawesome@prerelease  # vue3
+</code></pre>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-全域設定-fontawesome-vue-component"><a href="#1-全域設定-fontawesome-vue-component" class="headerlink" title="1. 全域設定 fontawesome vue component"></a>1. 全域設定 fontawesome vue component</h3><p>首先需要在 <code>main.js</code> 全域設定這個 component，才能直接在其他的 component 內直接使用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; library &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/fontawesome-svg-core&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fas &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-solid-svg-icons&#x27;</span>; </span><br><span class="line"><span class="keyword">import</span> &#123; far &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-regular-svg-icons&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; fab &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/free-brands-svg-icons&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FontAwesomeIcon</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@fortawesome/vue-fontawesome&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span>;</span><br><span class="line"></span><br><span class="line">library.<span class="title function_">add</span>(fas);</span><br><span class="line">library.<span class="title function_">add</span>(far);</span><br><span class="line">library.<span class="title function_">add</span>(fab);</span><br><span class="line"></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">use</span>(store)</span><br><span class="line">  .<span class="title function_">use</span>(router)</span><br><span class="line">  .<span class="title function_">component</span>(<span class="string">&#x27;FontAwesomeIcon&#x27;</span>, <span class="title class_">FontAwesomeIcon</span>)</span><br><span class="line">  .<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<pre><code class="language-javascript=">// main.js
 
+import &#123; createApp &#125; from &#39;vue&#39;;
+import &#123; library &#125; from &#39;@fortawesome/fontawesome-svg-core&#39;;
+import &#123; fas &#125; from &#39;@fortawesome/free-solid-svg-icons&#39;; 
+import &#123; far &#125; from &#39;@fortawesome/free-regular-svg-icons&#39;;
+import &#123; fab &#125; from &#39;@fortawesome/free-brands-svg-icons&#39;;
+import &#123; FontAwesomeIcon &#125; from &#39;@fortawesome/vue-fontawesome&#39;;
+import App from &#39;./App.vue&#39;;
+import router from &#39;./router&#39;;
+import store from &#39;./store&#39;;
+
+library.add(fas);
+library.add(far);
+library.add(fab);
+
+createApp(App).use(store)
+  .use(router)
+  .component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)
+  .mount(&#39;#app&#39;);
+</code></pre>
 <p><code>.component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)</code> 也可以寫成 <code>.component(&#39;font-awesome-icon&#39;, FontAwesomeIcon)</code>，兩者在 component 內使用的方式都是 <code>&lt;font-awesome-icon&gt;&lt;/font-awesome-icon&gt;</code>。</p>
 <h3 id="2-尋找需要的-icon-並使用"><a href="#2-尋找需要的-icon-並使用" class="headerlink" title="2. 尋找需要的 icon 並使用"></a>2. 尋找需要的 icon 並使用</h3><p>接著就到官網 <a target="_blank" rel="noopener" href="https://fontawesome.com/search">Icons | FontAwesome</a> 找需要的 icon。搜尋框可以切換使用的 fontawesome 版本，要注意的是 5 與 6 相同的 icon 名稱可能不同（例如單字內容相同但順序不同：5 版叫 <code>plus-square</code>，6 版叫 <code>square-plus</code>）。</p>
 <p>以 5 版 solid 的 <code>plus-square</code> 為例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;font-awesome-icon :icon=<span class="string">&quot;[&#x27;fas&#x27;, &#x27;plus-square&#x27;]&quot;</span>&gt;&lt;/font-awesome-icon&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-javascript=">&lt;font-awesome-icon :icon=&quot;[&#39;fas&#39;, &#39;plus-square&#39;]&quot;&gt;&lt;/font-awesome-icon&gt;
+</code></pre>
 <h2 id="最後der碎碎念"><a href="#最後der碎碎念" class="headerlink" title="最後der碎碎念"></a>最後der碎碎念</h2><p>嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？</p>
 
     </div>
@@ -332,7 +409,7 @@
         <img src="/assets/images/avatar.jpg" alt="Avatar" class="rounded-full w-full h-full object-cover">
     </div>
     <h3 class="text-lg font-bold dark:text-white">Bython</h3>
-    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者（暫定）</p>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者</p>
     <div class="flex flex-wrap justify-center gap-3">
         <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
     </div>
@@ -626,6 +703,17 @@
   <!-- Disqus Comment Count Script -->
   
   <script id="dsq-count-scr" src="//zoneless.disqus.com/count.js" async></script>
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
   
 </body>
 </html>

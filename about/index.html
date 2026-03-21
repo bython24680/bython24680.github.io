@@ -43,6 +43,22 @@
   <link rel="stylesheet" href="/css/final.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
   <!-- Google Analytics -->
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
@@ -60,7 +76,8 @@
         root: '/'
     };
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
 
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -156,7 +173,7 @@
 
         <!-- Title -->
         <h1 class="text-4xl font-bold dark:text-white mb-2">Bython</h1>
-        <p class="text-lg text-primary font-medium mb-6">全端開發者（暫定）</p>
+        <p class="text-lg text-primary font-medium mb-6">全端開發者</p>
 
         <!-- Content (Markdown from about/index.md) -->
         <div class="prose prose-lg dark:prose-invert mx-auto mb-10 text-slate-500 dark:text-slate-400">
@@ -345,6 +362,17 @@
       });
   </script>
   <!-- Disqus Comment Count Script -->
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
   
 </body>
 </html>

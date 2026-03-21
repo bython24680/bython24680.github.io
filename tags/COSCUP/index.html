@@ -43,6 +43,22 @@
   <link rel="stylesheet" href="/css/final.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
   <!-- Google Analytics -->
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
@@ -60,7 +76,8 @@
         root: '/'
     };
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
 
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -249,7 +266,7 @@
         <img src="/assets/images/avatar.jpg" alt="Avatar" class="rounded-full w-full h-full object-cover">
     </div>
     <h3 class="text-lg font-bold dark:text-white">Bython</h3>
-    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者（暫定）</p>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者</p>
     <div class="flex flex-wrap justify-center gap-3">
         <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
     </div>
@@ -277,21 +294,21 @@
                             <i class="fas fa-clock w-5 text-slate-400"></i>
                             建站天數
                         </span>
-                        <span class="font-bold">2162</span>
+                        <span class="font-bold">2168</span>
                     </li>
                     <li class="flex justify-between">
                         <span>
                             <i class="fas fa-history w-5 text-slate-400"></i>
                             最後更新
                         </span>
-                        <span>2025-12-30</span>
+                        <span>2026-03-21</span>
                     </li>
                     <li class="flex justify-between">
                         <span>
                             <i class="fas fa-pen-nib w-5 text-slate-400"></i>
                             全站字數
                         </span>
-                        <span>33.5k</span>
+                        <span>33.3k</span>
                     </li>
                 </ul>
             </div>
@@ -347,7 +364,7 @@
         <!-- 6. Calendar -->
         
         
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 border border-slate-100 dark:border-slate-700">
+            <div id="sidebar-calendar-this-month" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 border border-slate-100 dark:border-slate-700">
                 <h3 class="font-bold mb-4 dark:text-white border-l-4 border-green-400 pl-2">本月日曆</h3>
                 <div class="calendar-grid dark:text-slate-300 text-xs">
                     
@@ -361,192 +378,204 @@
                     
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             1
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             2
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             3
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             4
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             5
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             6
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             7
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             8
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             9
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             10
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             11
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             12
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             13
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             14
                             
                         </div>
                     
                         
-                        <div class="today pt-1 pb-3.5 rounded bg-primary text-white">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             15
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             16
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             17
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             18
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             19
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             20
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             21
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             22
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             23
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             24
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             25
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             26
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             27
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             28
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             29
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             30
                             
                         </div>
                     
                         
-                        <div class="pt-1 pb-3.5">
+                        <div class="sidebar-calendar-this-month__date pt-1 pb-3.5">
                             31
                             
                         </div>
                     
                 </div>
+                <script>
+                let sideCalendarThisMonthEle = document.getElementById('sidebar-calendar-this-month');
+                console.log(sideCalendarThisMonthEle);
+                if (sideCalendarThisMonthEle) {
+                    let dateToday = parseInt((new Date()).getDate());
+                    sideCalendarThisMonthEle.querySelectorAll('div.sidebar-calendar-this-month__date').forEach(function (dateNode) {
+                        if (dateToday == parseInt(dateNode.innerText.trim())) {
+                            dateNode.classList.add('today', 'rounded', 'bg-primary', 'text-white', 'dark:bg-primary-dark');
+                        }
+                    });
+                }
+                </script>
             </div>
         
     </div>
@@ -725,6 +754,17 @@
       });
   </script>
   <!-- Disqus Comment Count Script -->
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
   
 </body>
 </html>

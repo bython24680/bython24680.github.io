@@ -22,7 +22,7 @@
   <meta property="article:author" content="Bython">
   
     <meta property="article:published_time" content="2024-04-21T22:38:13+08:00">
-    <meta property="article:modified_time" content="2025-12-30T00:56:03+08:00">
+    <meta property="article:modified_time" content="2026-03-21T16:28:15+08:00">
     
     
       
@@ -55,6 +55,22 @@
   <link rel="stylesheet" href="/css/final.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
   <!-- Google Analytics -->
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
@@ -72,7 +88,8 @@
         root: '/'
     };
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
 
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -185,13 +202,62 @@
     <div id="post-content" class="prose prose-lg prose-slate dark:prose-invert max-w-none">
         <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>因為主要是使用 Git command 而非 UI，除了常用的 <code>add</code> 這類，有些久沒用就會忘記，然後還要 google 老半天，想想不如自己寫一篇，對，就是這篇。因為這樣，這篇不會是完整的 Git commands，會是我常用或會遇到但會忘記的指令，分類也是照我自己使用習慣來分類。</p>
 <p>這篇會慢慢更新，想到就更新，更新時間會加到標題上。</p>
-<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h3 id="Repository-基本"><a href="#Repository-基本" class="headerlink" title="Repository 基本"></a>Repository 基本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 顯示設定的 remote 與 URL：git remote -v</span></span><br><span class="line"><span class="comment"># origin 是預設的 remote name</span></span><br><span class="line">$ git remote -v</span><br><span class="line">origin &lt;REMOTE_URL&gt; (fetch)</span><br><span class="line">origin &lt;REMOTE_URL&gt; (push)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;</span></span><br><span class="line"><span class="comment"># 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url</span></span><br><span class="line">$ git remote set-url origin &lt;REMOTE_URL&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;</span></span><br><span class="line"><span class="comment"># remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）</span></span><br><span class="line">$ git remote add devorigin &lt;REMOTE_URL&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h3 id="Repository-基本"><a href="#Repository-基本" class="headerlink" title="Repository 基本"></a>Repository 基本</h3><pre><code class="language-bash"># 顯示設定的 remote 與 URL：git remote -v
+# origin 是預設的 remote name
+$ git remote -v
+origin &lt;REMOTE_URL&gt; (fetch)
+origin &lt;REMOTE_URL&gt; (push)
 
-<h3 id="開發進度相關"><a href="#開發進度相關" class="headerlink" title="開發進度相關"></a>開發進度相關</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;</span></span><br><span class="line"><span class="comment"># 當前進度未 commit 或者有衝突時會跳不過去</span></span><br><span class="line">$ git checkout develop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將進度推到遠端：git push &lt;REMOTE_NAME&gt;</span></span><br><span class="line"><span class="comment"># remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱</span></span><br><span class="line"><span class="comment"># 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險</span></span><br><span class="line">$ git push</span><br><span class="line">$ git push devorigin</span><br><span class="line">$ git push origin -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;</span></span><br><span class="line"><span class="comment"># 個人習慣使用 --rebase 讓線比較沒那麼複雜</span></span><br><span class="line">$ git pull</span><br><span class="line">$ git pull --rebase</span><br><span class="line"></span><br><span class="line"><span class="comment"># Commit 當前進度：git commit -m &lt;MESSAGE&gt;</span></span><br><span class="line"><span class="comment"># 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;</span></span><br><span class="line">$ git commit</span><br><span class="line">$ git commit -m <span class="string">&#x27;feat: Update README.md&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;</span></span><br><span class="line"><span class="comment"># 個人習慣加上 --no-ff 保留 merge 的小耳朵</span></span><br><span class="line">$ git merge develop --no-ff</span><br></pre></td></tr></table></figure>
+# 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url
+$ git remote set-url origin &lt;REMOTE_URL&gt;
 
-<h3 id="Commit-相關"><a href="#Commit-相關" class="headerlink" title="Commit 相關"></a>Commit 相關</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;</span></span><br><span class="line"><span class="comment"># commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的</span></span><br><span class="line"><span class="comment"># 加到當前 branch 的順序，舊到新為設定 SHA 的左到右</span></span><br><span class="line">$ git cherry-pick 5262773e d378c4e3</span><br></pre></td></tr></table></figure>
+# 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）
+$ git remote add devorigin &lt;REMOTE_URL&gt;
+</code></pre>
+<h3 id="開發進度相關"><a href="#開發進度相關" class="headerlink" title="開發進度相關"></a>開發進度相關</h3><pre><code class="language-bash"># 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;
+# 當前進度未 commit 或者有衝突時會跳不過去
+$ git checkout develop
 
-<h3 id="Branch-相關"><a href="#Branch-相關" class="headerlink" title="Branch 相關"></a>Branch 相關</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;</span></span><br><span class="line">$ git push origin develop:feature/create-login-form</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;</span></span><br><span class="line">$ git push origin :feature/create-login-form</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;</span></span><br><span class="line">$ git branch -D feature/create-ligin-form</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看本地端 Branch</span></span><br><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+# 將進度推到遠端：git push &lt;REMOTE_NAME&gt;
+# remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱
+# 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險
+$ git push
+$ git push devorigin
+$ git push origin -f
+
+# 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;
+# 個人習慣使用 --rebase 讓線比較沒那麼複雜
+$ git pull
+$ git pull --rebase
+
+# Commit 當前進度：git commit -m &lt;MESSAGE&gt;
+# 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;
+$ git commit
+$ git commit -m &#39;feat: Update README.md&#39;
+
+# Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;
+# 個人習慣加上 --no-ff 保留 merge 的小耳朵
+$ git merge develop --no-ff
+</code></pre>
+<h3 id="Commit-相關"><a href="#Commit-相關" class="headerlink" title="Commit 相關"></a>Commit 相關</h3><pre><code class="language-bash"># 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;
+# commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的
+# 加到當前 branch 的順序，舊到新為設定 SHA 的左到右
+$ git cherry-pick 5262773e d378c4e3
+</code></pre>
+<h3 id="Branch-相關"><a href="#Branch-相關" class="headerlink" title="Branch 相關"></a>Branch 相關</h3><pre><code class="language-bash"># 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;
+$ git push origin develop:feature/create-login-form
+
+# 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;
+$ git push origin :feature/create-login-form
+
+# 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;
+$ git branch -D feature/create-ligin-form
+
+# 查看本地端 Branch
+$ git branch
+</code></pre>
 
     </div>
 
@@ -289,7 +355,7 @@
         <img src="/assets/images/avatar.jpg" alt="Avatar" class="rounded-full w-full h-full object-cover">
     </div>
     <h3 class="text-lg font-bold dark:text-white">Bython</h3>
-    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者（暫定）</p>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者</p>
     <div class="flex flex-wrap justify-center gap-3">
         <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
     </div>
@@ -598,6 +664,17 @@
   <!-- Disqus Comment Count Script -->
   
   <script id="dsq-count-scr" src="//zoneless.disqus.com/count.js" async></script>
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
   
 </body>
 </html>

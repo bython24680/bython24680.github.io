@@ -22,7 +22,7 @@
   <meta property="article:author" content="Bython">
   
     <meta property="article:published_time" content="2023-12-09T16:02:42+08:00">
-    <meta property="article:modified_time" content="2025-12-30T00:56:03+08:00">
+    <meta property="article:modified_time" content="2026-03-21T16:28:15+08:00">
     
     
       
@@ -55,6 +55,22 @@
   <link rel="stylesheet" href="/css/final.css">
   <link rel="stylesheet" href="/css/style.css">
 
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
   <!-- Google Analytics -->
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
@@ -72,7 +88,8 @@
         root: '/'
     };
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
 
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
   
@@ -186,8 +203,10 @@
         <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>雖然知道 MySQL 有 <code>CONCAT()</code> 這個 function，但怎麼想都達不到需要的目的，一查之下發現居然還有這個 function，又學到了一個。</p>
 <h2 id="這是什麼"><a href="#這是什麼" class="headerlink" title="這是什麼"></a>這是什麼</h2><p><code>GROUP_CONCAT()</code> 是 MySQL 8.0 以上提供的 function，需搭配 <code>GROUP BY</code> 一起使用，會連接 group 後的資料。預設使用半形的 <code>,</code> 連接，可設定其他的連接字。</p>
 <h2 id="怎麼使用"><a href="#怎麼使用" class="headerlink" title="怎麼使用"></a>怎麼使用</h2><p>完整的使用語法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT col1, GROUP_CONCAT(col2 [ORDER BY clause] [SEPARATOR string])</span><br><span class="line">FROM table_name</span><br><span class="line">GROUP BY col1</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-mysql=">SELECT col1, GROUP_CONCAT(col2 [ORDER BY clause] [SEPARATOR string])
+FROM table_name
+GROUP BY col1
+</code></pre>
 <ul>
 <li>ORDER BY clause：選填，會先對 col2 進行排序，再將 col2 的資料進行連接</li>
 <li>SEPARATOR string：連接 col2 資料的連接符。除了符號外，文字也行。使用一組單括號括起</li>
@@ -315,24 +334,40 @@
 </tbody></table>
 <p>以上資料為有三本資料庫相關的書，其中作者 A 寫了兩本書，作者 B 與作者 A 共同寫了一本書，作者 B 自己也另外寫了一本，作者 C 則是自己獨自寫了一本。</p>
 <h3 id="範例一：取得作者與他們寫的書籍-id"><a href="#範例一：取得作者與他們寫的書籍-id" class="headerlink" title="範例一：取得作者與他們寫的書籍 id"></a>範例一：取得作者與他們寫的書籍 id</h3><p>目的是在一個 row 內取得作者 id 與他們寫的書籍 id，總共兩個 col，不限書籍 id 的連接方式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT author_id, GROUP_CONCAT(book_id)</span><br><span class="line">FROM Author_Book</span><br><span class="line">GROUP BY author_id;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-mysql=">SELECT author_id, GROUP_CONCAT(book_id)
+FROM Author_Book
+GROUP BY author_id;
+</code></pre>
 <p>結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">author_id   GROUP_CONCAT(book_id)</span><br><span class="line">1   1,2</span><br><span class="line">2   1</span><br><span class="line">3   3</span><br></pre></td></tr></table></figure>
-
+<pre><code>author_id   GROUP_CONCAT(book_id)
+1   1,2
+2   1
+3   3
+</code></pre>
 <p>可以看到預設的連接符為半形的逗號，這邊也可以替 <code>GROUP_CONCAT(book_id)</code> 加上 <code>AS</code> 給一個新的 column name。</p>
 <h3 id="範例二：取得作者名稱與他們寫的書籍名稱們"><a href="#範例二：取得作者名稱與他們寫的書籍名稱們" class="headerlink" title="範例二：取得作者名稱與他們寫的書籍名稱們"></a>範例二：取得作者名稱與他們寫的書籍名稱們</h3><p>目的是在一個 row 內取得作者名稱以及他們寫的書的書籍名稱，進行排序，並用中文的全形逗號「、」進行書籍名稱的連接。以下為了方便所以會使用 <code>AS</code> 簡稱各張 table，實際使用請斟酌，避免簡略太多反而不知道是對應哪一張 table。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT a.author_name AS author,</span><br><span class="line">    GROUP_CONCAT(b.book_name ORDER BY b.book_name ASC SEPARATOR &#x27;、&#x27;) AS book</span><br><span class="line">FROM Author_Book AS ab</span><br><span class="line">LEFT JOIN Book AS b ON ab.book_id = b.book_id</span><br><span class="line">LEFT JOIN Author AS a ON ab.author_id = a.author_id</span><br><span class="line">GROUP BY ab.author_id;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-mysql=">SELECT a.author_name AS author,
+    GROUP_CONCAT(b.book_name ORDER BY b.book_name ASC SEPARATOR &#39;、&#39;) AS book
+FROM Author_Book AS ab
+LEFT JOIN Book AS b ON ab.book_id = b.book_id
+LEFT JOIN Author AS a ON ab.author_id = a.author_id
+GROUP BY ab.author_id;
+</code></pre>
 <p>結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">author  books</span><br><span class="line">作者 A  MySQL 先刪庫後跑路、MySQL 語法大全</span><br><span class="line">作者 B  MySQL 語法大全</span><br><span class="line">作者 C  SQLite 新手入門</span><br></pre></td></tr></table></figure>
-
+<pre><code>author  books
+作者 A  MySQL 先刪庫後跑路、MySQL 語法大全
+作者 B  MySQL 語法大全
+作者 C  SQLite 新手入門
+</code></pre>
 <h3 id="範例三：取得所有書籍-id-並連接成一個字串"><a href="#範例三：取得所有書籍-id-並連接成一個字串" class="headerlink" title="範例三：取得所有書籍 id 並連接成一個字串"></a>範例三：取得所有書籍 id 並連接成一個字串</h3><p>目的是取得所有書籍 id ，並將他們連接成一組字串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT GROUP_CONCAT(book_id)</span><br><span class="line">FROM Book</span><br><span class="line">GROUP BY NULL;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-mysql=">SELECT GROUP_CONCAT(book_id)
+FROM Book
+GROUP BY NULL;
+</code></pre>
 <p>結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GROUP_CONCAT(book_id)</span><br><span class="line">1,2,3</span><br></pre></td></tr></table></figure>
-
+<pre><code>GROUP_CONCAT(book_id)
+1,2,3
+</code></pre>
 <p>這邊比較特殊的是，因為 <code>GROUP_CONCAT</code> 需搭配 <code>GROUP BY</code> 使用，而這邊並沒有要 group 的對象，所以直接使用 NULL 進行 group。</p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_group-concat">MySQL :: MySQL 8.0 Reference Manual :: 12.19.1 Aggregate Function Descriptions</a></li>
@@ -439,7 +474,7 @@
         <img src="/assets/images/avatar.jpg" alt="Avatar" class="rounded-full w-full h-full object-cover">
     </div>
     <h3 class="text-lg font-bold dark:text-white">Bython</h3>
-    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者（暫定）</p>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者</p>
     <div class="flex flex-wrap justify-center gap-3">
         <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
     </div>
@@ -748,6 +783,17 @@
   <!-- Disqus Comment Count Script -->
   
   <script id="dsq-count-scr" src="//zoneless.disqus.com/count.js" async></script>
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
   
 </body>
 </html>
