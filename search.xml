@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何在台灣購買 Google domains 網域</title>
+    <url>//post/buy-a-domain-from-google-in-taiwan/</url>
+    <content><![CDATA[開始之前因為想幫部落格買個 domain，在 Godaddy 跟 Google domains 之間猶豫不決，最後選擇了 Google domains。
+決定的比較點是：
+
+Godaddy 網域價格第一年可能比較便宜，甚至比 Google domains 便宜，但那價格僅適用於第一年，第二年價格會多上許多
+Google Domains 對我而言比較好管理，不用再另外註冊一個帳號
+Google Domains 購買後直接提供 WHOIS Privacy，無須額外購買。Godaddy 則需要額外購買。
+
+基於以上所以選擇了 Google domains。
+因為印象中 Google domains 會擋台灣購買，但朋友又說可以購買，他也買成功了，於是決定試試看。
+資訊
+Google Domains
+
+Google domains第一步：搜索網域名稱部落格名稱維持 zoneless 有一段時間了，之前還在 weebly 時網址內也是有加上 zoneless，所以決定繼續使用 zoneless。
+決定好名稱後，就是決定網域結尾了。
+網域結尾其實有個專有名詞，叫做 Top-level domain，可以到維基百科看列表與該結尾代表的意義。
+第二步：結帳決定好網域名稱後就直接加進購物車進入結帳。
+
+
+.DEV 如說明所示需搭配 SSL 憑證，因為此網域是要給 Github pages 使用，所以就沒額外處理憑證。其他的網域結尾不一定會有此提示框。
+可以看到隱私保護服務已啟用，這點不建議取消。
+接著會進入填寫資訊的步驟，若已經填寫過則這一步會跳過並使用之前填寫過的資訊。
+
+
+儲存後進入下一步。
+
+
+這一步若地區選擇美國以外的話可能會出現「該地區 domain 僅提供公司行號使用」這類的提示，並且無法進行結帳的動作。須至側邊欄的地區進行地區更改。將地區選擇美國後可繼續進行這個步驟。注意事項如範例圖所示，特別注意的是帳單地址，這邊的帳單地址並不需要填寫完整的地址，只需要填寫地區與郵遞區號，請務必照實填寫，至少地區與郵遞區號要能對上。
+這邊填寫的帳單地址可至 Google pay 裡查看，Google domains 順利結帳後可以在 Google pay 設定的專用付款資料內看到剛剛結帳時新增的資料。
+順帶一提因為 Google domains 提供自動續約，結帳時使用的信用卡也會新增至 Google pay（表示就是使用 Google pay 付款的？），而移除 Google pay 信用卡後須新增另一張信用卡，這邊若覺得留信用卡資訊在 Google 方不太安全者可能要多加注意。
+最後點擊結帳就能順利買到想要的網域了。
+額外成功購買的網域可以在 Google domains 我的網域內看到，點擊管理後可以進行 DNS 設定等等，這邊有時間會說說如何設定 Github pages。
+]]></content>
+      <tags>
+        <tag>google domains</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 與 Laravel 使用不同值更新多筆資料同一欄位</title>
     <url>//post/bulk-update-multiple-records-with-different-value-in-mysql-and-laravel/</url>
     <content><![CDATA[開始之前遇到需求是更新多筆資料同一個欄位，最直覺的做法就是拿出所有需要更新的資料後，for 迴圈一個一個 update，然後一個想覺得不對，這樣一個 update 就是一個 sql，以效能優化來說 sql 能少就少，所以，有沒有方法能一條 sql 結束呢？
@@ -75,45 +114,6 @@ Running a general statement - Laravel 8
       <tags>
         <tag>mysql</tag>
         <tag>laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在台灣購買 Google domains 網域</title>
-    <url>//post/buy-a-domain-from-google-in-taiwan/</url>
-    <content><![CDATA[開始之前因為想幫部落格買個 domain，在 Godaddy 跟 Google domains 之間猶豫不決，最後選擇了 Google domains。
-決定的比較點是：
-
-Godaddy 網域價格第一年可能比較便宜，甚至比 Google domains 便宜，但那價格僅適用於第一年，第二年價格會多上許多
-Google Domains 對我而言比較好管理，不用再另外註冊一個帳號
-Google Domains 購買後直接提供 WHOIS Privacy，無須額外購買。Godaddy 則需要額外購買。
-
-基於以上所以選擇了 Google domains。
-因為印象中 Google domains 會擋台灣購買，但朋友又說可以購買，他也買成功了，於是決定試試看。
-資訊
-Google Domains
-
-Google domains第一步：搜索網域名稱部落格名稱維持 zoneless 有一段時間了，之前還在 weebly 時網址內也是有加上 zoneless，所以決定繼續使用 zoneless。
-決定好名稱後，就是決定網域結尾了。
-網域結尾其實有個專有名詞，叫做 Top-level domain，可以到維基百科看列表與該結尾代表的意義。
-第二步：結帳決定好網域名稱後就直接加進購物車進入結帳。
-
-
-.DEV 如說明所示需搭配 SSL 憑證，因為此網域是要給 Github pages 使用，所以就沒額外處理憑證。其他的網域結尾不一定會有此提示框。
-可以看到隱私保護服務已啟用，這點不建議取消。
-接著會進入填寫資訊的步驟，若已經填寫過則這一步會跳過並使用之前填寫過的資訊。
-
-
-儲存後進入下一步。
-
-
-這一步若地區選擇美國以外的話可能會出現「該地區 domain 僅提供公司行號使用」這類的提示，並且無法進行結帳的動作。須至側邊欄的地區進行地區更改。將地區選擇美國後可繼續進行這個步驟。注意事項如範例圖所示，特別注意的是帳單地址，這邊的帳單地址並不需要填寫完整的地址，只需要填寫地區與郵遞區號，請務必照實填寫，至少地區與郵遞區號要能對上。
-這邊填寫的帳單地址可至 Google pay 裡查看，Google domains 順利結帳後可以在 Google pay 設定的專用付款資料內看到剛剛結帳時新增的資料。
-順帶一提因為 Google domains 提供自動續約，結帳時使用的信用卡也會新增至 Google pay（表示就是使用 Google pay 付款的？），而移除 Google pay 信用卡後須新增另一張信用卡，這邊若覺得留信用卡資訊在 Google 方不太安全者可能要多加注意。
-最後點擊結帳就能順利買到想要的網域了。
-額外成功購買的網域可以在 Google domains 我的網域內看到，點擊管理後可以進行 DNS 設定等等，這邊有時間會說說如何設定 Github pages。
-]]></content>
-      <tags>
-        <tag>google domains</tag>
       </tags>
   </entry>
   <entry>
@@ -215,6 +215,23 @@ hexo deploy
       </tags>
   </entry>
   <entry>
+    <title>AWS DEV DAY 2020 會後心得</title>
+    <url>//post/experience-of-aws-dev-day-2020/</url>
+    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
+先附個名牌。
+
+
+因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
+今年的議程可以看這邊：AWS DEV DAY Taipei
+心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
+技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
+比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
+]]></content>
+      <tags>
+        <tag>aws dev day</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何使用 Netlify+Hexo+Google domain 建立靜態網站</title>
     <url>//post/create-static-site-on-netlify/</url>
     <content><![CDATA[開始之前主因是想把另外寫的東西從 weebly 搬走，在找尋新家的過程中也看了很多所見及所得的網站，抑或是直接提供部落格服務的網站，看到最後還是覺得用 hexo + markdown 寫文章是最好的（還有一點是最近不太喜歡所見及所得，光頁面 render 就很惱人），所以改找有免費提供靜態網站 hosting 服務的站，最後找到了 Netlify。
@@ -267,23 +284,6 @@ Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第�
       <tags>
         <tag>hexo</tag>
         <tag>netlify</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AWS DEV DAY 2020 會後心得</title>
-    <url>//post/experience-of-aws-dev-day-2020/</url>
-    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
-先附個名牌。
-
-
-因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
-今年的議程可以看這邊：AWS DEV DAY Taipei
-心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
-技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
-比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
-]]></content>
-      <tags>
-        <tag>aws dev day</tag>
       </tags>
   </entry>
   <entry>
@@ -340,34 +340,6 @@ Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第�
 這樣 SPA 網站的 token 要存哪裡呢……
 最後我想明年如果時間允許的話我應該會去滿兩天吧，這次的 COSCUP 半日遊真的蠻有趣的。
 期待明年的議程。
-]]></content>
-      <tags>
-        <tag>coscup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>COSCUP 2023 會後心得</title>
-    <url>//post/experience-of-coscup-2023/</url>
-    <content><![CDATA[開始之前去年的沒參加，今年終於爬出門參加了，但只有第一天（天氣很好），記錄一下。
-補個今年的名牌，名字碼掉了，用 UwU 取代。
-
-
-今年的 COSCUP 在 07&#x2F;29 與 07&#x2F;30，週末，同樣在天大地大台科大。
-怎麼今年會想參加覺得不該再宅了，剛好時間看看差不多要有 COSCUP 了所以就看看議程，然後就決定出門了。好久不見的 COSCUP 啊。
-參與心得今年只有參加第一天，而且只有上午，下午一個覺得累就溜回家了（年紀真的是一把殺豬刀，體力整個直線下滑）。聽了以下幾場（點擊議程名稱可至官方議程介紹）：
-
-你終究是要學 SQL 的，那怎麼不一開始就用 DuckDB
-在 Google Cloud Platform 上為自己的 Podcast 節目打造一個家
-Using VS Code with MySQL
-
-聽完第三場後覺得一股勞累襲上就決定回家了。
-這三場裡面最喜歡的是第二場 Podcast 的部分，時間關係我覺得沒有講到非常詳細，但用了什麼，為什麼用都有提到，也知道了 Astro 這個 framework。原本就一直有想自己寫自己網站的想法，知道這個後又多了一個框架的選擇。
-另外兩場可惜的是我的相關知識不足，所以只聽懂三成，但也知道了一些新東西。最可惜的是沒有帶筆電出門，沒有貢獻一些共筆內容。
-最後明年如果還有 COSCUP 的話應該還是會參與，然後因為宅太久都快忘記怎麼跟人互動，在購買周邊時整個有夠像路過的怪人，完全不知道該怎麼開口說我要這個商品 QwQ。
-補個酒精噴霧罐，一直想買方型的終於下手了，但這個要怎麼綁繩子啊，只能買橡膠的外殼嗎？
-
-
-
 ]]></content>
       <tags>
         <tag>coscup</tag>
@@ -437,117 +409,6 @@ $ git branch
 ]]></content>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh key</title>
-    <url>//post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/</url>
-    <content><![CDATA[開始之前因為需要在同一台電腦使用多個 GitHub 帳號（不要問我為啥會有複數個 GitHub 帳號，不好說不好說），同時帳號們也都需要使用 Git clone 等等的指令，導致發生了一個問題：我現在用的是哪一組 ssh key？！
-好這個真的是個好問題，所以能不能設定多組 ssh key 並且不同 repository（不同 Host 甚至是同一個 Host）使用不同 ssh key 進行 clone、push 等等的動作呢？嗯，可以！
-設定 Host 與詳細內容雖然上面有提到同一個 Host，但實際使用還是要區分哪個 Host 使用哪一組 Key，只是 Host 不是預設的網站網址，而是使用自定義的名稱。這類的設定會儲存在 ~/.ssh/config 檔案內，沒有此檔案的話就手動新增。
-什麼是 Host？Host 就是 repository 存在的站，預設為該網站的網址，以 NVM 的 git@github.com:nvm-sh/nvm.git 來說，github.com 就是 Host，既有專案可使用 git remote -v 查看。
-~&#x2F;.ssh&#x2F;config 檔案新增完畢後開啟此檔案，這邊以最常見的 GitHub 使用兩組帳號（各自有自己的 ssh key）為例，設定後檔案內會是像這樣：
-Host github-own
-    Hostname github.com
-    PreferredAuthentications publicKey
-    IdentifyFile ~/.ssh/id_key_own
-
-Host github-work
-    Hostname github.com
-    PreferredAuthentications publicKey
-    IdentifyFile ~/.ssh/id_key_work
-
-如何新增 ssh key 這邊就不說明，可以到 GitHub 官方找。這邊使用了兩個 Host 並各自指定使用的 ssh key，接著只要在 Clone 時設定對應的 Host 就行了。
-調整使用的 Repository URL再以 NVM 為例，假設要使用 github-own 作為 Clone 的帳號，只要將 git@github.com:nvm-sh/nvm.git 改成 git@github-own:nvm-sh/nvm.git 就好。如果要修改既有專案的 URL，以預設的 remote origin 為例，使用 git remote set-url origin git@github-own:nvm-sh/nvm.git 修改即可。
-最後以 GitHub 來說，除了可用 ssh key 外，也有提供 HTTP 的方式，但習慣使用 ssh key 又有複數個帳號的話，這是個不錯的設定方式，就是 Clone 專案時要注意更改 Host。
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>ssh key</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
-    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
-    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
-中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
-救命，這台電腦到底是發生什麼事。
-最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
-前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
-
-開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
-開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
-
-安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
-第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
-新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
-接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
-
-start：啟動 vim 時會自動載入的 Plugins
-opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
-
-NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
-好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
-第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
-$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
-
-如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
-第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
-其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
-最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
-]]></content>
-      <tags>
-        <tag>windows</tag>
-        <tag>vim</tag>
-        <tag>vim plugins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 Windows 10 上安裝 WSL2</title>
-    <url>//post/install-wsl-2-on-windows-10/</url>
-    <content><![CDATA[開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。
-目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。
-這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝，而非像官方使用 Command line 進行安裝。
-另外有看到文章說在安裝前須先開啟開發人員模式，雖然我是開啟了，但看官方的安裝文件裡似乎沒有這一步的說明，所以應該不用開才是。
-資訊
-Microsoft 官方文件：適用於 Linux 的 Windows 子系統文件
-
-前置需求
-Windows 10 版本號 1903 或 1909 或以上
-
-開始安裝步驟簡單來說總共有四步：
-
-啟用 WSL2 和虛擬機器平台並重開機
-安裝 Linux 核心更新套件
-設定 WSL2 為預設
-安裝一種版本的 Linux
-
-首先是啟用 WSL2 和虛擬機器平台，這邊的步驟在官方文件內是使用 Command line 進行安裝，但這邊其實也可以直接 UI 操作。
-在 Windows 10 左下角的開始選單 &gt; 設定（就是那個齒輪）&gt; 應用程式 &gt; 應用程式與功能，將畫面滑到最下方找 程式與功能，點擊後開啟的視窗左邊找 開啟或關閉 Windows 功能。開啟的視窗內請找 Windows 子系統 Linux 版（如果只想裝 WSL1 可以只勾這個） 與 虛擬機器平台，找到這兩個後一起勾選，接著會進入 Windows 更新與重開機，就讓他進行重開機吧。
-
-
-
-
-
-
-重開機完之後請開啟官方文件頁面的安裝 WSL 並更新至 WSL2這一頁，找到步驟4 - 下載 Linux 核心更新套件，下載這個更新套件後雙點擊它以進行安裝。如果這一步跳過的話，在設定 WSL2 為預設版本時會出現 WSL 2 需要更新其核心元件。如需詳細資訊，請造訪 visit https://aka.ms/wsl2kernel 這個錯誤，所以還請別跳過這個步驟。
-
-
-
-你問我為什麼我會知道會噴錯呢？對，因為我就是第一次安裝時沒注意到就直接跳過這一步的人ww
-
-安裝完 Linux 核心元件後接著以管理者權限開啟 Powershell 並指定 WSL2 為預設：
-wsl --set-default-version 2
-
-順利的話終端機上應該只會出現這句話：有關 WSL 2 的主要差異詳細資訊，請瀏覽 https://aka.ms/wsl2，到這邊 WSL2 就安裝完畢！接著要到 Microsoft store 選擇一種 Linux 版本進行安裝。
-開啟 Microsoft store 並以 Linux 為關鍵字進行搜尋就可以看到好幾個版本的 Linux，選一個喜歡的安裝吧。第一次安裝與啟動會耗一點時間，在第二次啟動時就不會花到這麼多時間了。
-安裝完後選擇直接啟動的話就會啟動該 Linux 版本的終端機，第一次開啟時須設定該 Linux 的使用者帳密，設定完畢後就會直接登入。不小心關閉 Linux 終端機的話可以在開始選單內找剛剛安裝的 Linux，點擊後就會開啟該 Linux 的終端機。
-額外補充如果 Windows 10 上面有安裝 Windows Terminal 的話，可以在開啟新分頁時點擊向下箭頭開啟選單，裡面可以選剛剛安裝的 Linux，選擇後就會直接用 Windows Terminal 開啟該 Linux 的終端機喔！真的方便。
-
-]]></content>
-      <tags>
-        <tag>windows 10</tag>
-        <tag>wsl 2</tag>
       </tags>
   </entry>
   <entry>
@@ -785,6 +646,167 @@ wsl --set-default-version 2
       </tags>
   </entry>
   <entry>
+    <title>如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh key</title>
+    <url>//post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/</url>
+    <content><![CDATA[開始之前因為需要在同一台電腦使用多個 GitHub 帳號（不要問我為啥會有複數個 GitHub 帳號，不好說不好說），同時帳號們也都需要使用 Git clone 等等的指令，導致發生了一個問題：我現在用的是哪一組 ssh key？！
+好這個真的是個好問題，所以能不能設定多組 ssh key 並且不同 repository（不同 Host 甚至是同一個 Host）使用不同 ssh key 進行 clone、push 等等的動作呢？嗯，可以！
+設定 Host 與詳細內容雖然上面有提到同一個 Host，但實際使用還是要區分哪個 Host 使用哪一組 Key，只是 Host 不是預設的網站網址，而是使用自定義的名稱。這類的設定會儲存在 ~/.ssh/config 檔案內，沒有此檔案的話就手動新增。
+什麼是 Host？Host 就是 repository 存在的站，預設為該網站的網址，以 NVM 的 git@github.com:nvm-sh/nvm.git 來說，github.com 就是 Host，既有專案可使用 git remote -v 查看。
+~&#x2F;.ssh&#x2F;config 檔案新增完畢後開啟此檔案，這邊以最常見的 GitHub 使用兩組帳號（各自有自己的 ssh key）為例，設定後檔案內會是像這樣：
+Host github-own
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_own
+
+Host github-work
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_work
+
+如何新增 ssh key 這邊就不說明，可以到 GitHub 官方找。這邊使用了兩個 Host 並各自指定使用的 ssh key，接著只要在 Clone 時設定對應的 Host 就行了。
+調整使用的 Repository URL再以 NVM 為例，假設要使用 github-own 作為 Clone 的帳號，只要將 git@github.com:nvm-sh/nvm.git 改成 git@github-own:nvm-sh/nvm.git 就好。如果要修改既有專案的 URL，以預設的 remote origin 為例，使用 git remote set-url origin git@github-own:nvm-sh/nvm.git 修改即可。
+最後以 GitHub 來說，除了可用 ssh key 外，也有提供 HTTP 的方式，但習慣使用 ssh key 又有複數個帳號的話，這是個不錯的設定方式，就是 Clone 專案時要注意更改 Host。
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>ssh key</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>COSCUP 2023 會後心得</title>
+    <url>//post/experience-of-coscup-2023/</url>
+    <content><![CDATA[開始之前去年的沒參加，今年終於爬出門參加了，但只有第一天（天氣很好），記錄一下。
+補個今年的名牌，名字碼掉了，用 UwU 取代。
+
+
+今年的 COSCUP 在 07&#x2F;29 與 07&#x2F;30，週末，同樣在天大地大台科大。
+怎麼今年會想參加覺得不該再宅了，剛好時間看看差不多要有 COSCUP 了所以就看看議程，然後就決定出門了。好久不見的 COSCUP 啊。
+參與心得今年只有參加第一天，而且只有上午，下午一個覺得累就溜回家了（年紀真的是一把殺豬刀，體力整個直線下滑）。聽了以下幾場（點擊議程名稱可至官方議程介紹）：
+
+你終究是要學 SQL 的，那怎麼不一開始就用 DuckDB
+在 Google Cloud Platform 上為自己的 Podcast 節目打造一個家
+Using VS Code with MySQL
+
+聽完第三場後覺得一股勞累襲上就決定回家了。
+這三場裡面最喜歡的是第二場 Podcast 的部分，時間關係我覺得沒有講到非常詳細，但用了什麼，為什麼用都有提到，也知道了 Astro 這個 framework。原本就一直有想自己寫自己網站的想法，知道這個後又多了一個框架的選擇。
+另外兩場可惜的是我的相關知識不足，所以只聽懂三成，但也知道了一些新東西。最可惜的是沒有帶筆電出門，沒有貢獻一些共筆內容。
+最後明年如果還有 COSCUP 的話應該還是會參與，然後因為宅太久都快忘記怎麼跟人互動，在購買周邊時整個有夠像路過的怪人，完全不知道該怎麼開口說我要這個商品 QwQ。
+補個酒精噴霧罐，一直想買方型的終於下手了，但這個要怎麼綁繩子啊，只能買橡膠的外殼嗎？
+
+
+
+]]></content>
+      <tags>
+        <tag>coscup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
+    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
+    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
+中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
+救命，這台電腦到底是發生什麼事。
+最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
+前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
+
+開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
+開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
+
+安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
+第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
+新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
+接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
+
+start：啟動 vim 時會自動載入的 Plugins
+opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
+
+NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
+好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
+第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
+$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
+
+如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
+第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
+其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
+最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
+]]></content>
+      <tags>
+        <tag>windows</tag>
+        <tag>vim</tag>
+        <tag>vim plugins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Windows 10 上安裝 WSL2</title>
+    <url>//post/install-wsl-2-on-windows-10/</url>
+    <content><![CDATA[開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。
+目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。
+這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝，而非像官方使用 Command line 進行安裝。
+另外有看到文章說在安裝前須先開啟開發人員模式，雖然我是開啟了，但看官方的安裝文件裡似乎沒有這一步的說明，所以應該不用開才是。
+資訊
+Microsoft 官方文件：適用於 Linux 的 Windows 子系統文件
+
+前置需求
+Windows 10 版本號 1903 或 1909 或以上
+
+開始安裝步驟簡單來說總共有四步：
+
+啟用 WSL2 和虛擬機器平台並重開機
+安裝 Linux 核心更新套件
+設定 WSL2 為預設
+安裝一種版本的 Linux
+
+首先是啟用 WSL2 和虛擬機器平台，這邊的步驟在官方文件內是使用 Command line 進行安裝，但這邊其實也可以直接 UI 操作。
+在 Windows 10 左下角的開始選單 &gt; 設定（就是那個齒輪）&gt; 應用程式 &gt; 應用程式與功能，將畫面滑到最下方找 程式與功能，點擊後開啟的視窗左邊找 開啟或關閉 Windows 功能。開啟的視窗內請找 Windows 子系統 Linux 版（如果只想裝 WSL1 可以只勾這個） 與 虛擬機器平台，找到這兩個後一起勾選，接著會進入 Windows 更新與重開機，就讓他進行重開機吧。
+
+
+
+
+
+
+重開機完之後請開啟官方文件頁面的安裝 WSL 並更新至 WSL2這一頁，找到步驟4 - 下載 Linux 核心更新套件，下載這個更新套件後雙點擊它以進行安裝。如果這一步跳過的話，在設定 WSL2 為預設版本時會出現 WSL 2 需要更新其核心元件。如需詳細資訊，請造訪 visit https://aka.ms/wsl2kernel 這個錯誤，所以還請別跳過這個步驟。
+
+
+
+你問我為什麼我會知道會噴錯呢？對，因為我就是第一次安裝時沒注意到就直接跳過這一步的人ww
+
+安裝完 Linux 核心元件後接著以管理者權限開啟 Powershell 並指定 WSL2 為預設：
+wsl --set-default-version 2
+
+順利的話終端機上應該只會出現這句話：有關 WSL 2 的主要差異詳細資訊，請瀏覽 https://aka.ms/wsl2，到這邊 WSL2 就安裝完畢！接著要到 Microsoft store 選擇一種 Linux 版本進行安裝。
+開啟 Microsoft store 並以 Linux 為關鍵字進行搜尋就可以看到好幾個版本的 Linux，選一個喜歡的安裝吧。第一次安裝與啟動會耗一點時間，在第二次啟動時就不會花到這麼多時間了。
+安裝完後選擇直接啟動的話就會啟動該 Linux 版本的終端機，第一次開啟時須設定該 Linux 的使用者帳密，設定完畢後就會直接登入。不小心關閉 Linux 終端機的話可以在開始選單內找剛剛安裝的 Linux，點擊後就會開啟該 Linux 的終端機。
+額外補充如果 Windows 10 上面有安裝 Windows Terminal 的話，可以在開啟新分頁時點擊向下箭頭開啟選單，裡面可以選剛剛安裝的 Linux，選擇後就會直接用 Windows Terminal 開啟該 Linux 的終端機喔！真的方便。
+
+]]></content>
+      <tags>
+        <tag>windows 10</tag>
+        <tag>wsl 2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 更新後出現 xcrun error</title>
+    <url>//post/mac-xcode-select-error/</url>
+    <content><![CDATA[開始之前終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 git pull --rebase 就出現錯誤提示：
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+
+我只是更新個 Bug 啊別這樣。
+如何處理有兩種方法可以處理：一種是打開 System Settings，可能會提示有東西需要更新，點進去看如果是 Xcode 的更新，恭喜就是這個，更新完就沒問題了。第二種是終端機直接下指令 xcode-select --install，這樣也會出現詢問更新的視窗與更新進度（圖一），跟 System Settings 那個是一樣的東西。
+如果使用指令更新，且 System Settings 內也有出現更新提示的話，點進 System Settings 會看到狀態是更新中，也有更新進度（圖二）。
+
+[圖一] 更新進度的視窗
+
+
+[圖二] System Settings 內的更新進度
+
+要注意的是，在 System Settings 有出現更新提示，但卻使用指令進行更新的話，更新完畢後又開 System Settings 可能會看到 Xcode 相關的更新還在列表內，等他畫面刷新，或者關掉視窗重開就好。
+]]></content>
+      <tags>
+        <tag>mac</tag>
+        <tag>xcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
     <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
     <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
@@ -808,25 +830,43 @@ Ubuntu 為 Unix base 的系統，使用的換行符號只有 LF，但 Windows �
       </tags>
   </entry>
   <entry>
-    <title>Mac 更新後出現 xcrun error</title>
-    <url>//post/mac-xcode-select-error/</url>
-    <content><![CDATA[開始之前終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 git pull --rebase 就出現錯誤提示：
-xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
-
-我只是更新個 Bug 啊別這樣。
-如何處理有兩種方法可以處理：一種是打開 System Settings，可能會提示有東西需要更新，點進去看如果是 Xcode 的更新，恭喜就是這個，更新完就沒問題了。第二種是終端機直接下指令 xcode-select --install，這樣也會出現詢問更新的視窗與更新進度（圖一），跟 System Settings 那個是一樣的東西。
-如果使用指令更新，且 System Settings 內也有出現更新提示的話，點進 System Settings 會看到狀態是更新中，也有更新進度（圖二）。
-
-[圖一] 更新進度的視窗
+    <title>處理 ssh connect to host 22 Connect timed out</title>
+    <url>//post/ssh-connect-to-host-22-connection-timed-out/</url>
+    <content><![CDATA[開始之前主因是原本可以使用的 ssh 連線又不能（對，又）連，使用網頁登入主機商提供的網站管理後台內重開 ssh 連線功能後仍舊無法登入（以往重開便解決）。
+因為已經不是第一次發生了，想了半天還是找出原因，不然緊急時刻需要 ssh 連線又連不上就頭痛了。
+對 Linux 沒有很熟悉，以下為 google + 爬文最後實際進行處理的步驟紀錄。
+處理流程先 ping 連不上的 hostname，如果通過進入下一步。
+接著使用 telnet hostname 22，確認 22 port 到底有沒有通。如果出現全黑的畫面，或者是全黑，然後第一行有像是  SSH-2.0-OpenSSH_7.4 之類的字就表示通過。
 
 
-[圖二] System Settings 內的更新進度
+如果失敗則會出現無法開啟到主機的連線，在連接埠 22: 連線失敗。
+確認後使用 ctrl+] 離開 telnet。
+這邊遇到的是沒通過的狀況，所以繼續找原因。
+因主機商有提供網頁版的網站管理後台，登入後先確認 ssh 功能到底有沒有開啟：
+service sshd status
 
-要注意的是，在 System Settings 有出現更新提示，但卻使用指令進行更新的話，更新完畢後又開 System Settings 可能會看到 Xcode 相關的更新還在列表內，等他畫面刷新，或者關掉視窗重開就好。
+確認 ssh 有開啟後，接著確認 ssh 是否有被更改使用的 port 與對應的 port 有沒有被監聽（Listen）。
+確認 ssh 使用的 port 為預設的 22 後，確認是否有被監聽：
+netstat -lnpt | grep :22
+
+此步驟確認 port 22 有被監聽。
+到這邊能確定 ssh 功能是正常運作且對應需要開啟的 port 都有被開啟也有被監聽，於是猜測 ip 是否被防火牆擋了。
+先查看防火牆是否有開啟：
+service iptables status
+
+確認防火牆開啟。查看防火牆封鎖的 ip ，列表是空的，/etc/hosts.deny 內也是空的。
+於是到這邊能確認的：
+
+ssh 功能開啟也運作正常
+ip 沒被擋
+
+猜測覺得最不可能的：是否防火牆沒讓 port 22 過。
+會說最不可能是因為在這次連不上之前 ssh 連線是能使用的，然後某一天它突然不能用了，真心不懂啊，防火牆設定會自己噴掉嗎……？
+這邊使用的是網頁的防火牆設定頁面，慢慢看防火牆的設定，最後在 TCP_IN 與 TCP_OUT 的部分發現 TCP_IN 沒放 port 22 通過，加上 port 22 並重開防火牆後，ssh 連線成功。
 ]]></content>
       <tags>
-        <tag>mac</tag>
-        <tag>xcode</tag>
+        <tag>ssh</tag>
+        <tag>問題處理</tag>
       </tags>
   </entry>
   <entry>
@@ -893,161 +933,6 @@ Ubuntu 18.04這邊只有出現一個問題，當初為了 mount Windows 本機�
         <tag>virtualbox</tag>
         <tag>homestead</tag>
         <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VueJs3 使用 FontAwesome</title>
-    <url>//post/using-font-awesome-in-vuejs-3/</url>
-    <content><![CDATA[開始之前使用的會是 VueJs 3 + FontAwesome 5 與 6，方式為 svg + js method，而非 web font。兩種方式的 FontAwesome 差別在安裝的 icon package 不同，詳細差別請見官方文件：Web Fonts vs SVG | FontAwesome Docs，建議使用 svg + js method 的方式。而版本 5 與 6 差別只在安裝的 icon package 版本不同，可以視 icon 樣式（相同的 icon 在兩個版本可能長得不太一樣）需求安裝對應的版本。
-故整個設置起來會需要的是：
-
-VueJs 3
-FontAwesome svg core package
-FontAwesome icon packages
-FontAwesome vue component package
-
-截至 2022.03 為止 vue component package 在 vue 2 與 vue 3 使用的版本還是不同，這邊要注意。
-資訊
-Font Awesome
-Set Up with Vue.js | Font Awesome Docs：最新版的 fontawesome 的文件
-Vue.js | Font Awesome Docs：為 fontawesome 5 的文件
-Github - FontAwesome&#x2F;vue-fontawesome
-Web Fonts vs SVG | Font Awesome Docs
-
-package.json因個人專案需求使用的是 VueJs 3 + fontawesome 5，故此檔案這部分會是長這樣：
-&#123;
-    //...前略
-    &quot;dependencies&quot;: &#123;
-        &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.3.0&quot;,    // svg core
-        &quot;@fortawesome/free-regular-svg-icons&quot;: &quot;^5.15.4&quot;, // 免費版 regular icon
-        &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,   // 免費版 solid icon
-        &quot;@fortawesome/free-brands-svg-icons&quot;: &quot;^5.15.4&quot;,  // 免費版 brand icon
-        &quot;@fortawesome/vue-fontawesome&quot;: &quot;^3.0.0-5&quot;,       // vue component
-        &quot;vue&quot;: &quot;^3.0.0&quot;
-    &#125;,
-    //...後略
-&#125;
-
-這邊不知道那五個 fontawesome 是什麼沒啥問題，後面會介紹。
-設置開始1. 安裝 svg core# npm
-$ npm i --save @fortawesome/fontawesome-svg-core
-
-# yarn
-$ yarn add @fortawesome/fontawesome-svg-core
-
-SVG Core 的介紹可以看這邊 SVG Core | Font Awesome Docs，他可以減少專案最後打包的版本，因為只打包了專案有使用的 icon，而非像 web font 那樣打包了所有的 icon（但其實使用到的很少）。
-2. 安裝 icon packagesFont Awesome icon package 有分免費版跟付費版，icon 數量上一定有差別，一樣依需求選擇即可，以目前個人專案使用來說免費版就蠻夠用了。
-Plan 與價格可以看這邊：Plans &amp; Pricing | Font Awesome
-免費版跟付費版 icon 目前看來差別在付費版有 Light 與 Thin 版本，而一個 icon solid 與 regular 版本可能分別在免費版與付費版裡。
-免費版 icon# npm
-$ npm i --save @fortawesome/free-solid-svg-icons
-$ npm i --save @fortawesome/free-regular-svg-icons
-$ npm i --save @fortawesome/free-brands-svg-icons
-
-# yarn
-$ yarn add @fortawesome/free-solid-svg-icons
-$ yarn add @fortawesome/free-regular-svg-icons
-$ yarn add @fortawesome/free-brands-svg-icons
-
-不指定版本的話會是 fontawesome 6（就是最新版），如要使用 5 的話需指定版本，例如 npm 的話：
-$ npm i --save @fortawesome/free-solid-svg-icons^5.15.4
-
-付費版 icon這邊是參考官方的寫法
-# npm
-$ npm i --save @fortawesome/pro-solid-svg-icons
-$ npm i --save @fortawesome/pro-regular-svg-icons
-$ npm i --save @fortawesome/pro-light-svg-icons
-$ npm i --save @fortawesome/pro-thin-svg-icons
-$ npm i --save @fortawesome/pro-duotone-svg-icons
-
-# yarn
-$ yarn add @fortawesome/pro-solid-svg-icons
-$ yarn add @fortawesome/pro-regular-svg-icons
-$ yarn add @fortawesome/pro-light-svg-icons
-$ yarn add @fortawesome/pro-thin-svg-icons
-$ yarn add @fortawesome/pro-duotone-svg-icons
-
-3. 安裝 vue component這邊在 Vue 2 與 Vue 3 有差別，官方寫法是 Vue 2 的版本，Vue 3 需到 component github 才有說明
-# npm
-$ npm i --save @fortawesome/vue-fontawesome@latest     # vue 2
-$ npm i --save @fortawesome/vue-fontawesome@prerelease # vue 3
-
-# yarn
-$ yarn add @fortawesome/vue-fontawesome@latest      # vue2
-$ yarn add @fortawesome/vue-fontawesome@prerelease  # vue3
-
-使用1. 全域設定 fontawesome vue component首先需要在 main.js 全域設定這個 component，才能直接在其他的 component 內直接使用。
-// main.js
-
-import &#123; createApp &#125; from &#39;vue&#39;;
-import &#123; library &#125; from &#39;@fortawesome/fontawesome-svg-core&#39;;
-import &#123; fas &#125; from &#39;@fortawesome/free-solid-svg-icons&#39;; 
-import &#123; far &#125; from &#39;@fortawesome/free-regular-svg-icons&#39;;
-import &#123; fab &#125; from &#39;@fortawesome/free-brands-svg-icons&#39;;
-import &#123; FontAwesomeIcon &#125; from &#39;@fortawesome/vue-fontawesome&#39;;
-import App from &#39;./App.vue&#39;;
-import router from &#39;./router&#39;;
-import store from &#39;./store&#39;;
-
-library.add(fas);
-library.add(far);
-library.add(fab);
-
-createApp(App).use(store)
-  .use(router)
-  .component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)
-  .mount(&#39;#app&#39;);
-
-.component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon) 也可以寫成 .component(&#39;font-awesome-icon&#39;, FontAwesomeIcon)，兩者在 component 內使用的方式都是 &lt;font-awesome-icon&gt;&lt;/font-awesome-icon&gt;。
-2. 尋找需要的 icon 並使用接著就到官網 Icons | FontAwesome 找需要的 icon。搜尋框可以切換使用的 fontawesome 版本，要注意的是 5 與 6 相同的 icon 名稱可能不同（例如單字內容相同但順序不同：5 版叫 plus-square，6 版叫 square-plus）。
-以 5 版 solid 的 plus-square 為例：
-&lt;font-awesome-icon :icon=&quot;[&#39;fas&#39;, &#39;plus-square&#39;]&quot;&gt;&lt;/font-awesome-icon&gt;
-
-最後der碎碎念嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？
-]]></content>
-      <tags>
-        <tag>vuejs3</tag>
-        <tag>fontawesome</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>處理 ssh connect to host 22 Connect timed out</title>
-    <url>//post/ssh-connect-to-host-22-connection-timed-out/</url>
-    <content><![CDATA[開始之前主因是原本可以使用的 ssh 連線又不能（對，又）連，使用網頁登入主機商提供的網站管理後台內重開 ssh 連線功能後仍舊無法登入（以往重開便解決）。
-因為已經不是第一次發生了，想了半天還是找出原因，不然緊急時刻需要 ssh 連線又連不上就頭痛了。
-對 Linux 沒有很熟悉，以下為 google + 爬文最後實際進行處理的步驟紀錄。
-處理流程先 ping 連不上的 hostname，如果通過進入下一步。
-接著使用 telnet hostname 22，確認 22 port 到底有沒有通。如果出現全黑的畫面，或者是全黑，然後第一行有像是  SSH-2.0-OpenSSH_7.4 之類的字就表示通過。
-
-
-如果失敗則會出現無法開啟到主機的連線，在連接埠 22: 連線失敗。
-確認後使用 ctrl+] 離開 telnet。
-這邊遇到的是沒通過的狀況，所以繼續找原因。
-因主機商有提供網頁版的網站管理後台，登入後先確認 ssh 功能到底有沒有開啟：
-service sshd status
-
-確認 ssh 有開啟後，接著確認 ssh 是否有被更改使用的 port 與對應的 port 有沒有被監聽（Listen）。
-確認 ssh 使用的 port 為預設的 22 後，確認是否有被監聽：
-netstat -lnpt | grep :22
-
-此步驟確認 port 22 有被監聽。
-到這邊能確定 ssh 功能是正常運作且對應需要開啟的 port 都有被開啟也有被監聽，於是猜測 ip 是否被防火牆擋了。
-先查看防火牆是否有開啟：
-service iptables status
-
-確認防火牆開啟。查看防火牆封鎖的 ip ，列表是空的，/etc/hosts.deny 內也是空的。
-於是到這邊能確認的：
-
-ssh 功能開啟也運作正常
-ip 沒被擋
-
-猜測覺得最不可能的：是否防火牆沒讓 port 22 過。
-會說最不可能是因為在這次連不上之前 ssh 連線是能使用的，然後某一天它突然不能用了，真心不懂啊，防火牆設定會自己噴掉嗎……？
-這邊使用的是網頁的防火牆設定頁面，慢慢看防火牆的設定，最後在 TCP_IN 與 TCP_OUT 的部分發現 TCP_IN 沒放 port 22 通過，加上 port 22 並重開防火牆後，ssh 連線成功。
-]]></content>
-      <tags>
-        <tag>ssh</tag>
-        <tag>問題處理</tag>
       </tags>
   </entry>
   <entry>
@@ -1228,6 +1113,121 @@ MySQL :: MySQL 8.0 Reference Manual :: 12.19.1 Aggregate Function Descriptions
 ]]></content>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VueJs3 使用 FontAwesome</title>
+    <url>//post/using-font-awesome-in-vuejs-3/</url>
+    <content><![CDATA[開始之前使用的會是 VueJs 3 + FontAwesome 5 與 6，方式為 svg + js method，而非 web font。兩種方式的 FontAwesome 差別在安裝的 icon package 不同，詳細差別請見官方文件：Web Fonts vs SVG | FontAwesome Docs，建議使用 svg + js method 的方式。而版本 5 與 6 差別只在安裝的 icon package 版本不同，可以視 icon 樣式（相同的 icon 在兩個版本可能長得不太一樣）需求安裝對應的版本。
+故整個設置起來會需要的是：
+
+VueJs 3
+FontAwesome svg core package
+FontAwesome icon packages
+FontAwesome vue component package
+
+截至 2022.03 為止 vue component package 在 vue 2 與 vue 3 使用的版本還是不同，這邊要注意。
+資訊
+Font Awesome
+Set Up with Vue.js | Font Awesome Docs：最新版的 fontawesome 的文件
+Vue.js | Font Awesome Docs：為 fontawesome 5 的文件
+Github - FontAwesome&#x2F;vue-fontawesome
+Web Fonts vs SVG | Font Awesome Docs
+
+package.json因個人專案需求使用的是 VueJs 3 + fontawesome 5，故此檔案這部分會是長這樣：
+&#123;
+    //...前略
+    &quot;dependencies&quot;: &#123;
+        &quot;@fortawesome/fontawesome-svg-core&quot;: &quot;^1.3.0&quot;,    // svg core
+        &quot;@fortawesome/free-regular-svg-icons&quot;: &quot;^5.15.4&quot;, // 免費版 regular icon
+        &quot;@fortawesome/free-solid-svg-icons&quot;: &quot;^5.15.4&quot;,   // 免費版 solid icon
+        &quot;@fortawesome/free-brands-svg-icons&quot;: &quot;^5.15.4&quot;,  // 免費版 brand icon
+        &quot;@fortawesome/vue-fontawesome&quot;: &quot;^3.0.0-5&quot;,       // vue component
+        &quot;vue&quot;: &quot;^3.0.0&quot;
+    &#125;,
+    //...後略
+&#125;
+
+這邊不知道那五個 fontawesome 是什麼沒啥問題，後面會介紹。
+設置開始1. 安裝 svg core# npm
+$ npm i --save @fortawesome/fontawesome-svg-core
+
+# yarn
+$ yarn add @fortawesome/fontawesome-svg-core
+
+SVG Core 的介紹可以看這邊 SVG Core | Font Awesome Docs，他可以減少專案最後打包的版本，因為只打包了專案有使用的 icon，而非像 web font 那樣打包了所有的 icon（但其實使用到的很少）。
+2. 安裝 icon packagesFont Awesome icon package 有分免費版跟付費版，icon 數量上一定有差別，一樣依需求選擇即可，以目前個人專案使用來說免費版就蠻夠用了。
+Plan 與價格可以看這邊：Plans &amp; Pricing | Font Awesome
+免費版跟付費版 icon 目前看來差別在付費版有 Light 與 Thin 版本，而一個 icon solid 與 regular 版本可能分別在免費版與付費版裡。
+免費版 icon# npm
+$ npm i --save @fortawesome/free-solid-svg-icons
+$ npm i --save @fortawesome/free-regular-svg-icons
+$ npm i --save @fortawesome/free-brands-svg-icons
+
+# yarn
+$ yarn add @fortawesome/free-solid-svg-icons
+$ yarn add @fortawesome/free-regular-svg-icons
+$ yarn add @fortawesome/free-brands-svg-icons
+
+不指定版本的話會是 fontawesome 6（就是最新版），如要使用 5 的話需指定版本，例如 npm 的話：
+$ npm i --save @fortawesome/free-solid-svg-icons^5.15.4
+
+付費版 icon這邊是參考官方的寫法
+# npm
+$ npm i --save @fortawesome/pro-solid-svg-icons
+$ npm i --save @fortawesome/pro-regular-svg-icons
+$ npm i --save @fortawesome/pro-light-svg-icons
+$ npm i --save @fortawesome/pro-thin-svg-icons
+$ npm i --save @fortawesome/pro-duotone-svg-icons
+
+# yarn
+$ yarn add @fortawesome/pro-solid-svg-icons
+$ yarn add @fortawesome/pro-regular-svg-icons
+$ yarn add @fortawesome/pro-light-svg-icons
+$ yarn add @fortawesome/pro-thin-svg-icons
+$ yarn add @fortawesome/pro-duotone-svg-icons
+
+3. 安裝 vue component這邊在 Vue 2 與 Vue 3 有差別，官方寫法是 Vue 2 的版本，Vue 3 需到 component github 才有說明
+# npm
+$ npm i --save @fortawesome/vue-fontawesome@latest     # vue 2
+$ npm i --save @fortawesome/vue-fontawesome@prerelease # vue 3
+
+# yarn
+$ yarn add @fortawesome/vue-fontawesome@latest      # vue2
+$ yarn add @fortawesome/vue-fontawesome@prerelease  # vue3
+
+使用1. 全域設定 fontawesome vue component首先需要在 main.js 全域設定這個 component，才能直接在其他的 component 內直接使用。
+// main.js
+
+import &#123; createApp &#125; from &#39;vue&#39;;
+import &#123; library &#125; from &#39;@fortawesome/fontawesome-svg-core&#39;;
+import &#123; fas &#125; from &#39;@fortawesome/free-solid-svg-icons&#39;; 
+import &#123; far &#125; from &#39;@fortawesome/free-regular-svg-icons&#39;;
+import &#123; fab &#125; from &#39;@fortawesome/free-brands-svg-icons&#39;;
+import &#123; FontAwesomeIcon &#125; from &#39;@fortawesome/vue-fontawesome&#39;;
+import App from &#39;./App.vue&#39;;
+import router from &#39;./router&#39;;
+import store from &#39;./store&#39;;
+
+library.add(fas);
+library.add(far);
+library.add(fab);
+
+createApp(App).use(store)
+  .use(router)
+  .component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon)
+  .mount(&#39;#app&#39;);
+
+.component(&#39;FontAwesomeIcon&#39;, FontAwesomeIcon) 也可以寫成 .component(&#39;font-awesome-icon&#39;, FontAwesomeIcon)，兩者在 component 內使用的方式都是 &lt;font-awesome-icon&gt;&lt;/font-awesome-icon&gt;。
+2. 尋找需要的 icon 並使用接著就到官網 Icons | FontAwesome 找需要的 icon。搜尋框可以切換使用的 fontawesome 版本，要注意的是 5 與 6 相同的 icon 名稱可能不同（例如單字內容相同但順序不同：5 版叫 plus-square，6 版叫 square-plus）。
+以 5 版 solid 的 plus-square 為例：
+&lt;font-awesome-icon :icon=&quot;[&#39;fas&#39;, &#39;plus-square&#39;]&quot;&gt;&lt;/font-awesome-icon&gt;
+
+最後der碎碎念嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？
+]]></content>
+      <tags>
+        <tag>vuejs3</tag>
+        <tag>fontawesome</tag>
       </tags>
   </entry>
   <entry>
