@@ -73,8 +73,8 @@ Running a general statement - Laravel 8
 
 ]]></content>
       <tags>
-        <tag>MySQL</tag>
-        <tag>Laravel</tag>
+        <tag>mysql</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -114,231 +114,6 @@ Google domains第一步：搜索網域名稱部落格名稱維持 zoneless 有�
 ]]></content>
       <tags>
         <tag>google domains</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄</title>
-    <url>//disable-mouse-scrolling-through-command-history-on-mac-iterm2/</url>
-    <content><![CDATA[開始之前iTerm2 是一個支援 Mac 平台的 terminal，能取代 Mac 原生的 terminal，與原生的 termianl 相比使用上較便利，功能也較多。
-簡單介紹兩者 UI 差別：
-
-[圖一] iTerm2 v.s. Mac 原生 terminal
-
-可以見到 iTerm2 介面多了很多東西，預設有些是不會開啟，要手動開啟才會像上面比對圖那樣，這邊就不多作介紹。
-發生的問題預設使用滑鼠在 iTerm2 上滾動時，滾動的是整個視窗的內容，所以能看到之前的內容，當顯示在 terminal 上的 log 內容很長，長到超出整個畫面時，也能透過這個方式查看畫面外的內容。
-對，直到某一天 iTerm2 彈出一個詢問框問我要不要 OOXX，然後一個沒看仔細點了 OK，我的 iTerm2 就變成滾動滑鼠看到的是指令歷史紀錄而不是畫面外的內容了。
-改了好幾個設定檔都沒有用（從 tmux 改到 vim），最後終於確認是 iTerm2 的設定也終於改回來了。
-修改方式首先打開 iTerm2，點開左上角蘋果 icon 右邊的 iTerm2，找到 Preference 後點下去。
-
-[圖二] iTerm2 Preferences 選項
-
-打開 Preferences 視窗後，點開 Advanced，直接用關鍵字「scroll」搜尋，找到「Scroll wheel sends arrow keys when in alternate screen mode.」，這邊應該會是 Yes，改成 No 後重開 iTerm2 就解決了。
-
-[圖三] iTerm2 Preferences Advanced 選單
-]]></content>
-      <tags>
-        <tag>mac</tag>
-        <tag>iterm2</tag>
-        <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AWS DEV DAY 2020 會後心得</title>
-    <url>//post/experience-of-aws-dev-day-2020/</url>
-    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
-先附個名牌。
-
-
-因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
-今年的議程可以看這邊：AWS DEV DAY Taipei
-心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
-技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
-比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
-]]></content>
-      <tags>
-        <tag>AWS DEV DAY</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>COSCUP 2020 會後心得</title>
-    <url>//post/experience-of-coscup-2020/</url>
-    <content><![CDATA[開始之前第一次參加 COSCUP，寫個心得記錄紀錄。
-附個名牌。
-
-
-等等，COSCOP？？？
-怎麼發現 COSCUP注意到 COSCUP 其實也就這一兩年的事，先是在推特注意到，然後發現噗浪也有 COSCUP 官噗，所以加了關注。
-然後就沒有然後了（遠望
-因為其實沒有參與任何開源的專案，本身自己也沒有開源的專案，所以比起工作上有相關的 Laravel Conference 或 Modern Web，COSCUP 反而是一直沒有參加的打算。
-就像如果我沒有在打電動，也不會去電玩相關的展覽，大概是這個思路。（先說我有在打電動，期待薩爾達荒野之息2）
-怎麼會想參加？其實我也在想這次怎麼會參加w
-一開始是前同事在 Line 群組問 COSCUP 第二天有要去的話，可以某個時間在捷運站集合一起走過去，因為這樣我開了 COSCUP 官網，才發現議程其實比我想像中的還要多元而且有趣，且剛好有我有興趣的。
-耶嘿 (ﾟ∀ﾟ)
-就這樣我出門了（論揪團的重要性
-今年的議程表可以看這邊：COSCUP 2020 議程表
-雖然今年的 COSCUP 已經結束了，但今年沒參加，或者是跟我一樣覺得不在這圈子內就沒什麼參加打算的人可以先看看今年的議程，你會發現內容真的很多元，連鍵盤相關的議程都有（雖然我周日下午有事先離席沒聽到）。
-誠摯推薦明年可以試著參加。
-如果有興趣但真的無法出席的話，可以看大會的共筆，或者是至官方的 Youtube 頻道 - COSCUP 開源人年會 等看看當年議程的影片。
-議程心得這次只有去第二天（8&#x2F;2），地點在台科大（第一次知道台科大距離台大那麼近），且只有聽上午的議程，所以可以說的心得沒有很多。
-第一場 VueJs 全程英文，相當考驗英文聽力的同時也得知了一些關於 Vue 3 的事情，原來 Vue 2 也推出好幾年了阿。
-第二場聽了純 PostgreSQL 新手，因為第一場結束時間有點晚了，導致入場時已經過了十分鐘，前面沒聽到RRR。
-不過倒是知道了 PostgreSQL 在數字處理的便利性，覺得可以找時間研究研究。
-第三場聽了從淘汰第三方 cookie 到各種隱私保護的瀏覽器技術發展，這場根本從頭笑到尾，簡單地介紹了何謂第一方與第三方 cookie，以及吵很兇的封鎖第三方 cookie 及各種對應，以及可以去哪看瀏覽器們（無誤）接下來的對應處理。令我意外的是 Safari 還真嚴阿，連第一方儲存空間（LocalStorage）都有 7 天這種存在時間限制，之後會不會變成完全禁止阿。
-這樣 SPA 網站的 token 要存哪裡呢……
-最後我想明年如果時間允許的話我應該會去滿兩天吧，這次的 COSCUP 半日遊真的蠻有趣的。
-期待明年的議程。
-]]></content>
-      <tags>
-        <tag>COSCUP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>COSCUP 2023 會後心得</title>
-    <url>//post/experience-of-coscup-2023/</url>
-    <content><![CDATA[開始之前去年的沒參加，今年終於爬出門參加了，但只有第一天（天氣很好），記錄一下。
-補個今年的名牌，名字碼掉了，用 UwU 取代。
-
-
-今年的 COSCUP 在 07&#x2F;29 與 07&#x2F;30，週末，同樣在天大地大台科大。
-怎麼今年會想參加覺得不該再宅了，剛好時間看看差不多要有 COSCUP 了所以就看看議程，然後就決定出門了。好久不見的 COSCUP 啊。
-參與心得今年只有參加第一天，而且只有上午，下午一個覺得累就溜回家了（年紀真的是一把殺豬刀，體力整個直線下滑）。聽了以下幾場（點擊議程名稱可至官方議程介紹）：
-
-你終究是要學 SQL 的，那怎麼不一開始就用 DuckDB
-在 Google Cloud Platform 上為自己的 Podcast 節目打造一個家
-Using VS Code with MySQL
-
-聽完第三場後覺得一股勞累襲上就決定回家了。
-這三場裡面最喜歡的是第二場 Podcast 的部分，時間關係我覺得沒有講到非常詳細，但用了什麼，為什麼用都有提到，也知道了 Astro 這個 framework。原本就一直有想自己寫自己網站的想法，知道這個後又多了一個框架的選擇。
-另外兩場可惜的是我的相關知識不足，所以只聽懂三成，但也知道了一些新東西。最可惜的是沒有帶筆電出門，沒有貢獻一些共筆內容。
-最後明年如果還有 COSCUP 的話應該還是會參與，然後因為宅太久都快忘記怎麼跟人互動，在購買周邊時整個有夠像路過的怪人，完全不知道該怎麼開口說我要這個商品 QwQ。
-補個酒精噴霧罐，一直想買方型的終於下手了，但這個要怎麼綁繩子啊，只能買橡膠的外殼嗎？
-
-
-
-]]></content>
-      <tags>
-        <tag>COSCUP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用 Netlify+Hexo+Google domain 建立靜態網站</title>
-    <url>//post/create-static-site-on-netlify/</url>
-    <content><![CDATA[開始之前主因是想把另外寫的東西從 weebly 搬走，在找尋新家的過程中也看了很多所見及所得的網站，抑或是直接提供部落格服務的網站，看到最後還是覺得用 hexo + markdown 寫文章是最好的（還有一點是最近不太喜歡所見及所得，光頁面 render 就很惱人），所以改找有免費提供靜態網站 hosting 服務的站，最後找到了 Netlify。
-資訊
-Netlify
-Hexo
-Github
-Gitlab
-Bitbucket
-Google domains
-
-前置需求
-Git
-NodeJs
-npm
-
-Netlify首先先註冊一個帳號，因為網站的型態是靜態網站，所以直接使用免費方案即可。Netlify 總共提供四種方案（2020&#x2F;08 當下），可以依照需求選擇其他方案。
-註冊並登入後在後台選單 Sites 內選擇 New site from Git。
-
-
-這邊跟 Github page 最大的不同就是 Netlify 是連結其他的 Git repository，再將那個 repo 的內容 build 後進行 deploy，Netlify 目前支援三個 Git repository 來源，分別是 Github、Gitlab 和 Bitbucket。
-
-[圖一] 建立一個新網站
-
-因個人習慣所以選擇 Github，點擊 Github 後會進行 Github 帳號驗證與確認要使用的 repository 存取權限，這邊最大的好處就是該 repository 可以是 private repository！（Github page 在免費方案下只支援 public repository）
-選擇要使用的 repository 後，若該 repository 已經是個靜態網站的專案了，那麼 netlify 就可以直接進行 deploy 的動作，若還不是，請參考 如何使用 Hexo 和 Github Page 建立部落格 使用 Hexo 建立一個靜態網站部落格。
-因為網站是使用 Hexo 建立，下一步便會出現 deploy 的設定，可以看到 Netlify 有判斷到 Hexo，並且自動設定好 generate 指令。
-
-[圖二] 設定與 Deploy 圖片
-
-確認無誤後便可進行 deploy。
-一般 deploy在產生網站的設定內可以設定要 deploy 的 branch，預設為 master（見[圖二] 設定與 Deploy 圖片）。這邊只要 Github 端有任何 push 到 master 的動作，Netlify 就會自動 build 並 deploy 該站。
-測試後蠻即時的，頁面上顯示的資料也是。
-Custom domainGoogle domainsNetlify 自行提供的 domain 並不像 Github page 那樣是使用 repository name 加上一個 suffix，那是什麼規則我沒研究，但能確定的是不好記，所以建議會是使用自己的 domain。
-Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進第二步驟購買網域，但這邊我選擇使用 Google domains 購買網域，個人原因是好管理（這個站也是在 google domains 購買的，可以統一管理）。
-如何在 Google domains 上購買網域請參考這一篇：如何在台灣購買 Google domains 網域，買好後回到 Netlify 進行網域設定。
-Netlify domain management
-[圖三] 網站管理後台
-
-回到剛剛建立的網站管理後台，選擇選單的 Setting，或者是找 Domain settings 進入 domain 管理。選擇增加 Custom domain。照著步驟往下並完成後，在 自訂 domain 後方會出現警告 Check DNS configuration，選擇最後方的 Options 按鈕選擇 Set Up Nelify DNS 好進行 DNS 設定。
-順帶一提這時因為 DNS 沒設定好，所以同一頁面最下方的 HTTPS 也會處於無法使用的狀態。
-選擇 Set Up Netlify DNS 並照著步驟往下，最後會出現四個 Netlify 提供的 DNS，頁面先別關，這邊要到 Google domains 進行設定。
-Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第一個區塊 名稱伺服器(Nameservers) 選擇自訂名稱伺服器，將剛剛在 Netlify 得到的四個 DNS 都貼上並儲存。
-
-[圖四] Google domains DNS 設定
-
-增加後就像圖四這樣。
-完畢後回到 Netlify 等 DNS 生效後網站就能使用，HTTPS 憑證理應會一併設定好。
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>netlify</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git commands 集合處(2024/04/21 更新)</title>
-    <url>//post/git-commands/</url>
-    <content><![CDATA[開始之前因為主要是使用 Git command 而非 UI，除了常用的 add 這類，有些久沒用就會忘記，然後還要 google 老半天，想想不如自己寫一篇，對，就是這篇。因為這樣，這篇不會是完整的 Git commands，會是我常用或會遇到但會忘記的指令，分類也是照我自己使用習慣來分類。
-這篇會慢慢更新，想到就更新，更新時間會加到標題上。
-CommandsRepository 基本# 顯示設定的 remote 與 URL：git remote -v
-# origin 是預設的 remote name
-$ git remote -v
-origin &lt;REMOTE_URL&gt; (fetch)
-origin &lt;REMOTE_URL&gt; (push)
-
-# 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
-# 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url
-$ git remote set-url origin &lt;REMOTE_URL&gt;
-
-# 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
-# remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）
-$ git remote add devorigin &lt;REMOTE_URL&gt;
-
-開發進度相關# 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;
-# 當前進度未 commit 或者有衝突時會跳不過去
-$ git checkout develop
-
-# 將進度推到遠端：git push &lt;REMOTE_NAME&gt;
-# remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱
-# 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險
-$ git push
-$ git push devorigin
-$ git push origin -f
-
-# 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;
-# 個人習慣使用 --rebase 讓線比較沒那麼複雜
-$ git pull
-$ git pull --rebase
-
-# Commit 當前進度：git commit -m &lt;MESSAGE&gt;
-# 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;
-$ git commit
-$ git commit -m &#39;feat: Update README.md&#39;
-
-# Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;
-# 個人習慣加上 --no-ff 保留 merge 的小耳朵
-$ git merge develop --no-ff
-
-Commit 相關# 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;
-# commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的
-# 加到當前 branch 的順序，舊到新為設定 SHA 的左到右
-$ git cherry-pick 5262773e d378c4e3
-
-Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;
-$ git push origin develop:feature/create-login-form
-
-# 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;
-$ git push origin :feature/create-login-form
-
-# 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;
-$ git branch -D feature/create-ligin-form
-
-# 查看本地端 Branch
-$ git branch
-
-]]></content>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -437,6 +212,231 @@ hexo deploy
       <tags>
         <tag>hexo</tag>
         <tag>github page</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使用 Netlify+Hexo+Google domain 建立靜態網站</title>
+    <url>//post/create-static-site-on-netlify/</url>
+    <content><![CDATA[開始之前主因是想把另外寫的東西從 weebly 搬走，在找尋新家的過程中也看了很多所見及所得的網站，抑或是直接提供部落格服務的網站，看到最後還是覺得用 hexo + markdown 寫文章是最好的（還有一點是最近不太喜歡所見及所得，光頁面 render 就很惱人），所以改找有免費提供靜態網站 hosting 服務的站，最後找到了 Netlify。
+資訊
+Netlify
+Hexo
+Github
+Gitlab
+Bitbucket
+Google domains
+
+前置需求
+Git
+NodeJs
+npm
+
+Netlify首先先註冊一個帳號，因為網站的型態是靜態網站，所以直接使用免費方案即可。Netlify 總共提供四種方案（2020&#x2F;08 當下），可以依照需求選擇其他方案。
+註冊並登入後在後台選單 Sites 內選擇 New site from Git。
+
+
+這邊跟 Github page 最大的不同就是 Netlify 是連結其他的 Git repository，再將那個 repo 的內容 build 後進行 deploy，Netlify 目前支援三個 Git repository 來源，分別是 Github、Gitlab 和 Bitbucket。
+
+[圖一] 建立一個新網站
+
+因個人習慣所以選擇 Github，點擊 Github 後會進行 Github 帳號驗證與確認要使用的 repository 存取權限，這邊最大的好處就是該 repository 可以是 private repository！（Github page 在免費方案下只支援 public repository）
+選擇要使用的 repository 後，若該 repository 已經是個靜態網站的專案了，那麼 netlify 就可以直接進行 deploy 的動作，若還不是，請參考 如何使用 Hexo 和 Github Page 建立部落格 使用 Hexo 建立一個靜態網站部落格。
+因為網站是使用 Hexo 建立，下一步便會出現 deploy 的設定，可以看到 Netlify 有判斷到 Hexo，並且自動設定好 generate 指令。
+
+[圖二] 設定與 Deploy 圖片
+
+確認無誤後便可進行 deploy。
+一般 deploy在產生網站的設定內可以設定要 deploy 的 branch，預設為 master（見[圖二] 設定與 Deploy 圖片）。這邊只要 Github 端有任何 push 到 master 的動作，Netlify 就會自動 build 並 deploy 該站。
+測試後蠻即時的，頁面上顯示的資料也是。
+Custom domainGoogle domainsNetlify 自行提供的 domain 並不像 Github page 那樣是使用 repository name 加上一個 suffix，那是什麼規則我沒研究，但能確定的是不好記，所以建議會是使用自己的 domain。
+Netlify 本身就有提供網域購買，在 deploy 完網站後可以直接進第二步驟購買網域，但這邊我選擇使用 Google domains 購買網域，個人原因是好管理（這個站也是在 google domains 購買的，可以統一管理）。
+如何在 Google domains 上購買網域請參考這一篇：如何在台灣購買 Google domains 網域，買好後回到 Netlify 進行網域設定。
+Netlify domain management
+[圖三] 網站管理後台
+
+回到剛剛建立的網站管理後台，選擇選單的 Setting，或者是找 Domain settings 進入 domain 管理。選擇增加 Custom domain。照著步驟往下並完成後，在 自訂 domain 後方會出現警告 Check DNS configuration，選擇最後方的 Options 按鈕選擇 Set Up Nelify DNS 好進行 DNS 設定。
+順帶一提這時因為 DNS 沒設定好，所以同一頁面最下方的 HTTPS 也會處於無法使用的狀態。
+選擇 Set Up Netlify DNS 並照著步驟往下，最後會出現四個 Netlify 提供的 DNS，頁面先別關，這邊要到 Google domains 進行設定。
+Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第一個區塊 名稱伺服器(Nameservers) 選擇自訂名稱伺服器，將剛剛在 Netlify 得到的四個 DNS 都貼上並儲存。
+
+[圖四] Google domains DNS 設定
+
+增加後就像圖四這樣。
+完畢後回到 Netlify 等 DNS 生效後網站就能使用，HTTPS 憑證理應會一併設定好。
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>netlify</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄</title>
+    <url>//disable-mouse-scrolling-through-command-history-on-mac-iterm2/</url>
+    <content><![CDATA[開始之前iTerm2 是一個支援 Mac 平台的 terminal，能取代 Mac 原生的 terminal，與原生的 termianl 相比使用上較便利，功能也較多。
+簡單介紹兩者 UI 差別：
+
+[圖一] iTerm2 v.s. Mac 原生 terminal
+
+可以見到 iTerm2 介面多了很多東西，預設有些是不會開啟，要手動開啟才會像上面比對圖那樣，這邊就不多作介紹。
+發生的問題預設使用滑鼠在 iTerm2 上滾動時，滾動的是整個視窗的內容，所以能看到之前的內容，當顯示在 terminal 上的 log 內容很長，長到超出整個畫面時，也能透過這個方式查看畫面外的內容。
+對，直到某一天 iTerm2 彈出一個詢問框問我要不要 OOXX，然後一個沒看仔細點了 OK，我的 iTerm2 就變成滾動滑鼠看到的是指令歷史紀錄而不是畫面外的內容了。
+改了好幾個設定檔都沒有用（從 tmux 改到 vim），最後終於確認是 iTerm2 的設定也終於改回來了。
+修改方式首先打開 iTerm2，點開左上角蘋果 icon 右邊的 iTerm2，找到 Preference 後點下去。
+
+[圖二] iTerm2 Preferences 選項
+
+打開 Preferences 視窗後，點開 Advanced，直接用關鍵字「scroll」搜尋，找到「Scroll wheel sends arrow keys when in alternate screen mode.」，這邊應該會是 Yes，改成 No 後重開 iTerm2 就解決了。
+
+[圖三] iTerm2 Preferences Advanced 選單
+]]></content>
+      <tags>
+        <tag>mac</tag>
+        <tag>iterm2</tag>
+        <tag>terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AWS DEV DAY 2020 會後心得</title>
+    <url>//post/experience-of-aws-dev-day-2020/</url>
+    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
+先附個名牌。
+
+
+因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
+今年的議程可以看這邊：AWS DEV DAY Taipei
+心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
+技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
+比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
+]]></content>
+      <tags>
+        <tag>aws dev day</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>COSCUP 2020 會後心得</title>
+    <url>//post/experience-of-coscup-2020/</url>
+    <content><![CDATA[開始之前第一次參加 COSCUP，寫個心得記錄紀錄。
+附個名牌。
+
+
+等等，COSCOP？？？
+怎麼發現 COSCUP注意到 COSCUP 其實也就這一兩年的事，先是在推特注意到，然後發現噗浪也有 COSCUP 官噗，所以加了關注。
+然後就沒有然後了（遠望
+因為其實沒有參與任何開源的專案，本身自己也沒有開源的專案，所以比起工作上有相關的 Laravel Conference 或 Modern Web，COSCUP 反而是一直沒有參加的打算。
+就像如果我沒有在打電動，也不會去電玩相關的展覽，大概是這個思路。（先說我有在打電動，期待薩爾達荒野之息2）
+怎麼會想參加？其實我也在想這次怎麼會參加w
+一開始是前同事在 Line 群組問 COSCUP 第二天有要去的話，可以某個時間在捷運站集合一起走過去，因為這樣我開了 COSCUP 官網，才發現議程其實比我想像中的還要多元而且有趣，且剛好有我有興趣的。
+耶嘿 (ﾟ∀ﾟ)
+就這樣我出門了（論揪團的重要性
+今年的議程表可以看這邊：COSCUP 2020 議程表
+雖然今年的 COSCUP 已經結束了，但今年沒參加，或者是跟我一樣覺得不在這圈子內就沒什麼參加打算的人可以先看看今年的議程，你會發現內容真的很多元，連鍵盤相關的議程都有（雖然我周日下午有事先離席沒聽到）。
+誠摯推薦明年可以試著參加。
+如果有興趣但真的無法出席的話，可以看大會的共筆，或者是至官方的 Youtube 頻道 - COSCUP 開源人年會 等看看當年議程的影片。
+議程心得這次只有去第二天（8&#x2F;2），地點在台科大（第一次知道台科大距離台大那麼近），且只有聽上午的議程，所以可以說的心得沒有很多。
+第一場 VueJs 全程英文，相當考驗英文聽力的同時也得知了一些關於 Vue 3 的事情，原來 Vue 2 也推出好幾年了阿。
+第二場聽了純 PostgreSQL 新手，因為第一場結束時間有點晚了，導致入場時已經過了十分鐘，前面沒聽到RRR。
+不過倒是知道了 PostgreSQL 在數字處理的便利性，覺得可以找時間研究研究。
+第三場聽了從淘汰第三方 cookie 到各種隱私保護的瀏覽器技術發展，這場根本從頭笑到尾，簡單地介紹了何謂第一方與第三方 cookie，以及吵很兇的封鎖第三方 cookie 及各種對應，以及可以去哪看瀏覽器們（無誤）接下來的對應處理。令我意外的是 Safari 還真嚴阿，連第一方儲存空間（LocalStorage）都有 7 天這種存在時間限制，之後會不會變成完全禁止阿。
+這樣 SPA 網站的 token 要存哪裡呢……
+最後我想明年如果時間允許的話我應該會去滿兩天吧，這次的 COSCUP 半日遊真的蠻有趣的。
+期待明年的議程。
+]]></content>
+      <tags>
+        <tag>coscup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>COSCUP 2023 會後心得</title>
+    <url>//post/experience-of-coscup-2023/</url>
+    <content><![CDATA[開始之前去年的沒參加，今年終於爬出門參加了，但只有第一天（天氣很好），記錄一下。
+補個今年的名牌，名字碼掉了，用 UwU 取代。
+
+
+今年的 COSCUP 在 07&#x2F;29 與 07&#x2F;30，週末，同樣在天大地大台科大。
+怎麼今年會想參加覺得不該再宅了，剛好時間看看差不多要有 COSCUP 了所以就看看議程，然後就決定出門了。好久不見的 COSCUP 啊。
+參與心得今年只有參加第一天，而且只有上午，下午一個覺得累就溜回家了（年紀真的是一把殺豬刀，體力整個直線下滑）。聽了以下幾場（點擊議程名稱可至官方議程介紹）：
+
+你終究是要學 SQL 的，那怎麼不一開始就用 DuckDB
+在 Google Cloud Platform 上為自己的 Podcast 節目打造一個家
+Using VS Code with MySQL
+
+聽完第三場後覺得一股勞累襲上就決定回家了。
+這三場裡面最喜歡的是第二場 Podcast 的部分，時間關係我覺得沒有講到非常詳細，但用了什麼，為什麼用都有提到，也知道了 Astro 這個 framework。原本就一直有想自己寫自己網站的想法，知道這個後又多了一個框架的選擇。
+另外兩場可惜的是我的相關知識不足，所以只聽懂三成，但也知道了一些新東西。最可惜的是沒有帶筆電出門，沒有貢獻一些共筆內容。
+最後明年如果還有 COSCUP 的話應該還是會參與，然後因為宅太久都快忘記怎麼跟人互動，在購買周邊時整個有夠像路過的怪人，完全不知道該怎麼開口說我要這個商品 QwQ。
+補個酒精噴霧罐，一直想買方型的終於下手了，但這個要怎麼綁繩子啊，只能買橡膠的外殼嗎？
+
+
+
+]]></content>
+      <tags>
+        <tag>coscup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git commands 集合處(2024/04/21 更新)</title>
+    <url>//post/git-commands/</url>
+    <content><![CDATA[開始之前因為主要是使用 Git command 而非 UI，除了常用的 add 這類，有些久沒用就會忘記，然後還要 google 老半天，想想不如自己寫一篇，對，就是這篇。因為這樣，這篇不會是完整的 Git commands，會是我常用或會遇到但會忘記的指令，分類也是照我自己使用習慣來分類。
+這篇會慢慢更新，想到就更新，更新時間會加到標題上。
+CommandsRepository 基本# 顯示設定的 remote 與 URL：git remote -v
+# origin 是預設的 remote name
+$ git remote -v
+origin &lt;REMOTE_URL&gt; (fetch)
+origin &lt;REMOTE_URL&gt; (push)
+
+# 設定 remote 的 URL：git remote set-url &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# 如果 remote name 設定既有的 remote，例如 origin，那就是更新 origin 的 remote url
+$ git remote set-url origin &lt;REMOTE_URL&gt;
+
+# 增加新的 remote：git remote add &lt;REMOTE_NAME&gt; &lt;REMOTE_URL&gt;
+# remote name 不可與既有的重複。增加後使用 git remote -v 就會看到多了新的兩個 remote（fetch 跟 push）
+$ git remote add devorigin &lt;REMOTE_URL&gt;
+
+開發進度相關# 跳到某一條線上：git checkout &lt;BRANCH_NAME&gt;
+# 當前進度未 commit 或者有衝突時會跳不過去
+$ git checkout develop
+
+# 將進度推到遠端：git push &lt;REMOTE_NAME&gt;
+# remote name 預設為 origin，故可以省略。若要推到不同的 remote 就要加上名稱
+# 加上 -f 表示強制推扣，會用本地端的進度蓋掉遠端進度，這個非常危險
+$ git push
+$ git push devorigin
+$ git push origin -f
+
+# 將遠端進度拉到本地端：git pull &lt;OPTIONAL_COMMAND&gt;
+# 個人習慣使用 --rebase 讓線比較沒那麼複雜
+$ git pull
+$ git pull --rebase
+
+# Commit 當前進度：git commit -m &lt;MESSAGE&gt;
+# 如果要調整 commit body 的話，就不需要後面的 -m &lt;MESSAGE&gt;
+$ git commit
+$ git commit -m &#39;feat: Update README.md&#39;
+
+# Merge 另外一條 branch：git merge &lt;BRANCH_NAME&gt;
+# 個人習慣加上 --no-ff 保留 merge 的小耳朵
+$ git merge develop --no-ff
+
+Commit 相關# 從別的 branch 撿 commit 過來用：git cherry-pick &lt;COMMIT_SHA&gt;
+# commit SHA 可以一次撿多個過來，各自中間用空格隔開就好。以下的 SHA 是亂打的
+# 加到當前 branch 的順序，舊到新為設定 SHA 的左到右
+$ git cherry-pick 5262773e d378c4e3
+
+Branch 相關# 從既有的 branch 新增新的 branch 並直接推到遠端：git push &lt;REMOTE_NAME&gt; &lt;BRANCH_NAME&gt;:&lt;NEW_BRANCH_NAME&gt;
+$ git push origin develop:feature/create-login-form
+
+# 刪除遠端 Branch：git push &lt;REMOTE_NAME&gt; :&lt;BRANCH_NAME&gt;
+$ git push origin :feature/create-login-form
+
+# 刪除本地端 Branch：git branch -D &lt;BRANCH_NAME&gt;
+$ git branch -D feature/create-ligin-form
+
+# 查看本地端 Branch
+$ git branch
+
+]]></content>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -696,8 +696,44 @@ Host github-work
 最後以 GitHub 來說，除了可用 ssh key 外，也有提供 HTTP 的方式，但習慣使用 ssh key 又有複數個帳號的話，這是個不錯的設定方式，就是 Clone 專案時要注意更改 Host。
 ]]></content>
       <tags>
-        <tag>Git</tag>
-        <tag>SSH key</tag>
+        <tag>git</tag>
+        <tag>ssh key</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
+    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
+    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
+中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
+救命，這台電腦到底是發生什麼事。
+最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
+前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
+
+開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
+開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
+
+安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
+第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
+新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
+接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
+
+start：啟動 vim 時會自動載入的 Plugins
+opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
+
+NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
+好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
+第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
+$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
+
+如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
+第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
+其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
+最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
+]]></content>
+      <tags>
+        <tag>windows</tag>
+        <tag>vim</tag>
+        <tag>vim plugins</tag>
       </tags>
   </entry>
   <entry>
@@ -766,67 +802,8 @@ xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools
 要注意的是，在 System Settings 有出現更新提示，但卻使用指令進行更新的話，更新完畢後又開 System Settings 可能會看到 Xcode 相關的更新還在列表內，等他畫面刷新，或者關掉視窗重開就好。
 ]]></content>
       <tags>
-        <tag>Mac</tag>
-        <tag>Xcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
-    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
-    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
-中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
-救命，這台電腦到底是發生什麼事。
-最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
-前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
-
-開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
-開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
-
-安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
-第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
-新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
-接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
-
-start：啟動 vim 時會自動載入的 Plugins
-opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
-
-NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
-好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
-第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
-$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
-
-如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
-第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
-其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
-最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
-]]></content>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Vim</tag>
-        <tag>Vim Plugins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
-    <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
-    <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
-處理方式先直接說處理方式，在 Ubuntu 安裝 dos2unix 後對出問題的檔案使用即可。
-$ apt-get install dos2unix
-$ dos2unix &lt;file_path&gt;
-
-發生什麼事？主要是因為在 Windows 上與 Unix 上的檔案的換行符號不同，再加上 Apple 系列的話分為三種：
-
-LF（Line feed），ASCII code 10，\n：Unix 或 Unix base 的系統
-CR（Carriage return），ASCII code 13，\r：Apple 系統
-CR+LF，\r\n：DOS 與 Windows 系統
-
-Ubuntu 為 Unix base 的系統，使用的換行符號只有 LF，但 Windows 為 CR+LF，這樣一來導致在 Ubuntu 上執行該 shell script 時便出現問題。
-另外一個可能會看到的行尾是^M，這個是 Control-M，就是 CR，一樣使用 dos2unix 可移除。
-]]></content>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Unix</tag>
-        <tag>Shell script</tag>
+        <tag>mac</tag>
+        <tag>xcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1046,8 +1023,8 @@ createApp(App).use(store)
 最後der碎碎念嘗試使用另外一個方式使用 fontawesome 沒想到就撞在 Vue 3 + latest component 無法使用的狀況，爬了文才發現 Vue 3 得使用 prerelease 版。接著又撞到 5 與 6 版 icon 名稱不同的問題，所以我說為啥換版本名稱要顛倒啊 fontawesome，名字相同不好嗎？
 ]]></content>
       <tags>
-        <tag>VueJs3</tag>
-        <tag>FontAwesome</tag>
+        <tag>vuejs3</tag>
+        <tag>fontawesome</tag>
       </tags>
   </entry>
   <entry>
@@ -1227,7 +1204,7 @@ MySQL :: MySQL 8.0 Reference Manual :: 12.19.1 Aggregate Function Descriptions
 
 ]]></content>
       <tags>
-        <tag>MySQL</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -1251,6 +1228,29 @@ MySQL :: MySQL 8.0 Reference Manual :: 12.19.1 Aggregate Function Descriptions
         <tag>windows 10</tag>
         <tag>graphic card</tag>
         <tag>error code 14</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
+    <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
+    <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
+處理方式先直接說處理方式，在 Ubuntu 安裝 dos2unix 後對出問題的檔案使用即可。
+$ apt-get install dos2unix
+$ dos2unix &lt;file_path&gt;
+
+發生什麼事？主要是因為在 Windows 上與 Unix 上的檔案的換行符號不同，再加上 Apple 系列的話分為三種：
+
+LF（Line feed），ASCII code 10，\n：Unix 或 Unix base 的系統
+CR（Carriage return），ASCII code 13，\r：Apple 系統
+CR+LF，\r\n：DOS 與 Windows 系統
+
+Ubuntu 為 Unix base 的系統，使用的換行符號只有 LF，但 Windows 為 CR+LF，這樣一來導致在 Ubuntu 上執行該 shell script 時便出現問題。
+另外一個可能會看到的行尾是^M，這個是 Control-M，就是 CR，一樣使用 dos2unix 可移除。
+]]></content>
+      <tags>
+        <tag>windows</tag>
+        <tag>unix</tag>
+        <tag>shell script</tag>
       </tags>
   </entry>
 </search>
