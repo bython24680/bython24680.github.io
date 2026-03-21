@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>404 | Zoneless</title>
+  <meta name="description" content="筆記集散地，想到就寫，有時間就寫">
+
+  <!-- social media: fb -->
+  <meta property="type" content="website">
+  <meta property="og:title" content="404 | Zoneless">
+  <meta property="og:description" content="筆記集散地，想到就寫，有時間就寫">
+  <meta property="og:url" content="https://bython24680.github.io/404">
+  <meta property="og:site_name" content="Zoneless">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:image" content="https://bython24680.github.io/assets/images/site-sharing.jpg">
+
+  <meta property="article:author" content="Bython">
+  
+
+  <!-- social media: twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="404 | Zoneless">
+  <meta name="twitter:description" content="筆記集散地，想到就寫，有時間就寫">
+  <meta name="twitter:image" content="https://bython24680.github.io/assets/images/site-sharing.jpg">
+  
+
+  <!-- Favicon -->
+  
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  
+  
+    <link rel="shortcut icon" href="/assets/images/favicon-192x192.png" type="image/x-icon">
+  
+  
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  
+
+  <!-- Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/final.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
+  <!-- Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-165957239-1');
+  </script>
+  
+  
+  <script>
+    // Pass Hexo config to JS
+    var hexo_config = {
+        root: '/'
+    };
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+    <style>
+        #reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: transparent;
+            z-index: 9999;
+        }
+        .reading-progress-bar__progress {
+            height: 100%;
+            width: 0;
+            background-color: #6366f1;
+            transition: width 0.25s ease-out;
+        }
+        .dark .reading-progress-bar__progress {
+            background-color: #a5b4fc;
+        }
+    </style>
+    <div id="reading-progress-bar">
+        <div class="reading-progress-bar__progress"></div>
+    </div>
+    <script>
+        document.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress-bar__progress').style.width = scrollPercent + '%';
+        });
+    </script>
+
+  <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-40 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 group">
+             <span class="text-xl font-bold tracking-tight dark:text-white">Zoneless</span>
+        </a>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                
+                
+                    
+                        <a href="/" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Home
+                        </a>
+                    
+                        <a href="/archives" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Post
+                        </a>
+                    
+                        <a href="/tags" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Tags
+                        </a>
+                    
+                        <a href="/about" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            About
+                        </a>
+                    
+                
+            </nav>
+
+            <!-- Search Trigger -->
+            <button onclick="openSearch()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Dark Mode -->
+             <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                 <i class="fas fa-moon dark:hidden"></i>
+                 <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+     
+     
+     <!-- Main Content Area -->
+     <div class="lg:col-span-12">
+        <!-- Generic Page Layout (Default) -->
+<article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-8 transition-colors duration-300">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+        <section class="flex flex-col items-center justify-center gap-y-[2.25rem] py-[2.5rem]">
+            <div class="text-7xl sm:text-8xl md:text-9xl">
+                <i class="fa-solid fa-4"></i>
+                <i class="fa-solid fa-0"></i>
+                <i class="fa-solid fa-4"></i>
+            </div>
+            <div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl">OOPS! PAGE NOT FOUND!</div>
+        </section>
+    </div>
+</article>
+
+     </div>
+    
+     <!-- Sidebar (Conditional) -->
+     
+  </main>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-auto pt-12 pb-6">
+    
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Col 1: About -->
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white flex items-center gap-2">
+                    <img src="/assets/images/avatar.jpg" alt="Logo" class="w-8 h-8 rounded-full">
+                    <span>Bython</span>
+                </h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                    紀錄與分享日常技術筆記
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 p-2 rounded hover:bg-primary hover:text-white dark:hover:text-slate-700 dark:hover:bg-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 p-2 rounded hover:bg-primary hover:text-white dark:hover:text-slate-700 dark:hover:bg-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Topics -->
+            
+
+            <!-- Col 3: Projects -->
+            
+
+            <!-- Col 4: Navigation -->
+            
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white">快速導航</h3>
+                <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                    
+                    
+                        
+                            <li>
+                                <a href="/" class="hover:text-primary">Home</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/archives" class="hover:text-primary">Post</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/tags" class="hover:text-primary">Tags</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/about" class="hover:text-primary">About</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+
+            <!-- Col 5: Recommend links -->
+            
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white">推薦連結</h3>
+                <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                    
+                        <li>
+                            <a href="https://hexo.io/" class="hover:text-primary" target="_blank" rel="noopener">Hexo</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://github.com/bython24680/hexo-theme-miniton" class="hover:text-primary" target="_blank" rel="noopener">Hexo Miniton theme</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://leetcode.com" class="hover:text-primary" target="_blank" rel="noopener">LeetCode</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://roadmap.sh" class="hover:text-primary" target="_blank" rel="noopener">roadmap.sh</a>
+                        </li>
+                    
+                </ul>
+            </div>
+            
+
+            
+        </div>
+
+        <div class="border-t border-slate-100 dark:border-slate-700 pt-6 flex flex-col md:flex-row justify-start items-center text-xs text-slate-400">
+            <p>&copy; 2026 Zoneless. Theme by Bython.</p>
+            <div class="flex gap-1 mt-2 md:mt-0 ml-2">
+                Powered by
+                <a href="https://hexo.io" class="text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600" target="_blank">Hexo</a>
+                & Theme
+                <a href="https://github.com/bython24680/hexo-theme-miniton" class="text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600" target="_blank">Miniton</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Search Overlay -->
+<div id="search-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-start justify-center pt-20 opacity-0 invisible transition-all duration-300">
+    <div class="bg-white dark:bg-slate-800 w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden mx-4">
+        <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
+            <i class="fas fa-search text-slate-400"></i>
+            <input type="text" id="local-search-input" placeholder="搜尋文章關鍵字..." class="w-full bg-transparent border-none focus:ring-0 text-lg text-slate-800 dark:text-white placeholder-slate-400">
+            <button onclick="closeSearch()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">關閉</button>
+        </div>
+        <div class="px-8 py-6 max-h-[60vh] overflow-y-auto">
+            <div id="local-search-result" class="space-y-2"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script>
+    // Basic Toggle Logic
+    function openSearch() {
+        const modal = document.getElementById('search-modal');
+        modal.classList.remove('opacity-0', 'invisible');
+        setTimeout(() => document.getElementById('local-search-input').focus(), 100);
+    }
+    function closeSearch() {
+        const modal = document.getElementById('search-modal');
+        modal.classList.add('opacity-0', 'invisible');
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSearch();
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            openSearch();
+        }
+    });
+</script>
+
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-primary dark:bg-primary-dark text-white w-12 h-12 rounded-full shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-500 transition-all z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+      // Dark Mode
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          html.classList.add('dark');
+      } else {
+          html.classList.remove('dark');
+      }
+
+      themeToggleBtn?.addEventListener('click', () => {
+          html.classList.toggle('dark');
+          localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+      });
+
+      // Mobile Menu
+      function toggleMobileMenu() {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+      }
+
+      // Back to Top Logic
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+           if (window.scrollY > 300) {
+               backToTopBtn.classList.remove('opacity-0', 'invisible');
+               backToTopBtn.classList.add('opacity-100', 'visible');
+           } else {
+               backToTopBtn.classList.add('opacity-0', 'invisible');
+               backToTopBtn.classList.remove('opacity-100', 'visible');
+           }
+      });
+  </script>
+  <!-- Disqus Comment Count Script -->
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mac 更新後出現 xcrun error | Zoneless</title>
+  <meta name="description" content="開始之前終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 git pull --rebase 就出現錯誤提示：
+xcrun: error: invalid active developer path (/Library/Developer/CommandL...">
+
+  <!-- social media: fb -->
+  <meta property="type" content="article">
+  <meta property="og:title" content="Mac 更新後出現 xcrun error | Zoneless">
+  <meta property="og:description" content="開始之前終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 git pull --rebase 就出現錯誤提示：
+xcrun: error: invalid active developer path (/Library/Developer/CommandL...">
+  <meta property="og:url" content="https://bython24680.github.io/post/mac-xcode-select-error/">
+  <meta property="og:site_name" content="Zoneless">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:image" content="https://bython24680.github.io/assets/images/site-sharing.jpg">
+
+  <meta property="article:author" content="Bython">
+  
+    <meta property="article:published_time" content="2023-06-18T23:12:25+08:00">
+    <meta property="article:modified_time" content="2026-03-21T20:48:04+08:00">
+    
+    
+      
+        <meta property="article:tag" content="mac">
+      
+        <meta property="article:tag" content="xcode">
+      
+    
+  
+
+  <!-- social media: twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mac 更新後出現 xcrun error | Zoneless">
+  <meta name="twitter:description" content="開始之前終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 git pull --rebase 就出現錯誤提示：
+xcrun: error: invalid active developer path (/Library/Developer/CommandL...">
+  <meta name="twitter:image" content="https://bython24680.github.io/assets/images/site-sharing.jpg">
+  
+
+  <!-- Favicon -->
+  
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  
+  
+    <link rel="shortcut icon" href="/assets/images/favicon-192x192.png" type="image/x-icon">
+  
+  
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  
+
+  <!-- Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/final.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- highlight -->
+  
+  <link rel="stylesheet" href="/css/highlight-monokai.min.css">
+  
+  <style>
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-numbers {
+        border-right: 1px solid;
+        padding-right: 10px;
+        text-align: center;
+    }
+    #post-content pre code.hljs td.hljs-ln-line.hljs-ln-code {
+        padding-left: 15px;
+    }
+  </style>
+  
+
+  <!-- Google Analytics -->
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165957239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-165957239-1');
+  </script>
+  
+  
+  <script>
+    // Pass Hexo config to JS
+    var hexo_config = {
+        root: '/'
+    };
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+  
+    <style>
+        #reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: transparent;
+            z-index: 9999;
+        }
+        .reading-progress-bar__progress {
+            height: 100%;
+            width: 0;
+            background-color: #6366f1;
+            transition: width 0.25s ease-out;
+        }
+        .dark .reading-progress-bar__progress {
+            background-color: #a5b4fc;
+        }
+    </style>
+    <div id="reading-progress-bar">
+        <div class="reading-progress-bar__progress"></div>
+    </div>
+    <script>
+        document.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.reading-progress-bar__progress').style.width = scrollPercent + '%';
+        });
+    </script>
+
+  <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-40 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 group">
+             <span class="text-xl font-bold tracking-tight dark:text-white">Zoneless</span>
+        </a>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                
+                
+                    
+                        <a href="/" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Home
+                        </a>
+                    
+                        <a href="/archives" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Post
+                        </a>
+                    
+                        <a href="/tags" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            Tags
+                        </a>
+                    
+                        <a href="/about" class="nav-link hover:text-primary dark:hover:text-primary-dark transition-colors">
+                            About
+                        </a>
+                    
+                
+            </nav>
+
+            <!-- Search Trigger -->
+            <button onclick="openSearch()" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Dark Mode -->
+             <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+                 <i class="fas fa-moon dark:hidden"></i>
+                 <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+     
+     
+     <!-- Main Content Area -->
+     <div class="lg:col-span-8">
+        <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-8 transition-colors duration-300">
+    <!-- Header Info -->
+    <header class="mb-8 border-b border-slate-100 dark:border-slate-700 pb-8">
+        <div class="flex gap-2 mb-4">
+            
+                
+                    <a href="/tags/mac/" class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-xs font-medium rounded">#mac</a>
+                
+                    <a href="/tags/xcode/" class="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-xs font-medium rounded">#xcode</a>
+                
+            
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4 leading-tight">Mac 更新後出現 xcrun error</h1>
+        <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-1">
+                <i class="far fa-calendar"></i>
+                <time>2023-06-18</time>
+            </div>
+            <div class="flex items-center gap-1">
+                <i class="fas fa-user"></i>
+                <span>Bython</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content (Tailwind Typography) -->
+    <div id="post-content" class="prose prose-lg prose-slate dark:prose-invert max-w-none">
+        <h2 id="開始之前"><a href="#開始之前" class="headerlink" title="開始之前"></a>開始之前</h2><p>終於更新到 Ventura 後又更新了看來是 Bug 的更新，重開機後打開 iTerm2 下 <code>git pull --rebase</code> 就出現錯誤提示：</p>
+<pre><code>xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+</code></pre>
+<p>我只是更新個 Bug 啊別這樣。</p>
+<h2 id="如何處理"><a href="#如何處理" class="headerlink" title="如何處理"></a>如何處理</h2><p>有兩種方法可以處理：一種是打開 System Settings，可能會提示有東西需要更新，點進去看如果是 Xcode 的更新，恭喜就是這個，更新完就沒問題了。第二種是終端機直接下指令 <code>xcode-select --install</code>，這樣也會出現詢問更新的視窗與更新進度（圖一），跟 System Settings 那個是一樣的東西。</p>
+<p>如果使用指令更新，且 System Settings 內也有出現更新提示的話，點進 System Settings 會看到狀態是更新中，也有更新進度（圖二）。</p>
+<img src="/post/mac-xcode-select-error/update-xcode-install-process.jpg" class="" title="更新進度的視窗">
+<div style="text-align:center">[圖一] 更新進度的視窗</div>
+<br>
+<img src="/post/mac-xcode-select-error/mac-software-update-xcode.jpg" class="" title="System Settings 的更新進度">
+<div style="text-align:center">[圖二] System Settings 內的更新進度</div>
+
+<p>要注意的是，在 System Settings 有出現更新提示，但卻使用指令進行更新的話，更新完畢後又開 System Settings 可能會看到 Xcode 相關的更新還在列表內，等他畫面刷新，或者關掉視窗重開就好。</p>
+
+    </div>
+
+    <!-- Share Buttons -->
+    <div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-700">
+        <div class="flex flex-col sm:flex-row items-center gap-4 justify-between bg-slate-50 dark:bg-slate-700/30 p-4 rounded-xl">
+    <span class="text-slate-600 dark:text-slate-300 font-medium text-sm">分享文章：</span>
+    <div class="flex flex-wrap justify-center gap-3">
+        <!-- Twitter/X -->
+        <button onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + '&url=' + encodeURIComponent(window.location.href), '_blank')" 
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-slate-600 dark:text-slate-300">
+            <i class="fab fa-x-twitter"></i>
+        </button>
+
+        <!-- Facebook -->
+        <button onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank')"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-[#1877F2] hover:text-white dark:hover:bg-[#1877F2] dark:hover:text-white transition-colors text-slate-600 dark:text-slate-300">
+            <i class="fab fa-facebook-f"></i>
+        </button>
+
+        <!-- Threads -->
+        <button onclick="window.open('https://www.threads.net/intent/post?text=' + encodeURIComponent(document.title + ' ' + window.location.href), '_blank')"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-slate-600 dark:text-slate-300">
+            <i class="fas fa-at"></i>
+        </button>
+
+        <!-- Plurk -->
+        <button onclick="window.open('http://www.plurk.com/?qualifier=shares&status=' + encodeURIComponent(window.location.href) + ' ' + encodeURIComponent('(' + document.title + ')'), '_blank')"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-[#CF682F] dark:hover:bg-[#CF682F] hover:text-white dark:hover:text-white transition-colors text-slate-600 dark:text-slate-300">
+            <span class="font-bold text-xs">P</span>
+        </button>
+
+        <!-- Instagram (Copy Link) / Generic Copy -->
+        <button onclick="copyLink()" class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-200 dark:bg-slate-600 hover:bg-indigo-500 dark:hover:bg-indigo-300 hover:text-white dark:hover:text-black transition-colors text-slate-600 dark:text-slate-300 group relative" title="複製連結（適用於 Instagram）">
+            <i class="fas fa-link"></i>
+            <span id="copy-tooltip" class="absolute bottom-full mb-2 px-2 py-1 text-xs bg-black text-white rounded opacity-0 transition-opacity pointer-events-none whitespace-nowrap">已複製！</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const tooltip = document.getElementById('copy-tooltip');
+            tooltip.classList.remove('opacity-0');
+            setTimeout(() => tooltip.classList.add('opacity-0'), 2000);
+        });
+    }
+</script>
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 pt-8 border-t border-slate-100 dark:border-slate-700">
+        
+        <a href="/post/shell-script-syntax-error-near-unexpected-token/" class="border border-slate-200 dark:border-slate-700 rounded-lg p-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+            <div class="text-xs text-slate-400 mb-1">上一篇</div>
+            <div class="text-slate-700 dark:text-slate-200 font-medium truncate">執行 shell script 時出現 syntax error near unexpected token `$&#39;do\r&#39; 錯誤</div>
+        </a>
+        
+        
+        
+        <a href="/disable-mouse-scrolling-through-command-history-on-mac-iterm2/" class="border border-slate-200 dark:border-slate-700 rounded-lg p-4 text-right hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+            <div class="text-xs text-slate-400 mb-1">下一篇</div>
+            <div class="text-slate-700 dark:text-slate-200 font-medium truncate">關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄</div>
+        </a>
+        
+    </div>
+
+    <!-- Comments -->
+    <div class="mt-12">
+        
+<div id="disqus_thread" class="bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-2xl shadow-sm p-8 mt-8"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://bython24680.github.io//post/mac-xcode-select-error/'; 
+        this.page.identifier = '/post/mac-xcode-select-error/';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zoneless.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    </div>
+</article>
+
+     </div>
+    
+     <!-- Sidebar (Conditional) -->
+     
+        <aside class="lg:col-span-4 space-y-6">
+          <!-- 1. Author Widget -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 text-center border-t-4 border-primary">
+    <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 p-1 mb-4">
+        <img src="/assets/images/avatar.jpg" alt="Avatar" class="rounded-full w-full h-full object-cover">
+    </div>
+    <h3 class="text-lg font-bold dark:text-white">Bython</h3>
+    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">全端開發者</p>
+    <div class="flex flex-wrap justify-center gap-3">
+        <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="text-slate-400 hover:text-primary hover:dark:text-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
+    </div>
+</div>
+
+
+    <!-- Case B: Post Detail Sidebar (TOC) -->
+    <div id="toc" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 sticky top-20 border border-slate-100 dark:border-slate-700 z-10">
+        <div class="mb-4 flex items-center justify-between">
+            <h3 class="font-bold dark:text-white border-l-4 border-indigo-400 pl-2">目錄</h3>
+            <div class="toc-collapse-btn text-slate-600 dark:text-slate-300 cursor-pointer">
+                <i class="fa-solid fa-minimize"></i>
+            </div>
+        </div>
+        <div class="toc-content text-sm text-slate-600 dark:text-slate-400">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E4%B9%8B%E5%89%8D"><span class="toc-text">開始之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%99%95%E7%90%86"><span class="toc-text">如何處理</span></a></li></ol>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const toc = document.getElementById('toc');
+                let tocChildTotalCounts = 0;
+                toc.querySelectorAll('.toc-item.toc-level-2').forEach(function (item) {
+                    let child = item.querySelector('.toc-child');
+                    if ((child?.childNodes.length ?? 0) > 0) {
+                        tocChildTotalCounts += child.childNodes.length;
+
+                        let icon = document.createElement('i');
+                        icon.classList.add('fa-solid', 'fa-caret-down');
+                        icon.style.paddingRight = '0.25rem';
+                        icon.style.cursor = 'pointer';
+
+                        icon.addEventListener('click', function () {
+                            if (child.classList.contains('hidden')) {
+                                child.classList.remove('hidden');
+                                icon.classList.add('fa-caret-down');
+                                icon.classList.remove('fa-caret-right');
+                            } else {
+                                child.classList.add('hidden');
+                                icon.classList.add('fa-caret-right');
+                                icon.classList.remove('fa-caret-down');
+                            }
+                        });
+
+                        item.prepend(icon);
+                    } else {
+                        item.style.paddingLeft = '1.1rem';
+                    }
+                });
+
+                const collapseBtn = toc.querySelector('.toc-collapse-btn');
+                if (tocChildTotalCounts > 0) {
+                    const collapseBtnIcon = collapseBtn.querySelector('i');
+                    collapseBtn.addEventListener('click', function () {
+                        const items = toc.querySelectorAll('.toc-item.toc-level-2');
+
+                        if (collapseBtnIcon.classList.contains('fa-minimize')) {
+                            items.forEach(function (item) {
+                                let child = item.querySelector('.toc-child');
+                                if ((child?.childNodes.length ?? 0) > 0) {
+                                    let icon = item.querySelector('i.fa-solid');
+                                    icon.classList.add('fa-caret-right');
+                                    icon.classList.remove('fa-caret-down');
+                                    item.querySelector('.toc-child').classList.add('hidden');
+                                }
+                            });
+
+                            collapseBtnIcon.classList.add('fa-maximize');
+                            collapseBtnIcon.classList.remove('fa-minimize');
+                        } else {
+                            items.forEach(function (item) {
+                                let child = item.querySelector('.toc-child');
+                                if ((child?.childNodes.length ?? 0) > 0) {
+                                    let icon = item.querySelector('i.fa-solid');
+                                    icon.classList.add('fa-caret-down');
+                                    icon.classList.remove('fa-caret-right');
+                                    item.querySelector('.toc-child').classList.remove('hidden');
+                                }
+                            });
+
+                            collapseBtnIcon.classList.add('fa-minimize');
+                            collapseBtnIcon.classList.remove('fa-maximize');
+                        }
+                    });
+                } else {
+                    collapseBtn.remove();
+                }
+            });
+        </script>
+    </div>
+
+    <!-- 2. Related Posts -->
+    
+    
+        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 sticky top-20 border border-slate-100 dark:border-slate-700">
+            <h3 class="font-bold mb-4 dark:text-white border-l-4 border-sky-400 pl-2">相關文章</h3>
+            <div class="space-y-4">
+            
+                <a href="/disable-mouse-scrolling-through-command-history-on-mac-iterm2/" class="flex gap-3 group">
+                    <div class="w-16 h-12 bg-slate-200 rounded-md bg-cover bg-center flex-shrink-0" style="background-image: url('/assets/images/default-post-thumbnail.jpg');"></div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover:text-primary dark:group-hover:text-primary-dark line-clamp-2 leading-snug">關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄</h4>
+                        <span class="text-xs text-slate-400 block">2022-12-12</span>
+                    </div>
+                </a>
+            
+            </div>
+        </div>
+    
+    <!-- 3. Recent Posts -->
+    
+        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-5 border border-slate-100 dark:border-slate-700">
+            <h3 class="font-bold mb-4 dark:text-white border-l-4 border-blue-400 pl-2">最新文章</h3>
+            <ul class="space-y-4">
+                
+                <li>
+                    <a href="/post/git-commands/" class="block hover:text-primary dark:text-slate-300 dark:hover:text-primary-dark transition-colors text-sm font-medium line-clamp-1 mb-1">Git commands 集合處(2024/04/21 更新)</a>
+                    <span class="text-xs text-slate-400 block">2024-04-21</span>
+                </li>
+                
+                <li>
+                    <a href="/post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/" class="block hover:text-primary dark:text-slate-300 dark:hover:text-primary-dark transition-colors text-sm font-medium line-clamp-1 mb-1">如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh key</a>
+                    <span class="text-xs text-slate-400 block">2024-04-14</span>
+                </li>
+                
+                <li>
+                    <a href="/post/install-vim-plugins-on-windows-without-administrator-rights/" class="block hover:text-primary dark:text-slate-300 dark:hover:text-primary-dark transition-colors text-sm font-medium line-clamp-1 mb-1">如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</a>
+                    <span class="text-xs text-slate-400 block">2024-04-07</span>
+                </li>
+                
+            </ul>
+        </div>
+    
+
+
+        </aside>
+     
+  </main>
+
+  <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-auto pt-12 pb-6">
+    
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Col 1: About -->
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white flex items-center gap-2">
+                    <img src="/assets/images/avatar.jpg" alt="Logo" class="w-8 h-8 rounded-full">
+                    <span>Bython</span>
+                </h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                    紀錄與分享日常技術筆記
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a target="_blank" rel="noopener" href="https://github.com/bython24680" class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 p-2 rounded hover:bg-primary hover:text-white dark:hover:text-slate-700 dark:hover:bg-indigo-400 transition-colors"><i class="fab fa-github"></i></a><a target="_blank" rel="noopener" href="https://x.com/bython86420" class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 p-2 rounded hover:bg-primary hover:text-white dark:hover:text-slate-700 dark:hover:bg-indigo-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Topics -->
+            
+
+            <!-- Col 3: Projects -->
+            
+
+            <!-- Col 4: Navigation -->
+            
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white">快速導航</h3>
+                <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                    
+                    
+                        
+                            <li>
+                                <a href="/" class="hover:text-primary">Home</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/archives" class="hover:text-primary">Post</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/tags" class="hover:text-primary">Tags</a>
+                            </li>
+                        
+                            <li>
+                                <a href="/about" class="hover:text-primary">About</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+
+            <!-- Col 5: Recommend links -->
+            
+            <div>
+                <h3 class="font-bold text-lg mb-4 dark:text-white">推薦連結</h3>
+                <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+                    
+                        <li>
+                            <a href="https://hexo.io/" class="hover:text-primary" target="_blank" rel="noopener">Hexo</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://github.com/bython24680/hexo-theme-miniton" class="hover:text-primary" target="_blank" rel="noopener">Hexo Miniton theme</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://leetcode.com" class="hover:text-primary" target="_blank" rel="noopener">LeetCode</a>
+                        </li>
+                    
+                        <li>
+                            <a href="https://roadmap.sh" class="hover:text-primary" target="_blank" rel="noopener">roadmap.sh</a>
+                        </li>
+                    
+                </ul>
+            </div>
+            
+
+            
+        </div>
+
+        <div class="border-t border-slate-100 dark:border-slate-700 pt-6 flex flex-col md:flex-row justify-start items-center text-xs text-slate-400">
+            <p>&copy; 2026 Zoneless. Theme by Bython.</p>
+            <div class="flex gap-1 mt-2 md:mt-0 ml-2">
+                Powered by
+                <a href="https://hexo.io" class="text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600" target="_blank">Hexo</a>
+                & Theme
+                <a href="https://github.com/bython24680/hexo-theme-miniton" class="text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-600" target="_blank">Miniton</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Search Overlay -->
+<div id="search-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-start justify-center pt-20 opacity-0 invisible transition-all duration-300">
+    <div class="bg-white dark:bg-slate-800 w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden mx-4">
+        <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
+            <i class="fas fa-search text-slate-400"></i>
+            <input type="text" id="local-search-input" placeholder="搜尋文章關鍵字..." class="w-full bg-transparent border-none focus:ring-0 text-lg text-slate-800 dark:text-white placeholder-slate-400">
+            <button onclick="closeSearch()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">關閉</button>
+        </div>
+        <div class="px-8 py-6 max-h-[60vh] overflow-y-auto">
+            <div id="local-search-result" class="space-y-2"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script>
+    // Basic Toggle Logic
+    function openSearch() {
+        const modal = document.getElementById('search-modal');
+        modal.classList.remove('opacity-0', 'invisible');
+        setTimeout(() => document.getElementById('local-search-input').focus(), 100);
+    }
+    function closeSearch() {
+        const modal = document.getElementById('search-modal');
+        modal.classList.add('opacity-0', 'invisible');
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSearch();
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            openSearch();
+        }
+    });
+</script>
+
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-primary dark:bg-primary-dark text-white w-12 h-12 rounded-full shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-500 transition-all z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+      // Dark Mode
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          html.classList.add('dark');
+      } else {
+          html.classList.remove('dark');
+      }
+
+      themeToggleBtn?.addEventListener('click', () => {
+          html.classList.toggle('dark');
+          localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+      });
+
+      // Mobile Menu
+      function toggleMobileMenu() {
+          document.getElementById('mobile-menu').classList.toggle('hidden');
+      }
+
+      // Back to Top Logic
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+           if (window.scrollY > 300) {
+               backToTopBtn.classList.remove('opacity-0', 'invisible');
+               backToTopBtn.classList.add('opacity-100', 'visible');
+           } else {
+               backToTopBtn.classList.add('opacity-0', 'invisible');
+               backToTopBtn.classList.remove('opacity-100', 'visible');
+           }
+      });
+  </script>
+  <!-- Disqus Comment Count Script -->
+  
+  <script id="dsq-count-scr" src="//zoneless.disqus.com/count.js" async></script>
+  
+  
+  <script src="/js/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+  
+  <script src="/js/highlightjs-line-numbers.min.js"></script>
+  <script>
+    hljs.initLineNumbersOnLoad();
+  </script>
+  
+</body>
+</html>
