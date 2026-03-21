@@ -84,6 +84,11 @@ content_settings:
     page_title: 所有標籤
     item_name: 標籤
 
+## Writing
+highlightjs:
+  theme: monokai
+  line_number: true
+
 ## Footer
 footer:
   hot_topics:
