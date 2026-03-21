@@ -3,7 +3,7 @@ title: Git commands 集合處(2024/04/21 更新)
 permalink: post/git-commands/
 date: 2024-04-21 22:38:13
 tags:
-- Git
+- git
 ---
 
 ## 開始之前

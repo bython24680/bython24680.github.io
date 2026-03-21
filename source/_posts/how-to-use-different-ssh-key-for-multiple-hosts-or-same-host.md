@@ -3,8 +3,8 @@ title: 如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh k
 permalink: post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/
 date: 2024-04-14 13:37:41
 tags:
-- Git
-- SSH key
+- git
+- ssh key
 ---
 
 ## 開始之前

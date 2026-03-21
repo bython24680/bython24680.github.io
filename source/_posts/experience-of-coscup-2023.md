@@ -3,7 +3,7 @@ title: COSCUP 2023 會後心得
 permalink: post/experience-of-coscup-2023/
 date: 2023-07-31 22:05:28
 tags:
-- COSCUP
+- coscup
 ---
 
 ## 開始之前

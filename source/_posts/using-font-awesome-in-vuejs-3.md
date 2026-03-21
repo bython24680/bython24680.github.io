@@ -3,8 +3,8 @@ title: VueJs3 使用 FontAwesome
 permalink: post/using-font-awesome-in-vuejs-3/
 date: 2022-03-06 01:44:21
 tags:
-- VueJs3
-- FontAwesome
+- vuejs3
+- fontawesome
 ---
 
 ## 開始之前

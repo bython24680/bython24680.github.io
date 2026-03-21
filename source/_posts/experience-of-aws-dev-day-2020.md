@@ -3,7 +3,7 @@ title: AWS DEV DAY 2020 會後心得
 permalink: post/experience-of-aws-dev-day-2020/
 date: 2020-12-21 20:46:16
 tags:
-- AWS DEV DAY
+- aws dev day
 ---
 
 ## 開始之前

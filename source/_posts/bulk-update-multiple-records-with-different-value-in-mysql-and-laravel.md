@@ -3,8 +3,8 @@ title: MySQL 與 Laravel 使用不同值更新多筆資料同一欄位
 permalink: post/bulk-update-multiple-records-with-different-value-in-mysql-and-laravel/
 date: 2022-11-08 22:18:22
 tags:
-- MySQL
-- Laravel
+- mysql
+- laravel
 ---
 
 ## 開始之前

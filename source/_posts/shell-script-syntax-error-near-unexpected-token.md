@@ -3,9 +3,9 @@ title: 執行 shell script 時出現 syntax error near unexpected token `$'do\r'
 permalink: post/shell-script-syntax-error-near-unexpected-token/
 date: 2023-07-22 22:49:57
 tags:
-- Unix
-- Windows
-- Shell script
+- unix
+- windows
+- shell script
 ---
 
 ## 開始之前

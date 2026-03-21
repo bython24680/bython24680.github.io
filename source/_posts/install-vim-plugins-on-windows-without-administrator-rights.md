@@ -3,9 +3,9 @@ title: 如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins
 permalink: post/install-vim-plugins-on-windows-without-administrator-rights/
 date: 2024-04-07 18:46:24
 tags:
-- Windows
-- Vim
-- Vim Plugins
+- windows
+- vim
+- vim plugins
 ---
 
 ## 開始之前

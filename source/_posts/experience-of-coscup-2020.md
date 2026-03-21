@@ -3,7 +3,7 @@ title: COSCUP 2020 會後心得
 permalink: post/experience-of-coscup-2020/
 date: 2020-08-02 22:35:37
 tags:
-- COSCUP
+- coscup
 ---
 
 ## 開始之前

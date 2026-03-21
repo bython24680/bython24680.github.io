@@ -3,7 +3,7 @@ title: 什麼是 MySQL GROUP_CONCAT function 及如何使用
 permalink: post/what-is-and-how-to-use-group-concat-in-mysql/
 date: 2023-12-09 16:02:42
 tags:
-- MySQL
+- mysql
 ---
 
 ## 開始之前

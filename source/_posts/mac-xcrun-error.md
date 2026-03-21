@@ -3,8 +3,8 @@ title: Mac 更新後出現 xcrun error
 permalink: post/mac-xcode-select-error/
 date: 2023-06-18 23:12:25
 tags:
-- Mac
-- Xcode
+- mac
+- xcode
 ---
 
 ## 開始之前
