@@ -270,6 +270,23 @@ Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第�
       </tags>
   </entry>
   <entry>
+    <title>AWS DEV DAY 2020 會後心得</title>
+    <url>//post/experience-of-aws-dev-day-2020/</url>
+    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
+先附個名牌。
+
+
+因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
+今年的議程可以看這邊：AWS DEV DAY Taipei
+心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
+技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
+比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
+]]></content>
+      <tags>
+        <tag>aws dev day</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>關閉滑鼠在 Mac 的 iTerm2 上滾動時出現指令歷史紀錄</title>
     <url>//disable-mouse-scrolling-through-command-history-on-mac-iterm2/</url>
     <content><![CDATA[開始之前iTerm2 是一個支援 Mac 平台的 terminal，能取代 Mac 原生的 terminal，與原生的 termianl 相比使用上較便利，功能也較多。
@@ -293,23 +310,6 @@ Google domains DNS setting選擇自訂的網域，側邊欄選擇 DNS，在第�
         <tag>mac</tag>
         <tag>iterm2</tag>
         <tag>terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AWS DEV DAY 2020 會後心得</title>
-    <url>//post/experience-of-aws-dev-day-2020/</url>
-    <content><![CDATA[開始之前月初的活動到現在才在打感想，說實在我已經快沒有記憶了（抹臉
-先附個名牌。
-
-
-因為對 AWS 其實完全不熟悉（這次活動前我完全沒接觸過 AWS），這次也是抱著菜逼八去了解了解的心態跟心情去參加，事前還先問朋友蔡逼八去聽這個會不會完全聽不懂。猶豫了幾天還是請假報名去了。
-今年的議程可以看這邊：AWS DEV DAY Taipei
-心得結論來說，整體來說蠻有趣的，整天下來並非只有 AWS 服務相關的議程，還有像是技術人思考方式與想法相關的分享。個人覺得比起服務的說明，這種的分享反而更有趣。畢竟技術這類的文件跟教學網路上到處都有，但想法這種虛幻的東西並非所有人都會在網路上分享。因此可以現場聽到大神們的分享就覺得值了。
-技術相關的部分因為我真的是 AWS 菜逼八，身為碼農居然沒碰過 AWS 自己想想都覺得有點不可思議，但現在沒空碰就……等之後吧。希望明年再度舉辦 AWS DEV DAY 時我的感想能夠包含技術感想的部分。
-比較不習慣的是沒有共筆的紀錄，原來這類的技術分享會共筆並非標準配備嗎……？
-]]></content>
-      <tags>
-        <tag>aws dev day</tag>
       </tags>
   </entry>
   <entry>
@@ -437,6 +437,117 @@ $ git branch
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh key</title>
+    <url>//post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/</url>
+    <content><![CDATA[開始之前因為需要在同一台電腦使用多個 GitHub 帳號（不要問我為啥會有複數個 GitHub 帳號，不好說不好說），同時帳號們也都需要使用 Git clone 等等的指令，導致發生了一個問題：我現在用的是哪一組 ssh key？！
+好這個真的是個好問題，所以能不能設定多組 ssh key 並且不同 repository（不同 Host 甚至是同一個 Host）使用不同 ssh key 進行 clone、push 等等的動作呢？嗯，可以！
+設定 Host 與詳細內容雖然上面有提到同一個 Host，但實際使用還是要區分哪個 Host 使用哪一組 Key，只是 Host 不是預設的網站網址，而是使用自定義的名稱。這類的設定會儲存在 ~/.ssh/config 檔案內，沒有此檔案的話就手動新增。
+什麼是 Host？Host 就是 repository 存在的站，預設為該網站的網址，以 NVM 的 git@github.com:nvm-sh/nvm.git 來說，github.com 就是 Host，既有專案可使用 git remote -v 查看。
+~&#x2F;.ssh&#x2F;config 檔案新增完畢後開啟此檔案，這邊以最常見的 GitHub 使用兩組帳號（各自有自己的 ssh key）為例，設定後檔案內會是像這樣：
+Host github-own
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_own
+
+Host github-work
+    Hostname github.com
+    PreferredAuthentications publicKey
+    IdentifyFile ~/.ssh/id_key_work
+
+如何新增 ssh key 這邊就不說明，可以到 GitHub 官方找。這邊使用了兩個 Host 並各自指定使用的 ssh key，接著只要在 Clone 時設定對應的 Host 就行了。
+調整使用的 Repository URL再以 NVM 為例，假設要使用 github-own 作為 Clone 的帳號，只要將 git@github.com:nvm-sh/nvm.git 改成 git@github-own:nvm-sh/nvm.git 就好。如果要修改既有專案的 URL，以預設的 remote origin 為例，使用 git remote set-url origin git@github-own:nvm-sh/nvm.git 修改即可。
+最後以 GitHub 來說，除了可用 ssh key 外，也有提供 HTTP 的方式，但習慣使用 ssh key 又有複數個帳號的話，這是個不錯的設定方式，就是 Clone 專案時要注意更改 Host。
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>ssh key</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
+    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
+    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
+中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
+救命，這台電腦到底是發生什麼事。
+最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
+前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
+
+開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
+開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
+
+安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
+第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
+新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
+接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
+
+start：啟動 vim 時會自動載入的 Plugins
+opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
+
+NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
+好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
+第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
+$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
+
+如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
+第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
+其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
+最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
+]]></content>
+      <tags>
+        <tag>windows</tag>
+        <tag>vim</tag>
+        <tag>vim plugins</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 Windows 10 上安裝 WSL2</title>
+    <url>//post/install-wsl-2-on-windows-10/</url>
+    <content><![CDATA[開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。
+目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。
+這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝，而非像官方使用 Command line 進行安裝。
+另外有看到文章說在安裝前須先開啟開發人員模式，雖然我是開啟了，但看官方的安裝文件裡似乎沒有這一步的說明，所以應該不用開才是。
+資訊
+Microsoft 官方文件：適用於 Linux 的 Windows 子系統文件
+
+前置需求
+Windows 10 版本號 1903 或 1909 或以上
+
+開始安裝步驟簡單來說總共有四步：
+
+啟用 WSL2 和虛擬機器平台並重開機
+安裝 Linux 核心更新套件
+設定 WSL2 為預設
+安裝一種版本的 Linux
+
+首先是啟用 WSL2 和虛擬機器平台，這邊的步驟在官方文件內是使用 Command line 進行安裝，但這邊其實也可以直接 UI 操作。
+在 Windows 10 左下角的開始選單 &gt; 設定（就是那個齒輪）&gt; 應用程式 &gt; 應用程式與功能，將畫面滑到最下方找 程式與功能，點擊後開啟的視窗左邊找 開啟或關閉 Windows 功能。開啟的視窗內請找 Windows 子系統 Linux 版（如果只想裝 WSL1 可以只勾這個） 與 虛擬機器平台，找到這兩個後一起勾選，接著會進入 Windows 更新與重開機，就讓他進行重開機吧。
+
+
+
+
+
+
+重開機完之後請開啟官方文件頁面的安裝 WSL 並更新至 WSL2這一頁，找到步驟4 - 下載 Linux 核心更新套件，下載這個更新套件後雙點擊它以進行安裝。如果這一步跳過的話，在設定 WSL2 為預設版本時會出現 WSL 2 需要更新其核心元件。如需詳細資訊，請造訪 visit https://aka.ms/wsl2kernel 這個錯誤，所以還請別跳過這個步驟。
+
+
+
+你問我為什麼我會知道會噴錯呢？對，因為我就是第一次安裝時沒注意到就直接跳過這一步的人ww
+
+安裝完 Linux 核心元件後接著以管理者權限開啟 Powershell 並指定 WSL2 為預設：
+wsl --set-default-version 2
+
+順利的話終端機上應該只會出現這句話：有關 WSL 2 的主要差異詳細資訊，請瀏覽 https://aka.ms/wsl2，到這邊 WSL2 就安裝完畢！接著要到 Microsoft store 選擇一種 Linux 版本進行安裝。
+開啟 Microsoft store 並以 Linux 為關鍵字進行搜尋就可以看到好幾個版本的 Linux，選一個喜歡的安裝吧。第一次安裝與啟動會耗一點時間，在第二次啟動時就不會花到這麼多時間了。
+安裝完後選擇直接啟動的話就會啟動該 Linux 版本的終端機，第一次開啟時須設定該 Linux 的使用者帳密，設定完畢後就會直接登入。不小心關閉 Linux 終端機的話可以在開始選單內找剛剛安裝的 Linux，點擊後就會開啟該 Linux 的終端機。
+額外補充如果 Windows 10 上面有安裝 Windows Terminal 的話，可以在開啟新分頁時點擊向下箭頭開啟選單，裡面可以選剛剛安裝的 Linux，選擇後就會直接用 Windows Terminal 開啟該 Linux 的終端機喔！真的方便。
+
+]]></content>
+      <tags>
+        <tag>windows 10</tag>
+        <tag>wsl 2</tag>
       </tags>
   </entry>
   <entry>
@@ -674,114 +785,26 @@ $ git branch
       </tags>
   </entry>
   <entry>
-    <title>如何在不同 git host 或者同樣的 host 使用不同帳號的 ssh key</title>
-    <url>//post/how-to-use-different-ssh-key-for-multiple-hosts-or-same-host/</url>
-    <content><![CDATA[開始之前因為需要在同一台電腦使用多個 GitHub 帳號（不要問我為啥會有複數個 GitHub 帳號，不好說不好說），同時帳號們也都需要使用 Git clone 等等的指令，導致發生了一個問題：我現在用的是哪一組 ssh key？！
-好這個真的是個好問題，所以能不能設定多組 ssh key 並且不同 repository（不同 Host 甚至是同一個 Host）使用不同 ssh key 進行 clone、push 等等的動作呢？嗯，可以！
-設定 Host 與詳細內容雖然上面有提到同一個 Host，但實際使用還是要區分哪個 Host 使用哪一組 Key，只是 Host 不是預設的網站網址，而是使用自定義的名稱。這類的設定會儲存在 ~/.ssh/config 檔案內，沒有此檔案的話就手動新增。
-什麼是 Host？Host 就是 repository 存在的站，預設為該網站的網址，以 NVM 的 git@github.com:nvm-sh/nvm.git 來說，github.com 就是 Host，既有專案可使用 git remote -v 查看。
-~&#x2F;.ssh&#x2F;config 檔案新增完畢後開啟此檔案，這邊以最常見的 GitHub 使用兩組帳號（各自有自己的 ssh key）為例，設定後檔案內會是像這樣：
-Host github-own
-    Hostname github.com
-    PreferredAuthentications publicKey
-    IdentifyFile ~/.ssh/id_key_own
+    <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
+    <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
+    <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
+處理方式先直接說處理方式，在 Ubuntu 安裝 dos2unix 後對出問題的檔案使用即可。
+$ apt-get install dos2unix
+$ dos2unix &lt;file_path&gt;
 
-Host github-work
-    Hostname github.com
-    PreferredAuthentications publicKey
-    IdentifyFile ~/.ssh/id_key_work
+發生什麼事？主要是因為在 Windows 上與 Unix 上的檔案的換行符號不同，再加上 Apple 系列的話分為三種：
 
-如何新增 ssh key 這邊就不說明，可以到 GitHub 官方找。這邊使用了兩個 Host 並各自指定使用的 ssh key，接著只要在 Clone 時設定對應的 Host 就行了。
-調整使用的 Repository URL再以 NVM 為例，假設要使用 github-own 作為 Clone 的帳號，只要將 git@github.com:nvm-sh/nvm.git 改成 git@github-own:nvm-sh/nvm.git 就好。如果要修改既有專案的 URL，以預設的 remote origin 為例，使用 git remote set-url origin git@github-own:nvm-sh/nvm.git 修改即可。
-最後以 GitHub 來說，除了可用 ssh key 外，也有提供 HTTP 的方式，但習慣使用 ssh key 又有複數個帳號的話，這是個不錯的設定方式，就是 Clone 專案時要注意更改 Host。
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>ssh key</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在沒有 Admin 權限的 Windows 上安裝 Vim Plugins</title>
-    <url>//post/install-vim-plugins-on-windows-without-administrator-rights/</url>
-    <content><![CDATA[開始之前因為一些原因，作為白天開發機的電腦是被鎖權限的 Windows 10，導致 Windows 版本的 Vim 雖然可以用，Vundle 也能裝，但使用 Vundle 安裝 Plugins 時都失敗，對，:PluginInstall 都失敗。原本是使用 Virtual Machine 起一台 Ubuntu 作為開發環境，神奇的是裡面的 Vim 就能裝 Plugins，不好的是已經很稀少的記憶體直接被 vm 吃掉一大坨，Vim 的編輯是目前為止遇過最卡的，很痛苦，非常痛苦。
-中間決定嘗試不要開 vm，改用 VScode 裝 Vim plugin 以及其他需要的 plugin，看起來記憶體總消耗量比開 vim 起 Ubuntu 還要少，VScode 用起來也算順，但是，對，萬事都有個但是，VScode 光啟動就要花好幾分鐘，甚至直接沒有反應（打不開）。
-救命，這台電腦到底是發生什麼事。
-最後我的歪腦筋（？）動到被我安裝在 Windows 本體上的 Vim 以及 Windows terminal，反正 plugin 內只要 NERDTree 跟 emmet 能用就好，那，應該，可能有機會？
-前置作業要使用此方法需要安裝 Vim 8 或以上的版本，因為需要使用 Vim 8 推出的新功能：package feature，可在啟動 vim 之後使用 :h packages 查看說明。要確認 Vim 版本可使用以下兩種方式：
+LF（Line feed），ASCII code 10，\n：Unix 或 Unix base 的系統
+CR（Carriage return），ASCII code 13，\r：Apple 系統
+CR+LF，\r\n：DOS 與 Windows 系統
 
-開啟 terminal，輸入 vim 後按下 Enter，版本號會寫在 terminal 正中央
-開啟 terminal，輸入 vim --version 後按下 Enter，會出現版本號以及其他資訊
-
-安裝 Plugin這邊使用 NERDTree 舉例，會使用 preservim&#x2F;nerdtree。
-第一步：新增 pack 資料夾Windows 與 Ubuntu 或 Mac 不同，vim 的套件等等資料夾並不是在 ~/.vim/ 內，而是放在 ~/vimfiles/ 內。使用終端機或者其他方式進入此資料夾後，如果裡面沒有 pack 資料夾，就手動新增一個。這個資料夾就是用來放要安裝的 Plugin。
-新增後進入 pack/，再新增一個資料夾，這一層資料夾的名稱隨意，可根據用途設定名稱，例如開發相關的用 vendor，自己寫的套件用 self 等等。假設這邊使用 vendor 作為資料夾名稱，這樣我們就有 ~/vimfiles/pack/vendor/ 資料夾。
-接著第四層是關鍵，第四層資料夾的名稱與何時載入 Plugin 有關。這邊有兩個方式（名稱）提供選擇：
-
-start：啟動 vim 時會自動載入的 Plugins
-opt：選擇性使用的 Plugins，要透過 packadd 指令啟用。這邊有時間再介紹。
-
-NERDTree 希望能自動載入，所以第四層資料夾的名稱就是 start。
-好，到這邊我們有了這樣的資料夾：~/vimfiles/pack/vendor/start/。可以來安裝 NERDTree 了。
-第二步：Clone Plugin第二步就是將 Plugin clone 到上一步建立的資料夾內，名稱就跟 Plugin 原本的一樣就好，或者看官方有沒有相關的說明。以 NERDTree 來說，就是：
-$ git clone https://github.com/preservim/nerdtree.git ~/vimfiles/pack/vendor/start/nerdtree
-
-如果使用 https 遇到憑證問題，就登入 GitHub 並改成使用 ssh。上述範例內 Clone 的目的地路徑雖然是使用 ~ 開頭，目前 Windows 也都可使用這個作為使用者根目錄的代表，但實際 Clone 時建議使用資料夾的絕對路徑。
-第三步：使用 Plugin完成第二步後，關掉 terminal 重開，接著使用 vim 啟動 vim，以 NERDTree 為例，再使用 :NERDTree 並按下 Enter，就能看到側邊的檔案列表了，終於看到它們了，好感動。
-其他 Plugin 可使用相同方式安裝，實測 mattn&#x2F;emmet-vim 也成功。
-最後假設 Vundle 這類的套件管理能用的話，還是會推薦使用，管理方便之外，也少了手動 Clone 的步驟。但如果遇到沒有安裝全線的話，這就是個不錯的選擇，提供參考，至少這個方法救了我的 vim。
+Ubuntu 為 Unix base 的系統，使用的換行符號只有 LF，但 Windows 為 CR+LF，這樣一來導致在 Ubuntu 上執行該 shell script 時便出現問題。
+另外一個可能會看到的行尾是^M，這個是 Control-M，就是 CR，一樣使用 dos2unix 可移除。
 ]]></content>
       <tags>
         <tag>windows</tag>
-        <tag>vim</tag>
-        <tag>vim plugins</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 Windows 10 上安裝 WSL2</title>
-    <url>//post/install-wsl-2-on-windows-10/</url>
-    <content><![CDATA[開始之前安裝完覺得這東西太好玩了所以打篇文章分享怎麼安裝，對於想在 Windows 上直接使用 Linux 系統進行開發的你絕對不能錯過這個工具。
-目前官方出到 v2，v2 與 v1 差別可見官方文件的說明，簡單來說 v2 比 v1 支援更多，效能也更好，現在這個時間點來說（2021.02）會建議直接安裝 WSL2 而非 WSL1。
-這邊的安裝方式會參考官方的步驟，但部分會直接使用 UI 進行安裝，而非像官方使用 Command line 進行安裝。
-另外有看到文章說在安裝前須先開啟開發人員模式，雖然我是開啟了，但看官方的安裝文件裡似乎沒有這一步的說明，所以應該不用開才是。
-資訊
-Microsoft 官方文件：適用於 Linux 的 Windows 子系統文件
-
-前置需求
-Windows 10 版本號 1903 或 1909 或以上
-
-開始安裝步驟簡單來說總共有四步：
-
-啟用 WSL2 和虛擬機器平台並重開機
-安裝 Linux 核心更新套件
-設定 WSL2 為預設
-安裝一種版本的 Linux
-
-首先是啟用 WSL2 和虛擬機器平台，這邊的步驟在官方文件內是使用 Command line 進行安裝，但這邊其實也可以直接 UI 操作。
-在 Windows 10 左下角的開始選單 &gt; 設定（就是那個齒輪）&gt; 應用程式 &gt; 應用程式與功能，將畫面滑到最下方找 程式與功能，點擊後開啟的視窗左邊找 開啟或關閉 Windows 功能。開啟的視窗內請找 Windows 子系統 Linux 版（如果只想裝 WSL1 可以只勾這個） 與 虛擬機器平台，找到這兩個後一起勾選，接著會進入 Windows 更新與重開機，就讓他進行重開機吧。
-
-
-
-
-
-
-重開機完之後請開啟官方文件頁面的安裝 WSL 並更新至 WSL2這一頁，找到步驟4 - 下載 Linux 核心更新套件，下載這個更新套件後雙點擊它以進行安裝。如果這一步跳過的話，在設定 WSL2 為預設版本時會出現 WSL 2 需要更新其核心元件。如需詳細資訊，請造訪 visit https://aka.ms/wsl2kernel 這個錯誤，所以還請別跳過這個步驟。
-
-
-
-你問我為什麼我會知道會噴錯呢？對，因為我就是第一次安裝時沒注意到就直接跳過這一步的人ww
-
-安裝完 Linux 核心元件後接著以管理者權限開啟 Powershell 並指定 WSL2 為預設：
-wsl --set-default-version 2
-
-順利的話終端機上應該只會出現這句話：有關 WSL 2 的主要差異詳細資訊，請瀏覽 https://aka.ms/wsl2，到這邊 WSL2 就安裝完畢！接著要到 Microsoft store 選擇一種 Linux 版本進行安裝。
-開啟 Microsoft store 並以 Linux 為關鍵字進行搜尋就可以看到好幾個版本的 Linux，選一個喜歡的安裝吧。第一次安裝與啟動會耗一點時間，在第二次啟動時就不會花到這麼多時間了。
-安裝完後選擇直接啟動的話就會啟動該 Linux 版本的終端機，第一次開啟時須設定該 Linux 的使用者帳密，設定完畢後就會直接登入。不小心關閉 Linux 終端機的話可以在開始選單內找剛剛安裝的 Linux，點擊後就會開啟該 Linux 的終端機。
-額外補充如果 Windows 10 上面有安裝 Windows Terminal 的話，可以在開啟新分頁時點擊向下箭頭開啟選單，裡面可以選剛剛安裝的 Linux，選擇後就會直接用 Windows Terminal 開啟該 Linux 的終端機喔！真的方便。
-
-]]></content>
-      <tags>
-        <tag>windows 10</tag>
-        <tag>wsl 2</tag>
+        <tag>unix</tag>
+        <tag>shell script</tag>
       </tags>
   </entry>
   <entry>
@@ -804,46 +827,6 @@ xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools
       <tags>
         <tag>mac</tag>
         <tag>xcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>處理 ssh connect to host 22 Connect timed out</title>
-    <url>//post/ssh-connect-to-host-22-connection-timed-out/</url>
-    <content><![CDATA[開始之前主因是原本可以使用的 ssh 連線又不能（對，又）連，使用網頁登入主機商提供的網站管理後台內重開 ssh 連線功能後仍舊無法登入（以往重開便解決）。
-因為已經不是第一次發生了，想了半天還是找出原因，不然緊急時刻需要 ssh 連線又連不上就頭痛了。
-對 Linux 沒有很熟悉，以下為 google + 爬文最後實際進行處理的步驟紀錄。
-處理流程先 ping 連不上的 hostname，如果通過進入下一步。
-接著使用 telnet hostname 22，確認 22 port 到底有沒有通。如果出現全黑的畫面，或者是全黑，然後第一行有像是  SSH-2.0-OpenSSH_7.4 之類的字就表示通過。
-
-
-如果失敗則會出現無法開啟到主機的連線，在連接埠 22: 連線失敗。
-確認後使用 ctrl+] 離開 telnet。
-這邊遇到的是沒通過的狀況，所以繼續找原因。
-因主機商有提供網頁版的網站管理後台，登入後先確認 ssh 功能到底有沒有開啟：
-service sshd status
-
-確認 ssh 有開啟後，接著確認 ssh 是否有被更改使用的 port 與對應的 port 有沒有被監聽（Listen）。
-確認 ssh 使用的 port 為預設的 22 後，確認是否有被監聽：
-netstat -lnpt | grep :22
-
-此步驟確認 port 22 有被監聽。
-到這邊能確定 ssh 功能是正常運作且對應需要開啟的 port 都有被開啟也有被監聽，於是猜測 ip 是否被防火牆擋了。
-先查看防火牆是否有開啟：
-service iptables status
-
-確認防火牆開啟。查看防火牆封鎖的 ip ，列表是空的，/etc/hosts.deny 內也是空的。
-於是到這邊能確認的：
-
-ssh 功能開啟也運作正常
-ip 沒被擋
-
-猜測覺得最不可能的：是否防火牆沒讓 port 22 過。
-會說最不可能是因為在這次連不上之前 ssh 連線是能使用的，然後某一天它突然不能用了，真心不懂啊，防火牆設定會自己噴掉嗎……？
-這邊使用的是網頁的防火牆設定頁面，慢慢看防火牆的設定，最後在 TCP_IN 與 TCP_OUT 的部分發現 TCP_IN 沒放 port 22 通過，加上 port 22 並重開防火牆後，ssh 連線成功。
-]]></content>
-      <tags>
-        <tag>ssh</tag>
-        <tag>問題處理</tag>
       </tags>
   </entry>
   <entry>
@@ -1025,6 +1008,46 @@ createApp(App).use(store)
       <tags>
         <tag>vuejs3</tag>
         <tag>fontawesome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>處理 ssh connect to host 22 Connect timed out</title>
+    <url>//post/ssh-connect-to-host-22-connection-timed-out/</url>
+    <content><![CDATA[開始之前主因是原本可以使用的 ssh 連線又不能（對，又）連，使用網頁登入主機商提供的網站管理後台內重開 ssh 連線功能後仍舊無法登入（以往重開便解決）。
+因為已經不是第一次發生了，想了半天還是找出原因，不然緊急時刻需要 ssh 連線又連不上就頭痛了。
+對 Linux 沒有很熟悉，以下為 google + 爬文最後實際進行處理的步驟紀錄。
+處理流程先 ping 連不上的 hostname，如果通過進入下一步。
+接著使用 telnet hostname 22，確認 22 port 到底有沒有通。如果出現全黑的畫面，或者是全黑，然後第一行有像是  SSH-2.0-OpenSSH_7.4 之類的字就表示通過。
+
+
+如果失敗則會出現無法開啟到主機的連線，在連接埠 22: 連線失敗。
+確認後使用 ctrl+] 離開 telnet。
+這邊遇到的是沒通過的狀況，所以繼續找原因。
+因主機商有提供網頁版的網站管理後台，登入後先確認 ssh 功能到底有沒有開啟：
+service sshd status
+
+確認 ssh 有開啟後，接著確認 ssh 是否有被更改使用的 port 與對應的 port 有沒有被監聽（Listen）。
+確認 ssh 使用的 port 為預設的 22 後，確認是否有被監聽：
+netstat -lnpt | grep :22
+
+此步驟確認 port 22 有被監聽。
+到這邊能確定 ssh 功能是正常運作且對應需要開啟的 port 都有被開啟也有被監聽，於是猜測 ip 是否被防火牆擋了。
+先查看防火牆是否有開啟：
+service iptables status
+
+確認防火牆開啟。查看防火牆封鎖的 ip ，列表是空的，/etc/hosts.deny 內也是空的。
+於是到這邊能確認的：
+
+ssh 功能開啟也運作正常
+ip 沒被擋
+
+猜測覺得最不可能的：是否防火牆沒讓 port 22 過。
+會說最不可能是因為在這次連不上之前 ssh 連線是能使用的，然後某一天它突然不能用了，真心不懂啊，防火牆設定會自己噴掉嗎……？
+這邊使用的是網頁的防火牆設定頁面，慢慢看防火牆的設定，最後在 TCP_IN 與 TCP_OUT 的部分發現 TCP_IN 沒放 port 22 通過，加上 port 22 並重開防火牆後，ssh 連線成功。
+]]></content>
+      <tags>
+        <tag>ssh</tag>
+        <tag>問題處理</tag>
       </tags>
   </entry>
   <entry>
@@ -1228,29 +1251,6 @@ MySQL :: MySQL 8.0 Reference Manual :: 12.19.1 Aggregate Function Descriptions
         <tag>windows 10</tag>
         <tag>graphic card</tag>
         <tag>error code 14</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>執行 shell script 時出現 syntax error near unexpected token `$&#39;do&#92;r&#39; 錯誤</title>
-    <url>//post/shell-script-syntax-error-near-unexpected-token/</url>
-    <content><![CDATA[開始之前在 windows 寫完 shell script 後進 Ubuntu 測試，然後在 for 迴圈的 do 噴了這個錯誤。看後面的 \r 直覺是換行符號的問題，結果也真的是換行符號的問題。
-處理方式先直接說處理方式，在 Ubuntu 安裝 dos2unix 後對出問題的檔案使用即可。
-$ apt-get install dos2unix
-$ dos2unix &lt;file_path&gt;
-
-發生什麼事？主要是因為在 Windows 上與 Unix 上的檔案的換行符號不同，再加上 Apple 系列的話分為三種：
-
-LF（Line feed），ASCII code 10，\n：Unix 或 Unix base 的系統
-CR（Carriage return），ASCII code 13，\r：Apple 系統
-CR+LF，\r\n：DOS 與 Windows 系統
-
-Ubuntu 為 Unix base 的系統，使用的換行符號只有 LF，但 Windows 為 CR+LF，這樣一來導致在 Ubuntu 上執行該 shell script 時便出現問題。
-另外一個可能會看到的行尾是^M，這個是 Control-M，就是 CR，一樣使用 dos2unix 可移除。
-]]></content>
-      <tags>
-        <tag>windows</tag>
-        <tag>unix</tag>
-        <tag>shell script</tag>
       </tags>
   </entry>
 </search>
